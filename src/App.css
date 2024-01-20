@@ -1,38 +1,44 @@
-.App {
-  text-align: center;
+.text-main {
+  color: var(--main-color) !important;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.bg-main {
+  background-color: var(--main-color) !important;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.bg-counter {
+  background-color: rgba(127, 210, 223, 0.3);
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.border-color-main {
+  border-color: var(--main-color) !important;
 }
-
-.App-link {
-  color: #61dafb;
+.outline-none {
+  outline: none;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.flex-basis-33 {
+  flex-basis: calc(100% / 3);
+}
+.rounded-left-pill {
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+}
+.rounded-right-pill {
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+.cursor-default {
+  cursor: default !important;
+}
+.cursor-not-allowed {
+  cursor: not-allowed !important;
+}
+.transition-main {
+  transition: var(--main-transition) !important;
+}
+.input:focus {
+  border-color: var(--main-color) !important;
+}
+.bg-backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }

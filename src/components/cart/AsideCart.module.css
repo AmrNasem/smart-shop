@@ -1,0 +1,16 @@
+.sliding-right {
+  animation: sliding-right 0.5s;
+}
+.sliding-left {
+  animation: sliding-left 0.5s;
+}
+@keyframes sliding-right {
+  0% {
+    transform: translateX(-450px);
+  }
+}
+@keyframes sliding-left {
+  100% {
+    transform: translateX(-450px);
+  }
+}

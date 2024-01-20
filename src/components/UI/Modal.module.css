@@ -1,0 +1,16 @@
+.appear {
+  animation: slowly-appears 0.5s;
+}
+.disappear {
+  animation: slowly-disappears 0.5s;
+}
+@keyframes slowly-appears {
+  0% {
+    opacity: 0;
+  }
+}
+@keyframes slowly-disappears {
+  100% {
+    opacity: 0;
+  }
+}
