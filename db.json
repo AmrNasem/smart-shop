@@ -1,16 +1,6 @@
 {
   "cart": [
     {
-      "id": "1",
-      "userId": 1,
-      "title": "جاكت جلد أسود",
-      "path": "assets/product3.png",
-      "color": "أسود",
-      "weight": 2000,
-      "price": 2500,
-      "amount": 2
-    },
-    {
       "id": "2",
       "userId": 1,
       "title": "فستان أبيض عصري",
@@ -28,17 +18,19 @@
       "color": "رمادي",
       "weight": 500,
       "price": 500,
-      "amount": 5
+      "amount": 4
     }
   ],
   "coupons": [
     {
       "pattern": "droos",
-      "percent": 20
+      "percent": 20,
+      "id": "f654"
     },
     {
       "pattern": "12345",
-      "percent": 15
+      "percent": 15,
+      "id": "b102"
     }
   ]
 }

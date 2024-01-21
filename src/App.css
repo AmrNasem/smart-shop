@@ -16,14 +16,6 @@
 .flex-basis-33 {
   flex-basis: calc(100% / 3);
 }
-.rounded-left-pill {
-  border-top-left-radius: 100px;
-  border-bottom-left-radius: 100px;
-}
-.rounded-right-pill {
-  border-top-right-radius: 100px;
-  border-bottom-right-radius: 100px;
-}
 .cursor-default {
   cursor: default !important;
 }

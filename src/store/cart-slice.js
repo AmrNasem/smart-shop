@@ -43,6 +43,10 @@ const cartSlice = createSlice({
         return item.id !== action.payload;
       });
     },
+    addItem(state, action) {
+      state.items.unshift(action.payload);
+      state.totalPrice += action.payload.amount * action.payload.price;
+    },
     wipeCart(state) {
       state.items = [];
       state.totalPrice = 0;
