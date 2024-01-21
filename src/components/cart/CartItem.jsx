@@ -33,11 +33,11 @@ const CartItem = ({ cartItem }) => {
 
   const handleChangeValue = useCallback(
     (newValue) => {
-      setLoading(true);
       if (newValue <= 0) {
         handleRemoveFromCart();
         return;
       }
+      setLoading(true);
       fetch(`http://localhost:8000/cart/${cartItem.id}`, {
         method: "PUT",
         body: JSON.stringify({

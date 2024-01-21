@@ -11,24 +11,24 @@ const Cart = ({ className }) => {
   const [clearLoading, setClearLoading] = useState(false);
 
   const hanldeClearCart = () => {
-    setClearLoading(true);
-    fetch("http://localhost:8000/cart", {
-      method: "PUT",
-      body: JSON.stringify([]),
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error();
-        return res.json();
+    cartItems.forEach((item) => {
+      setClearLoading(true);
+      fetch(`http://localhost:8000/cart/${item.id}`, {
+        method: "DELETE",
       })
-      .then(() => {
-        setClearLoading(false);
-        dispatch(cartActions.wipeCart());
-        toast.success("Your cart now is empty.");
-      })
-      .catch(() => {
-        setClearLoading(false);
-        toast.error("Unable to clear your cart :(");
-      });
+        .then((res) => {
+          if (!res.ok) throw new Error();
+          return res.json();
+        })
+        .then(() => {
+          setClearLoading(false);
+          dispatch(cartActions.removeItem(item.id));
+        })
+        .catch(() => {
+          setClearLoading(false);
+          toast.error("Unable to remove from cart :(");
+        });
+    });
   };
 
   return (
