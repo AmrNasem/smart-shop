@@ -12,7 +12,7 @@ const Modal = ({ children, className, onClick, style, closing }) => {
     <>
       <div
         onClick={onClick}
-        className={`position-fixed top-0 start-0 w-100 h-100 bg-backdrop ${
+        className={`position-fixed z-modal top-0 start-0 w-100 h-100 bg-backdrop ${
           closing ? classes.disappear : classes.appear
         }`}
       ></div>
@@ -26,7 +26,7 @@ const Modal = ({ children, className, onClick, style, closing }) => {
 
 const Popup = ({ style, children, className }) => {
   return ReactDOM.createPortal(
-    <div style={style} className={`position-fixed ${className}`}>
+    <div style={style} className={`position-fixed z-modal-dialog ${className}`}>
       {children}
     </div>,
 

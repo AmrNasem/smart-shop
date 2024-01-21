@@ -86,7 +86,12 @@ const CartItem = ({ cartItem }) => {
             className="mb-2 fw-semibold d-flex justify-content-between"
           >
             <span className="d-block">x1</span>
-            <span className="d-block text-main">{cartItem.price} ج.م</span>
+            <span className="d-block text-main">
+              {cartItem.discount
+                ? cartItem.price - cartItem.price * cartItem.discount
+                : cartItem.price}{" "}
+              ج.م
+            </span>
           </div>
           <Counter
             aside

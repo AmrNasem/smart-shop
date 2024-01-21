@@ -18,13 +18,34 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="App">
+    <div className="App d-flex flex-column">
       <Header />
       <Routes>
-        <Route path="/" element={<h3>Home</h3>} />
+        <Route
+          path="/"
+          element={
+            <main>
+              <h3>Home</h3>
+            </main>
+          }
+        />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/products" element={<h3>Products</h3>} />
-        <Route path="/product/:productId" element={<h3>Single product</h3>} />
+        <Route
+          path="/products"
+          element={
+            <main>
+              <h3>Products</h3>
+            </main>
+          }
+        />
+        <Route
+          path="/product/:productId"
+          element={
+            <main>
+              <h3>Single product</h3>
+            </main>
+          }
+        />
         <Route path="*" />
       </Routes>
       <Footer />

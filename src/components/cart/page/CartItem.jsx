@@ -71,8 +71,9 @@ const CartItem = ({ className, cartItem, deleting }) => {
   return (
     <Link
       to={`/product/${cartItem.id}`}
-      style={{ opacity: deleteLoading || deleting ? 0.5 : 1 }}
-      className={`${className} text-decoration-none text-black d-flex gap-3 w-100 border-bottom py-3`}
+      className={`${className} ${
+        deleteLoading || deleting ? "opacity-50" : "1"
+      } text-decoration-none text-black d-flex gap-3 w-100 border-bottom py-3`}
     >
       <button
         onClick={handleRemoveFromCart}
@@ -108,7 +109,12 @@ const CartItem = ({ className, cartItem, deleting }) => {
         </div>
         <div className="col col-lg-2 text-center">
           <p className="mb-1 d-sm-none">السعر:</p>
-          <h6 className="mb-0">{cartItem.price} ج.م</h6>
+          <h6 className="mb-0">
+            {cartItem.discount
+              ? cartItem.price - cartItem.price * cartItem.discount
+              : cartItem.price}{" "}
+            ج.م
+          </h6>
         </div>
         <div className="col col-sm-8 col-lg-2">
           <p className="pe-4 mb-1 d-lg-none">الكمية:</p>
@@ -121,7 +127,10 @@ const CartItem = ({ className, cartItem, deleting }) => {
         </div>
         <div className="col col-lg-2 text-center">
           <p className="mb-1 d-lg-none">الإجمالي:</p>
-          <h6 className="mb-0">{cartItem.amount * cartItem.price} ج.م</h6>
+          <h6 className="mb-0">
+            {cartItem.amount * cartItem.price * (1 - (cartItem.discount || 0))}{" "}
+            ج.م
+          </h6>
         </div>
       </div>
     </Link>

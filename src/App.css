@@ -1,3 +1,6 @@
+.App {
+  min-height: 100vh;
+}
 .text-main {
   color: var(--main-color) !important;
 }
@@ -39,4 +42,13 @@
 }
 .opacity-70 {
   opacity: 0.7 !important;
+}
+.w-fit-content {
+  width: fit-content;
+}
+.z-modal {
+  z-index: 1000;
+}
+.z-modal-dialog {
+  z-index: 1001;
 }

@@ -32,20 +32,29 @@ const cartSlice = createSlice({
     changeAmount(state, action) {
       const { id, newAmount } = action.payload;
       const targettedItem = state.items.find((item) => item.id === id);
-      state.totalPrice -= targettedItem.amount * targettedItem.price;
+      state.totalPrice -=
+        targettedItem.amount *
+        targettedItem.price *
+        (1 - (targettedItem.discount || 0));
       targettedItem.amount = newAmount;
-      state.totalPrice += targettedItem.amount * targettedItem.price;
+      state.totalPrice +=
+        targettedItem.amount *
+        targettedItem.price *
+        (1 - (targettedItem.discount || 0));
     },
     removeItem(state, action) {
       state.items = state.items.filter((item) => {
         if (item.id === action.payload)
-          state.totalPrice -= item.amount * item.price;
+          state.totalPrice -=
+            item.amount * item.price * (1 - (item.discount || 0));
         return item.id !== action.payload;
       });
     },
     addItem(state, action) {
-      state.items.unshift(action.payload);
-      state.totalPrice += action.payload.amount * action.payload.price;
+      const newItem = action.payload;
+      state.items.unshift(newItem);
+      state.totalPrice +=
+        newItem.amount * newItem.price * (1 - (newItem.discount || 0));
     },
     wipeCart(state) {
       state.items = [];
@@ -68,7 +77,9 @@ const cartSlice = createSlice({
         state.items = newItems;
         if (newItems.length)
           state.totalPrice = calcTotalPrice(
-            newItems.map((item) => item.amount * item.price)
+            newItems.map(
+              (item) => item.amount * item.price * (1 - (item.discount || 0))
+            )
           );
       })
       .addCase(fetchCartItems.rejected, (state, action) => {
