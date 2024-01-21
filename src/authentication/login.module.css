@@ -1,0 +1,137 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+.leftHalf{
+  height: 100vh;
+  width: 50%;
+}
+.loginForm{
+  padding-right: 170px;
+}
+.heading{
+  margin: 0;
+  padding-top: 80px;
+  padding-bottom: 70px;
+  font-size: 50px;
+  font-family: "Montserrat";
+}
+.formLable{
+  margin-bottom: 1px;
+}
+.instruction{
+  margin-bottom: 30px;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.inputFields{
+  display: flex;
+  flex-direction: column;
+}
+
+.passField,.emailField{
+  width: 90%;
+  height: 56px;
+  border: none;
+  border-bottom: 2px solid #00000025;
+  padding-right: 10px;
+}
+.cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.icon{
+  font-size: 20px;
+  color: #00000015;
+  position: absolute;
+right: 500px;
+}
+.inputFields{
+  margin-bottom: 50px;
+}
+.otherAttr{
+  display: flex;
+gap: 250px;
+align-items: center;
+margin-bottom: 30px;
+}
+.otherAttr a{
+  margin-left: 60px;
+  text-decoration: none;
+  color: #7FD3DF;
+}
+.otherAttr button{
+  height: 50px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #7FD3DF;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.socialIcon{
+  font-size: 30px;
+  margin-left: 10px;
+  border-radius: 50%;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.socialIcon:nth-child(1){
+  background-color: #55acee;
+  color: #fff;
+  padding: 10px;
+}
+.socialIcon:nth-child(2){
+  background-color: #1877f2;
+  color: #fff;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.socialIcon:nth-child(3){
+  background-color: #cb1f27;
+  color: #fff;
+  padding: 10px;
+}
+.socialIcon:nth-child(4){
+  background-color: #0a66c2;
+  color: #fff;
+  padding: 10px;
+}
+.secondHalf{
+  width: 50%;
+  height: 100vh;
+  background-image: url("../assets/Rectangle\ 3706.png");
+  background-size: cover;
+}
+.container{
+  display: flex;
+}
+.secondHalf{
+  position: relative;
+}
+.secondHalf button{
+  position: absolute;
+  left: 0;
+  border-radius: 0 80px 80px 0;
+  padding: 10px;
+  border: none;
+
+  cursor: pointer;
+}
+.FBtn{
+  top: 47%;
+  width: 125px;
+  background-color: #7FD3DF;
+  color: #fff;
+}
+.LBtn{
+  top: 53%;
+  width: 125px;
+  background-color: #fff;
+}

@@ -1,0 +1,13 @@
+.test{
+  display: flex;
+  width: 400px;
+  height: 400px;
+  background-color: #eee;
+  align-items: center;
+  justify-content: center;
+}
+.container{
+  width: 260px;
+  height: 265px;
+  background-color: #fff;
+}
