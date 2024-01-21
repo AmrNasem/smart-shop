@@ -58,12 +58,14 @@ const Cart = ({ className }) => {
           <Link to="/products" className="fw-semibold text-main btn">
             واصل التسوق
           </Link>
-          <button
-            onClick={hanldeClearCart}
-            className="fw-semibold text-main btn"
-          >
-            مسح السلة
-          </button>
+          {!!cartItems.length && (
+            <button
+              onClick={hanldeClearCart}
+              className="fw-semibold text-main btn"
+            >
+              مسح السلة
+            </button>
+          )}
         </div>
       </div>
     </div>

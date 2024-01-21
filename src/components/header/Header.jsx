@@ -90,7 +90,7 @@ const Header = () => {
             <ul
               className={`d-lg-flex ${
                 navClosing ? classes["list-up"] : ""
-              } overflow-hidden bg-white mb-0 list-unstyled`}
+              } bg-white mb-0 list-unstyled`}
             >
               <li>
                 <NavLink

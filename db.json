@@ -1,6 +1,16 @@
 {
   "cart": [
     {
+      "id": "1",
+      "userId": 1,
+      "title": "جاكت أسود جلد",
+      "path": "assets/product3.png",
+      "color": "أسود",
+      "weight": 2500,
+      "price": 3000,
+      "amount": 2
+    },
+    {
       "id": "2",
       "userId": 1,
       "title": "فستان أبيض عصري",

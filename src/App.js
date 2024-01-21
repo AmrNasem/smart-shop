@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/header/Header";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function App() {
         <Route path="/product/:productId" element={<h3>Single product</h3>} />
         <Route path="*" />
       </Routes>
+      <Footer />
       <ToastContainer />
     </div>
   );
