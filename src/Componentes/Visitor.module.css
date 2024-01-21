@@ -43,12 +43,3 @@
   margin-top: 15px;
   color: #7FD3DF;
 }
-
-.test{
-  display: flex;
-  width: 400px;
-  height: 400px;
-  background-color: rgb(189, 198, 206);
-  align-items: center;
-  justify-content: center;
-}
