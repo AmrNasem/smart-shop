@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CartItem from "./CartItem";
 import classes from "./AsideCart.module.css";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const AsideCart = ({ handleClosure, className, closing }) => {
   const {
@@ -12,11 +13,12 @@ const AsideCart = ({ handleClosure, className, closing }) => {
     totalPrice,
     loading,
   } = useSelector((state) => state.cart);
+  const navigate = useNavigate();
 
   return (
     <Modal
       style={{ width: "350px", left: "-450px" }}
-      className={`transition-main d-flex flex-column top-0 start-0 h-100 ${
+      className={`bg-white transition-main d-flex flex-column top-0 start-0 h-100 ${
         closing ? classes["sliding-left"] : classes["sliding-right"]
       } ${className}`}
       onClick={handleClosure}
@@ -42,7 +44,13 @@ const AsideCart = ({ handleClosure, className, closing }) => {
           <span>المجموع: </span>
           <p className="mb-0 fw-semibold">{totalPrice} جنيه</p>
         </div>
-        <button className="rounded-3 fw-semibold bg-white border-0 py-2 px-4">
+        <button
+          onClick={() => {
+            navigate("/cart");
+            handleClosure();
+          }}
+          className="rounded-3 fw-semibold bg-white border-0 py-2 px-4"
+        >
           ادفع
         </button>
       </div>

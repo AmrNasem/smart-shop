@@ -1,0 +1,35 @@
+.nav ul {
+  animation: list-down 0.2s alternate;
+  transform-origin: 50% 0;
+}
+.list-up {
+  animation: list-up 0.2s alternate !important;
+}
+@media (max-width: 991.9px) {
+  .nav ul {
+    position: absolute;
+    top: calc(1rem + 100%);
+    transform: scale(1);
+    border-radius: 5px;
+    min-width: 280px;
+    box-shadow: -1px 1px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+@media (max-width: 575.9px) {
+  .nav ul {
+    min-width: 100%;
+    right: 0;
+  }
+}
+@keyframes list-down {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+}
+@keyframes list-up {
+  100% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+}

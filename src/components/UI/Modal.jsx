@@ -26,7 +26,7 @@ const Modal = ({ children, className, onClick, style, closing }) => {
 
 const Popup = ({ style, children, className }) => {
   return ReactDOM.createPortal(
-    <div style={style} className={`position-fixed bg-white ${className}`}>
+    <div style={style} className={`position-fixed ${className}`}>
       {children}
     </div>,
 
