@@ -1,7 +1,3 @@
-.product {
-  min-width: 240px;
-  max-width: 300px;
-}
 .product:hover .add-to-cart {
   transform: translateY(0);
 }

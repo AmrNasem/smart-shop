@@ -36,7 +36,7 @@ const SimilarProduct = () => {
           ) : (
             <div className="d-flex gap-3 overflow-auto scrollbar-none">
               {products.map((product, i) => (
-                <ProductCard key={i} product={product} width="240px" />
+                <ProductCard key={i} product={product} minWidth="240px" />
               ))}
             </div>
           )}

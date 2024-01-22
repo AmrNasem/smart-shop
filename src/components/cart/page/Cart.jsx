@@ -35,7 +35,7 @@ const Cart = ({ className }) => {
     <div style={{ minWidth: "50%" }} className={className}>
       <h4 className="mb-4">سلة التسوق</h4>
       <div>
-        <div className="flex-nowrap row border-bottom py-2 gap-3 pe-5">
+        <div className="flex-nowrap row border-bottom py-2 gap-3 pe-sm-5">
           <h5 className="col col-sm-8 col-lg-5 text-center text-sm-end ">
             المنتج
           </h5>

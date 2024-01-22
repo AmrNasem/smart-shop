@@ -1,0 +1,45 @@
+.button {
+  box-shadow: 0 0 10px var(--counter-background);
+  border: 1px solid var(--third-color) !important;
+  color: var(--third-color);
+}
+.options {
+  box-shadow: 0 0 10px var(--counter-background);
+  animation: show-up 0.2s;
+  z-index: 10;
+  transition: 0.2s;
+}
+.show-down {
+  transform: scaleY(0);
+  opacity: 0;
+  animation: show-down 0.2s both !important;
+}
+.options button:hover {
+  background-color: var(--counter-background);
+}
+@keyframes show-up {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  40% {
+    opacity: 1;
+  }
+}
+@keyframes show-down {
+  0% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  60% {
+    opacity: 0;
+  }
+}
+.top-to-bottom {
+  top: 100%;
+  transform-origin: 50% 0;
+}
+.bottom-to-top {
+  bottom: 100%;
+  transform-origin: 50% 100%;
+}

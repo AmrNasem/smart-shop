@@ -1,5 +1,138 @@
 {
-  "cart": [],
+  "cart": [
+    {
+      "id": "1",
+      "title": "جاكت أسود جلد",
+      "path": "assets/product3.png",
+      "color": "أسود",
+      "weight": 2500,
+      "price": 3000,
+      "rate": 4,
+      "sizes": [
+        "xs",
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "amount": 1,
+      "userId": "1",
+      "size": "m"
+    },
+    {
+      "id": "2",
+      "title": "فستان أبيض عصري",
+      "path": "assets/product.png",
+      "color": "أبيض",
+      "weight": 4000,
+      "price": 15000,
+      "discount": 0.2,
+      "rate": 3,
+      "sizes": [
+        "xs",
+        "m",
+        "xl"
+      ],
+      "amount": 1,
+      "userId": "1",
+      "size": "m"
+    },
+    {
+      "id": "3",
+      "title": "شيرت رمادي عصري",
+      "path": "assets/product2.png",
+      "color": "رمادي",
+      "weight": 500,
+      "price": 500,
+      "discount": 0.2,
+      "rate": 5,
+      "sizes": [
+        "xs",
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "amount": 1,
+      "userId": "1",
+      "size": "m"
+    },
+    {
+      "id": "5",
+      "title": "فستان سواريه فيروزي",
+      "path": "assets/product5.png",
+      "color": "فيروزي",
+      "weight": 3000,
+      "price": 4300,
+      "discount": 0.25,
+      "rate": 4,
+      "sizes": [
+        "xs",
+        "s",
+        "m",
+        "l"
+      ],
+      "amount": 1,
+      "userId": "1",
+      "size": "m"
+    },
+    {
+      "id": "6",
+      "title": "قميص سماوي",
+      "path": "assets/product6.png",
+      "color": "سماوي",
+      "weight": 800,
+      "price": 350,
+      "discount": 0.13,
+      "rate": 2,
+      "sizes": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "amount": 2,
+      "userId": "1",
+      "size": "m"
+    },
+    {
+      "id": "7",
+      "title": "جاكت جينز كحلي",
+      "path": "assets/product7.png",
+      "color": "كحلي",
+      "weight": 650,
+      "price": 450,
+      "discount": 0.1,
+      "rate": 5,
+      "sizes": [
+        "xs",
+        "s",
+        "m"
+      ],
+      "amount": 2,
+      "userId": "1",
+      "size": "m"
+    },
+    {
+      "id": "4",
+      "title": "فستان سواريه أسود",
+      "path": "assets/product4.png",
+      "color": "أسود",
+      "weight": 2950,
+      "price": 3450,
+      "rate": 5,
+      "sizes": [
+        "xs",
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "amount": 1,
+      "userId": "1",
+      "size": "m"
+    }
+  ],
   "coupons": [
     {
       "pattern": "droos",
@@ -63,6 +196,115 @@
         "m",
         "l",
         "xl"
+      ]
+    },
+    {
+      "id": "4",
+      "title": "فستان سواريه أسود",
+      "path": "assets/product4.png",
+      "color": "أسود",
+      "weight": 2950,
+      "price": 3450,
+      "rate": 5,
+      "sizes": [
+        "xs",
+        "s",
+        "m",
+        "l",
+        "xl"
+      ]
+    },
+    {
+      "id": "5",
+      "title": "فستان سواريه فيروزي",
+      "path": "assets/product5.png",
+      "color": "فيروزي",
+      "weight": 3000,
+      "price": 4300,
+      "discount": 0.25,
+      "rate": 4,
+      "sizes": [
+        "xs",
+        "s",
+        "m",
+        "l"
+      ]
+    },
+    {
+      "id": "6",
+      "title": "قميص سماوي",
+      "path": "assets/product6.png",
+      "color": "سماوي",
+      "weight": 800,
+      "price": 350,
+      "discount": 0.13,
+      "rate": 2,
+      "sizes": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ]
+    },
+    {
+      "id": "7",
+      "title": "جاكت جينز كحلي",
+      "path": "assets/product7.png",
+      "color": "كحلي",
+      "weight": 650,
+      "price": 450,
+      "discount": 0.1,
+      "rate": 5,
+      "sizes": [
+        "xs",
+        "s",
+        "m"
+      ]
+    },
+    {
+      "id": "8",
+      "title": "تيشرت عصري جذاب",
+      "path": "assets/product8.png",
+      "color": "بيج",
+      "weight": 650,
+      "price": 900,
+      "discount": 0.18,
+      "rate": 5,
+      "sizes": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ]
+    },
+    {
+      "id": "9",
+      "title": "فستان أطفال مشجر",
+      "path": "assets/product9.png",
+      "color": "كحلي",
+      "weight": 650,
+      "price": 540,
+      "discount": 0.1,
+      "rate": 2,
+      "sizes": [
+        "xs",
+        "s"
+      ]
+    },
+    {
+      "id": "10",
+      "title": "بلوزة قطنية بيضاء",
+      "path": "assets/product10.png",
+      "color": "أبيض",
+      "weight": 1300,
+      "price": 1250,
+      "discount": 0.15,
+      "rate": 4,
+      "sizes": [
+        "xs",
+        "s",
+        "m",
+        "l"
       ]
     }
   ]

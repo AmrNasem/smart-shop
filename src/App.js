@@ -9,6 +9,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/header/Header";
 import Footer from "./components/Footer";
+import Products from "./pages/Products";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,14 +31,7 @@ function App() {
           }
         />
         <Route path="/cart" element={<Cart />} />
-        <Route
-          path="/products"
-          element={
-            <main>
-              <h3>Products</h3>
-            </main>
-          }
-        />
+        <Route path="/products" element={<Products />} />
         <Route
           path="/product/:productId"
           element={

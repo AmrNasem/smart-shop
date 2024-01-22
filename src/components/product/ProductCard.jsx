@@ -2,12 +2,12 @@ import { faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classes from "./ProductCard.module.css";
 import { Link } from "react-router-dom";
-import { useMemo, useState } from "react";
+import { memo, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 import { toast } from "react-toastify";
 
-const ProductCard = ({ className, product, width, style }) => {
+const ProductCard = ({ className, product, minWidth, style }) => {
   const [size, setSize] = useState("m");
   const [loading, setLoading] = useState(false);
   const cartItems = useSelector((state) => state.cart.items);
@@ -46,12 +46,12 @@ const ProductCard = ({ className, product, width, style }) => {
   };
   return (
     <Link
-      style={{ ...style, width }}
+      style={{ ...style, minWidth }}
       to={`/product/${product.id}`}
       className={`${className} d-block text-decoration-none ${classes.product}`}
     >
       <div
-        style={{ backgroundColor: "#D9D9D9", minHeight: "250px" }}
+        style={{ backgroundColor: "#D9D9D9", minHeight: "300px" }}
         className="position-relative rounded-top-2 overflow-hidden"
       >
         <button
@@ -136,4 +136,4 @@ const ProductCard = ({ className, product, width, style }) => {
   );
 };
 
-export default ProductCard;
+export default memo(ProductCard);

@@ -99,11 +99,11 @@ const Coupon = ({ className, style }) => {
       ></textarea>
       <div className="d-flex justify-content-between align-items-center gap-2">
         <p>المجموع الفرعي</p>
-        <p>{totalPrice || 0} ج.م</p>
+        <p>{totalPrice} ج.م</p>
       </div>
       <div className="d-flex justify-content-between align-items-center gap-2">
         <p className="mb-0">المجموع الإجمالي</p>
-        <p className="mb-0">{totalPrice + totalPrice * 0.05 || 0} ج.م</p>
+        <p className="mb-0">{totalPrice} ج.م</p>
       </div>
       <p style={{ fontWeight: 350 }} className="text-black-50 my-4">
         الشحن والضرائب محسوبة عند الدفع
