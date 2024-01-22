@@ -3,12 +3,16 @@
   "coupons": [
     {
       "pattern": "droos",
-      "percent": 20,
+      "discount": 0.2,
       "id": "f654"
     },
     {
+      "pattern": "amr",
+      "discount": 1
+    },
+    {
       "pattern": "12345",
-      "percent": 15,
+      "discount": 0.15,
       "id": "b102"
     }
   ],

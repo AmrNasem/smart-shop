@@ -83,7 +83,7 @@ const Coupon = ({ className, style }) => {
           className="d-flex gap-3 align-items-center text-success mb-0 fw-semibold"
         >
           <span className="d-block">{ac.pattern}: مُطبَق</span>
-          <span className="d-block">{ac.percent}% خصم</span>
+          <span className="d-block">{ac.discount * 100}% خصم</span>
         </p>
       ))}
       <h5 className="mt-4">ملحوظة</h5>
