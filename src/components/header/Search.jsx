@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import Modal from "../UI/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose, faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -47,4 +47,4 @@ const Search = ({ handleClosure, closing }) => {
   );
 };
 
-export default Search;
+export default memo(Search);

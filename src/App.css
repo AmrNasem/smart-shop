@@ -10,8 +10,8 @@
 .text-black-70 {
   color: rgba(0, 0, 0, 0.7) !important;
 }
-.active-border-shadow {
-  border: 2px solid var(--main-color);
+.active-border {
+  border: 2px solid;
   transform: translateY(-5px);
 }
 .bg-footer {

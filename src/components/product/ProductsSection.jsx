@@ -3,9 +3,12 @@ import Select from "../UI/Select";
 import { toast } from "react-toastify";
 import ProductCard from "./ProductCard";
 import Paginator from "../UI/Paginator";
-import ProductsFilter from "./ProductsFilter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import CategoryFilter from "./CategoryFilter";
+import PriceFilter from "./PriceFilter";
+import SizeFilter from "./SizeFilter";
+import ColorFilter from "./ColorFilter";
 
 const sortOptions = [
   {
@@ -29,6 +32,12 @@ const ProductsSection = () => {
   const [productsPerPage, setProductsPerPage] = useState(numOfDisplays[0]);
   const [loading, setLoading] = useState(true);
   const [filtersLoading, setFiltersLoading] = useState(true);
+  const [matchedFilters, setMatchedFilters] = useState({
+    category: [],
+    price: 30000,
+    size: [],
+    color: [],
+  });
 
   useEffect(() => {
     const fetchFilters = async () => {
@@ -62,6 +71,30 @@ const ProductsSection = () => {
     fetchProducts();
   }, []);
 
+  useEffect(() => {
+    let filteredProducts = products.filter((p) => {
+      const myPrice = p.price - p.price * (p.discount || 0);
+      return myPrice <= matchedFilters.price && myPrice >= 100;
+    });
+
+    if (matchedFilters.category.length)
+      filteredProducts = filteredProducts.filter((p) =>
+        matchedFilters.category.find((mc) => mc.text === p.category)
+      );
+
+    if (matchedFilters.size.length)
+      filteredProducts = filteredProducts.filter((p) =>
+        matchedFilters.size.find((ms) => ms === p.sizes.find((ps) => ps === ms))
+      );
+
+    if (matchedFilters.color.length)
+      filteredProducts = filteredProducts.filter((p) =>
+        matchedFilters.color.find((mc) => mc.hexa === p.color.hexa)
+      );
+
+    setFilteredProducts(filteredProducts);
+  }, [matchedFilters, products]);
+
   const handleChangeSort = useCallback(
     (option) => {
       if (option.id === "LOWEST-PRICE") {
@@ -87,13 +120,35 @@ const ProductsSection = () => {
   return (
     <div className="container d-flex flex-wrap flex-lg-nowrap gap-3">
       {filtersAreShown && (
-        <ProductsFilter
-          loading={filtersLoading}
-          products={products}
-          filters={filters}
-          onFilter={setFilteredProducts}
-          className="d-lg-block flex-grow-1"
-        />
+        <div className={`d-lg-block flex-grow-1 d-flex gap-3 flex-wrap`}>
+          {filtersLoading ? (
+            <p className="text-center my-4">جارٍ تحميل الفلاتر..</p>
+          ) : (
+            filters && (
+              <>
+                <CategoryFilter
+                  matchedFilters={matchedFilters}
+                  filters={filters}
+                  setMatchedFilters={setMatchedFilters}
+                />
+                <PriceFilter
+                  matchedFilters={matchedFilters}
+                  setMatchedFilters={setMatchedFilters}
+                />
+                <SizeFilter
+                  matchedFilters={matchedFilters}
+                  filters={filters}
+                  setMatchedFilters={setMatchedFilters}
+                />
+                <ColorFilter
+                  matchedFilters={matchedFilters}
+                  filters={filters}
+                  setMatchedFilters={setMatchedFilters}
+                />
+              </>
+            )
+          )}
+        </div>
       )}
       <div className="flex-grow-1" style={{ flexBasis: "70%" }}>
         <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 p-2 rounded-3 border bg-light">
