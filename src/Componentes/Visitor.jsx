@@ -5,20 +5,15 @@ import { Link } from 'react-router-dom'
 
 export const Visitor = () => {
   return (
-    // remove the test div
     <div className={visitor.container} dir='rtl'>
-      <div className={visitor.child1}>
+      <Link to="/login" className={visitor.child1}>
         <FontAwesomeIcon icon={faUser} />
-        <Link to="/login">
-          <p className={visitor.signinOp}>تسجيل الدخول</p>
-        </Link>
-      </div>
-      <div className={visitor.child2}>
+        <p className={visitor.signinOp}>تسجيل الدخول</p>
+      </Link>
+      <Link to="/signup" className={visitor.child2}>
         <FontAwesomeIcon icon={faUser} />
-        <Link to="/signup">
-          <p className={visitor.signupOp}>تسجيل جديد</p>
-        </Link>
-      </div>
+        <p className={visitor.signupOp}>تسجيل جديد</p>
+      </Link>
     </div>
   )
 }

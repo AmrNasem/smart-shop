@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "a name",
+      "email": "email",
+      "isAuthed": true
+    },
+    {
+      "id": "2",
+      "name": "a name",
+      "email": "email",
+      "isAuthed": true
+    },
+    {
+      "id": "3",
+      "name": "a name",
+      "email": "email",
+      "isAuthed": true
+    }
+  ]
+}

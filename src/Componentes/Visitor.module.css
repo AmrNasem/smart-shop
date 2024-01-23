@@ -1,12 +1,11 @@
 .container::before{
   content: "";
-    border-width: 10px;
-    border-style: solid;
-    /* box-shadow: 0px 0px 10px 0px #555; */
-    border-color: transparent transparent #fff transparent;
-    position: absolute;
-    top: -19px;
-    right: calc(50% - 10px);
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+  position: absolute;
+  top: -19px;
+  right: calc(50% - 10px);
 }
 .container{
   background-color: #fff;
@@ -17,29 +16,20 @@
   width: 275px;
   height: 150px;
   box-shadow: .05px .05px 10px .1px #eee;
-  margin-left: 50PX;
-  margin-top: 50PX;
 }
 .container .child1,.child2{
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
-  margin-right: 50px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  padding-right: 50px;
   cursor: pointer;
-}
-.child1 a{
-  color: #7FD3DF;
-
-}
-.child2 a{
-  color: #000;
-
-}
-.child1 a, .child2 a{
   text-decoration: none;
+  color: #000;
 }
-.child1{
-  margin-top: 15px;
+.child1:hover, .child2:hover{
   color: #7FD3DF;
+  border-right: 3px solid #7FD3DF;
+  border-radius: 2px;
 }

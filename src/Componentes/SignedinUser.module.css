@@ -1,13 +1,63 @@
-.test{
-  display: flex;
-  width: 400px;
-  height: 400px;
-  background-color: #eee;
-  align-items: center;
-  justify-content: center;
+.container::before{
+  content: "";
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+  position: absolute;
+  top: -19px;
+  right: calc(50% - 10px);
 }
 .container{
+  display: flex;
+  flex-direction: column;
+  position: relative;
   width: 260px;
   height: 265px;
   background-color: #fff;
+  box-shadow: .05px .05px 10px .1px #eee;
+}
+
+.above{
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  margin-top: 30px;
+  margin-right: 15px;
+  gap: 5px;
+}
+.above p:nth-child(1){
+  font-size: 15px;
+  font-weight: bolder !important;
+}
+.above p:nth-child(2){
+  font-size: 13px;
+  color: #bbb;
+}
+.userLogo{
+  font-size: 30px;
+  color: #fff;
+  background-color: #000;
+  border-radius: 50%;
+  padding: 6px;
+}
+.horzintal{
+display: flex;
+align-items: center;
+gap: 5px;
+padding-bottom: 10px;
+padding-top: 10px;
+padding-right: 40px;
+cursor: pointer;
+}
+.horzintal:hover{
+  color: #7FD3DF;
+  border-right: 3px solid #7FD3DF;
+  border-radius: 2px;
+}
+.hr{
+  width: 80%;
+  background-color: #ddd;
+  height: 1px;
+  margin-right: 12px;
+  margin-bottom: 18px;
 }
