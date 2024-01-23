@@ -1,43 +1,6 @@
 {
   "cart": [
     {
-      "id": "1",
-      "title": "جاكت أسود جلد",
-      "path": "assets/product3.png",
-      "color": "أسود",
-      "weight": 2500,
-      "price": 3000,
-      "rate": 4,
-      "sizes": [
-        "xs",
-        "s",
-        "m",
-        "l",
-        "xl"
-      ],
-      "amount": 1,
-      "userId": "1",
-      "size": "m"
-    },
-    {
-      "id": "2",
-      "title": "فستان أبيض عصري",
-      "path": "assets/product.png",
-      "color": "أبيض",
-      "weight": 4000,
-      "price": 15000,
-      "discount": 0.2,
-      "rate": 3,
-      "sizes": [
-        "xs",
-        "m",
-        "xl"
-      ],
-      "amount": 1,
-      "userId": "1",
-      "size": "m"
-    },
-    {
       "id": "3",
       "title": "شيرت رمادي عصري",
       "path": "assets/product2.png",
@@ -58,29 +21,14 @@
       "size": "m"
     },
     {
-      "id": "5",
-      "title": "فستان سواريه فيروزي",
-      "path": "assets/product5.png",
-      "color": "فيروزي",
-      "weight": 3000,
-      "price": 4300,
-      "discount": 0.25,
-      "rate": 4,
-      "sizes": [
-        "xs",
-        "s",
-        "m",
-        "l"
-      ],
-      "amount": 1,
-      "userId": "1",
-      "size": "m"
-    },
-    {
       "id": "6",
       "title": "قميص سماوي",
+      "category": "ملابس",
       "path": "assets/product6.png",
-      "color": "سماوي",
+      "color": {
+        "hexa": "#87CEEB",
+        "text": "سماوي"
+      },
       "weight": 800,
       "price": 350,
       "discount": 0.13,
@@ -91,15 +39,19 @@
         "l",
         "xl"
       ],
-      "amount": 2,
+      "amount": 1,
       "userId": "1",
       "size": "m"
     },
     {
       "id": "7",
       "title": "جاكت جينز كحلي",
+      "category": "أحذية",
       "path": "assets/product7.png",
-      "color": "كحلي",
+      "color": {
+        "hexa": "#00008B",
+        "text": "كحلي"
+      },
       "weight": 650,
       "price": 450,
       "discount": 0.1,
@@ -108,25 +60,6 @@
         "xs",
         "s",
         "m"
-      ],
-      "amount": 2,
-      "userId": "1",
-      "size": "m"
-    },
-    {
-      "id": "4",
-      "title": "فستان سواريه أسود",
-      "path": "assets/product4.png",
-      "color": "أسود",
-      "weight": 2950,
-      "price": 3450,
-      "rate": 5,
-      "sizes": [
-        "xs",
-        "s",
-        "m",
-        "l",
-        "xl"
       ],
       "amount": 1,
       "userId": "1",
@@ -153,8 +86,12 @@
     {
       "id": "1",
       "title": "جاكت أسود جلد",
+      "category": "ملابس",
       "path": "assets/product3.png",
-      "color": "أسود",
+      "color": {
+        "hexa": "#000",
+        "text": "أسود"
+      },
       "weight": 2500,
       "price": 3000,
       "rate": 4,
@@ -169,8 +106,12 @@
     {
       "id": "2",
       "title": "فستان أبيض عصري",
+      "category": "ملابس",
       "path": "assets/product.png",
-      "color": "أبيض",
+      "color": {
+        "hexa": "#fff",
+        "text": "أبيض"
+      },
       "weight": 4000,
       "price": 15000,
       "discount": 0.2,
@@ -184,8 +125,12 @@
     {
       "id": "3",
       "title": "شيرت رمادي عصري",
+      "category": "ملابس",
       "path": "assets/product2.png",
-      "color": "رمادي",
+      "color": {
+        "hexa": "#777",
+        "text": "رمادي"
+      },
       "weight": 500,
       "price": 500,
       "discount": 0.2,
@@ -201,8 +146,12 @@
     {
       "id": "4",
       "title": "فستان سواريه أسود",
+      "category": "ملابس",
       "path": "assets/product4.png",
-      "color": "أسود",
+      "color": {
+        "hexa": "#000",
+        "text": "أسود"
+      },
       "weight": 2950,
       "price": 3450,
       "rate": 5,
@@ -217,8 +166,12 @@
     {
       "id": "5",
       "title": "فستان سواريه فيروزي",
+      "category": "ملابس",
       "path": "assets/product5.png",
-      "color": "فيروزي",
+      "color": {
+        "hexa": "#40E0D0",
+        "text": "فيروزي"
+      },
       "weight": 3000,
       "price": 4300,
       "discount": 0.25,
@@ -233,8 +186,12 @@
     {
       "id": "6",
       "title": "قميص سماوي",
+      "category": "ملابس",
       "path": "assets/product6.png",
-      "color": "سماوي",
+      "color": {
+        "hexa": "#87CEEB",
+        "text": "سماوي"
+      },
       "weight": 800,
       "price": 350,
       "discount": 0.13,
@@ -249,8 +206,12 @@
     {
       "id": "7",
       "title": "جاكت جينز كحلي",
+      "category": "أحذية",
       "path": "assets/product7.png",
-      "color": "كحلي",
+      "color": {
+        "hexa": "#00008B",
+        "text": "كحلي"
+      },
       "weight": 650,
       "price": 450,
       "discount": 0.1,
@@ -264,8 +225,12 @@
     {
       "id": "8",
       "title": "تيشرت عصري جذاب",
+      "category": "آثاث",
       "path": "assets/product8.png",
-      "color": "بيج",
+      "color": {
+        "hexa": "#F5F5DC",
+        "text": "بيج"
+      },
       "weight": 650,
       "price": 900,
       "discount": 0.18,
@@ -280,8 +245,12 @@
     {
       "id": "9",
       "title": "فستان أطفال مشجر",
+      "category": "إلكترونيات",
       "path": "assets/product9.png",
-      "color": "كحلي",
+      "color": {
+        "hexa": "#0f0",
+        "text": "أخضر"
+      },
       "weight": 650,
       "price": 540,
       "discount": 0.1,
@@ -294,8 +263,12 @@
     {
       "id": "10",
       "title": "بلوزة قطنية بيضاء",
+      "category": "إكسسوارات",
       "path": "assets/product10.png",
-      "color": "أبيض",
+      "color": {
+        "hexa": "#fff",
+        "text": "أبيض"
+      },
       "weight": 1300,
       "price": 1250,
       "discount": 0.15,
@@ -307,5 +280,70 @@
         "l"
       ]
     }
-  ]
+  ],
+  "filters": {
+    "category": [
+      "إكسسوارات",
+      "ملابس",
+      "إلكترونيات",
+      "آثاث",
+      "أحذية",
+      "مجوهرات"
+    ],
+    "size": [
+      "xs",
+      "s",
+      "m",
+      "l",
+      "xl"
+    ],
+    "color": [
+      {
+        "hexa": "#fff",
+        "text": "أبيض"
+      },
+      {
+        "hexa": "#777",
+        "text": "رمادي"
+      },
+      {
+        "hexa": "#000",
+        "text": "أسود"
+      },
+      {
+        "hexa": "#40E0D0",
+        "text": "فيروزي"
+      },
+      {
+        "hexa": "#87CEEB",
+        "text": "سماوي"
+      },
+      {
+        "hexa": "#00008B",
+        "text": "كحلي"
+      },
+      {
+        "hexa": "#F5F5DC",
+        "text": "بيج"
+      },
+      {
+        "hexa": "#0f0",
+        "text": "أخضر"
+      },
+      {
+        "hexa": "#f00",
+        "text": "أحمر"
+      },
+      {
+        "hexa": "#00f",
+        "text": "أزرق"
+      }
+    ],
+    "brand": [
+      "زارا",
+      "سترة",
+      "أبل",
+      "جوجل"
+    ]
+  }
 }

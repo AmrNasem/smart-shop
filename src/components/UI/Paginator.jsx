@@ -23,7 +23,7 @@ const Paginator = ({
     setPage((prev) => ({
       ...prev,
       max: Math.min(numOfPages, numOfShownButtons),
-      // current: 0,
+      current: 0,
     }));
   }, [numOfPages, numOfShownButtons]);
 

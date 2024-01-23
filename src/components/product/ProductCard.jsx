@@ -122,6 +122,7 @@ const ProductCard = ({ className, product, minWidth, style }) => {
             <button
               onClick={handleSize}
               value={s}
+              style={{ width: "30px", height: "30px" }}
               key={i}
               className={`py-0 transition-main px-1 ${
                 s === size ? "border-0 bg-main text-white" : "bg-white border"

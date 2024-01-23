@@ -4,6 +4,19 @@
 .text-main {
   color: var(--main-color) !important;
 }
+.text-footer {
+  color: var(--footer-background) !important;
+}
+.text-black-70 {
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+.active-border-shadow {
+  border: 2px solid var(--main-color);
+  transform: translateY(-5px);
+}
+.bg-footer {
+  background-color: var(--footer-background) !important;
+}
 .text-hover-main:hover {
   color: var(--main-color) !important;
 }
@@ -51,4 +64,15 @@
 }
 .z-modal-dialog {
   z-index: 1001;
+}
+.border-hover:hover {
+  border-color: #dee2e6 !important;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="range"]::-webkit-slider-thumb {
+  background: var(--main-color);
 }

@@ -96,7 +96,7 @@ const CartItem = ({ className, cartItem, deleting }) => {
           <div>
             <h6>{cartItem.title}</h6>
             <p className="mb-1" style={{ fontWeight: 350 }}>
-              اللون: {cartItem.color}
+              اللون: {cartItem.color.text}
             </p>
             <p className="mb-1" style={{ fontWeight: 350 }}>
               الوزن:{" "}

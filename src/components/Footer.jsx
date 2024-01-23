@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer style={{ backgroundColor: "#54A4AF" }} className="py-4 px-2">
+    <footer className="py-4 px-2 bg-footer">
       <ul
         className={`py-3 d-flex flex-wrap gap-3 justify-content-center mb-0 list-unstyled`}
       >

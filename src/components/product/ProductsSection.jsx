@@ -3,6 +3,9 @@ import Select from "../UI/Select";
 import { toast } from "react-toastify";
 import ProductCard from "./ProductCard";
 import Paginator from "../UI/Paginator";
+import ProductsFilter from "./ProductsFilter";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const sortOptions = [
   {
@@ -15,11 +18,33 @@ const sortOptions = [
   },
 ];
 
+const numOfDisplays = [6, 12, 18, 24, 30];
+
 const ProductsSection = () => {
   const [products, setProducts] = useState([]);
+  const [filters, setFilters] = useState(null);
+  const [filtersAreShown, setFiltersAreShown] = useState(true);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [pageItems, setpageItems] = useState([]);
+  const [pageItems, setPageItems] = useState([]);
+  const [productsPerPage, setProductsPerPage] = useState(numOfDisplays[0]);
   const [loading, setLoading] = useState(true);
+  const [filtersLoading, setFiltersLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchFilters = async () => {
+      try {
+        setFiltersLoading(true);
+        const res = await fetch("http://localhost:8000/filters");
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        setFilters(data);
+      } catch {
+        toast.error("Unable to load filters :(");
+      }
+      setFiltersLoading(false);
+    };
+    fetchFilters();
+  }, []);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -37,9 +62,6 @@ const ProductsSection = () => {
     fetchProducts();
   }, []);
 
-  const handlePaginatation = useCallback((items) => {
-    setpageItems(items);
-  }, []);
   const handleChangeSort = useCallback(
     (option) => {
       if (option.id === "LOWEST-PRICE") {
@@ -63,43 +85,85 @@ const ProductsSection = () => {
     [products]
   );
   return (
-    <div>
-      <div className="container">
-        <div className="p-3 rounded-3 border bg-light">
-          <div className="d-flex align-items-center justify-content-end gap-3 flex-wrap">
-            <span
-              style={{ fontSize: "0.9rem", color: "#444" }}
-              className="d-block"
-            >
-              ترتيب حسب
-            </span>
-            <Select
-              defaultValue={sortOptions[0]}
-              options={sortOptions}
-              onChange={handleChangeSort}
-            />
+    <div className="container d-flex flex-wrap flex-lg-nowrap gap-3">
+      {filtersAreShown && (
+        <ProductsFilter
+          loading={filtersLoading}
+          products={products}
+          filters={filters}
+          onFilter={setFilteredProducts}
+          className="d-lg-block flex-grow-1"
+        />
+      )}
+      <div className="flex-grow-1" style={{ flexBasis: "70%" }}>
+        <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 p-2 rounded-3 border bg-light">
+          <button
+            className="btn border-0"
+            onClick={() => setFiltersAreShown((prev) => !prev)}
+          >
+            <FontAwesomeIcon icon={faBars} />
+          </button>
+          <div style={{ flexBasis: "80%" }} className="d-flex gap-3 flex-wrap">
+            <div className="flex-grow-1 d-flex align-items-center justify-content-end gap-3">
+              <span
+                style={{ fontSize: "0.9rem", color: "#444" }}
+                className="d-block fw-semibold"
+              >
+                مشاهدة
+              </span>
+              <div className="d-flex gap-2 align-items-center">
+                {numOfDisplays.map((n, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setProductsPerPage(n)}
+                    className={`btn ${
+                      productsPerPage === n ? "text-main" : "text-black-50"
+                    } border-0 p-1`}
+                  >
+                    {n}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="flex-grow-1 d-flex align-items-center justify-content-end gap-3">
+              <span
+                style={{ fontSize: "0.9rem", color: "#444" }}
+                className="d-block text-nowrap fw-semibold"
+              >
+                ترتيب حسب
+              </span>
+              <Select
+                defaultValue={sortOptions[0]}
+                options={sortOptions}
+                onChange={handleChangeSort}
+              />
+            </div>
           </div>
         </div>
-        {loading ? (
+        {loading || filtersLoading ? (
           <p className="text-center my-3">جارٍ تحميل المنتجات..</p>
         ) : products.length ? (
           <div className="row my-3 gy-5">
-            {pageItems.map((product, i) => (
-              <div key={i} className="col col-md-4 my-3 col-lg-3">
-                <ProductCard minWidth="200px" product={product} />
-              </div>
-            ))}
+            {filteredProducts.length ? (
+              pageItems.map((product, i) => (
+                <div key={i} className="col col-md-6 my-3 col-lg-4">
+                  <ProductCard minWidth="200px" product={product} />
+                </div>
+              ))
+            ) : (
+              <p className="text-center my-3">لم يتم العثور على أية منتجات!</p>
+            )}
           </div>
         ) : (
           <p className="text-center my-3">لم يتم العثور على أية منتجات!</p>
         )}
+        <Paginator
+          items={filteredProducts}
+          itemsPerPage={productsPerPage}
+          numOfShownButtons={4}
+          onPaginate={setPageItems}
+        />
       </div>
-      <Paginator
-        items={filteredProducts}
-        itemsPerPage={3}
-        numOfShownButtons={4}
-        onPaginate={handlePaginatation}
-      />
     </div>
   );
 };
