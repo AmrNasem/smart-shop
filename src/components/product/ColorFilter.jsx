@@ -15,16 +15,17 @@ const ColorFilter = ({ matchedFilters, filters, setMatchedFilters }) => {
           key={i}
           title={c.text}
           className={`d-block rounded-circle transition-main ${
-            matchedFilters.color.find((mc) => mc.hexa === c.hexa)
+            matchedFilters.color.find((mc) => mc === c.text)
               ? "active-border border-info"
               : "border"
           }`}
+          value={JSON.stringify(c)}
           onClick={() =>
             setMatchedFilters((prev) => ({
               ...prev,
-              color: prev.color.find((mc) => mc.hexa === c.hexa)
-                ? prev.color.filter((mc) => mc.hexa !== c.hexa)
-                : [...prev.color, c],
+              color: prev.color.find((mc) => mc === c.text)
+                ? prev.color.filter((mc) => mc !== c.text)
+                : [...prev.color, c.text],
             }))
           }
           style={{ width: "20px", height: "20px", backgroundColor: c.hexa }}

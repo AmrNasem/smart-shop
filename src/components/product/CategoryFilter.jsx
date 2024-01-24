@@ -12,16 +12,16 @@ const CategoryFilter = ({ matchedFilters, filters, setMatchedFilters }) => {
       title="الفئات"
     >
       {filters.category.map((c, i) => {
-        const matched = matchedFilters.category.find((mc) => mc.id === i);
+        const matched = matchedFilters.category.find((mc) => mc === c);
         return (
           <button
             key={i}
             onClick={() =>
               setMatchedFilters((prev) => ({
                 ...prev,
-                category: prev.category.find((mc) => mc.id === i)
-                  ? prev.category.filter((mc) => mc.id !== i)
-                  : [...prev.category, { id: i, text: c }],
+                category: matched
+                  ? prev.category.filter((mc) => mc !== c)
+                  : [...prev.category, c],
               }))
             }
             style={{ border: "1px solid transparent" }}

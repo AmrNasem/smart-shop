@@ -26,7 +26,7 @@ const Select = ({
   }, [listRef]);
 
   useEffect(() => {
-    onChange(selected);
+    onChange(selected.action);
   }, [selected, onChange]);
 
   useEffect(() => {

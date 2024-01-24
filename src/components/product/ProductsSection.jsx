@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { memo, useCallback, useEffect, useState } from "react";
 import Select from "../UI/Select";
 import { toast } from "react-toastify";
 import ProductCard from "./ProductCard";
@@ -9,48 +9,70 @@ import CategoryFilter from "./CategoryFilter";
 import PriceFilter from "./PriceFilter";
 import SizeFilter from "./SizeFilter";
 import ColorFilter from "./ColorFilter";
+import { useSearchParams } from "react-router-dom";
 
 const sortOptions = [
   {
-    id: "LOWEST-PRICE",
     text: "الأقل سعرًا",
+    action: (prev) => ({
+      ...prev,
+      items: [
+        ...prev.items.sort(
+          (a, b) =>
+            (a.discount ? a.price - a.price * a.discount : a.price) -
+            (b.discount ? b.price - b.price * b.discount : b.price)
+        ),
+      ],
+    }),
   },
   {
-    id: "HIGHEST-PRICE",
     text: "الأعلى سعرًا",
+    action: (prev) => ({
+      ...prev,
+      items: [
+        ...prev.items.sort(
+          (b, a) =>
+            (a.discount ? a.price - a.price * a.discount : a.price) -
+            (b.discount ? b.price - b.price * b.discount : b.price)
+        ),
+      ],
+    }),
   },
 ];
 
 const numOfDisplays = [6, 12, 18, 24, 30];
+const maxRangeOfPrice = 30000;
 
 const ProductsSection = () => {
-  const [products, setProducts] = useState([]);
-  const [filters, setFilters] = useState(null);
-  const [filtersAreShown, setFiltersAreShown] = useState(true);
+  const [filters, setFilters] = useState({
+    items: null,
+    loading: true,
+    isOpen: true,
+  });
+  const [products, setProducts] = useState({ items: [], loading: true });
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [pageItems, setPageItems] = useState([]);
   const [productsPerPage, setProductsPerPage] = useState(numOfDisplays[0]);
-  const [loading, setLoading] = useState(true);
-  const [filtersLoading, setFiltersLoading] = useState(true);
+  const [searchParams, setSearchParams] = useSearchParams();
   const [matchedFilters, setMatchedFilters] = useState({
-    category: [],
-    price: 30000,
-    size: [],
-    color: [],
+    category: searchParams.get("category")?.split(" ") || [],
+    price: searchParams.get("price") || maxRangeOfPrice,
+    size: searchParams.get("size")?.split(" ") || [],
+    color: searchParams.get("color")?.split(" ") || [],
   });
 
   useEffect(() => {
     const fetchFilters = async () => {
       try {
-        setFiltersLoading(true);
+        setFilters((prev) => ({ ...prev, loading: true }));
         const res = await fetch("http://localhost:8000/filters");
         if (!res.ok) throw new Error();
         const data = await res.json();
-        setFilters(data);
+        setFilters((prev) => ({ ...prev, items: data }));
       } catch {
         toast.error("Unable to load filters :(");
       }
-      setFiltersLoading(false);
+      setFilters((prev) => ({ ...prev, loading: false }));
     };
     fetchFilters();
   }, []);
@@ -58,95 +80,94 @@ const ProductsSection = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        setLoading(true);
+        setProducts((prev) => ({ ...prev, loading: true }));
         const res = await fetch("http://localhost:8000/products");
         if (!res.ok) throw new Error();
         const data = await res.json();
-        setProducts(data);
+        setProducts((prev) => ({ ...prev, items: data }));
       } catch {
         toast.error("Unable to load products :(");
       }
-      setLoading(false);
+      setProducts((prev) => ({ ...prev, loading: false }));
     };
     fetchProducts();
   }, []);
 
+  const handleToggleQueries = useCallback(
+    (key, value) => {
+      setSearchParams((params) => {
+        if (value) params.set(key, value);
+        else params.delete(key);
+        return params;
+      });
+    },
+    [setSearchParams]
+  );
+
   useEffect(() => {
-    let filteredProducts = products.filter((p) => {
+    let filtered = products.items.filter((p) => {
       const myPrice = p.price - p.price * (p.discount || 0);
       return myPrice <= matchedFilters.price && myPrice >= 100;
     });
 
-    if (matchedFilters.category.length)
-      filteredProducts = filteredProducts.filter((p) =>
-        matchedFilters.category.find((mc) => mc.text === p.category)
-      );
+    if (matchedFilters.price < maxRangeOfPrice)
+      handleToggleQueries("price", matchedFilters.price);
+    else handleToggleQueries("price");
 
-    if (matchedFilters.size.length)
-      filteredProducts = filteredProducts.filter((p) =>
+    if (matchedFilters.category.length) {
+      filtered = filtered.filter((p) =>
+        matchedFilters.category.find((mc) => mc === p.category)
+      );
+      handleToggleQueries("category", matchedFilters.category.join(" "));
+    } else handleToggleQueries("category");
+
+    if (matchedFilters.size.length) {
+      filtered = filtered.filter((p) =>
         matchedFilters.size.find((ms) => ms === p.sizes.find((ps) => ps === ms))
       );
+      handleToggleQueries("size", matchedFilters.size.join(" "));
+    } else handleToggleQueries("size");
 
-    if (matchedFilters.color.length)
-      filteredProducts = filteredProducts.filter((p) =>
-        matchedFilters.color.find((mc) => mc.hexa === p.color.hexa)
+    if (matchedFilters.color.length) {
+      filtered = filtered.filter((p) =>
+        matchedFilters.color.find((mc) => mc === p.color.text)
       );
+      handleToggleQueries("color", matchedFilters.color.join(" "));
+    } else handleToggleQueries("color");
 
-    setFilteredProducts(filteredProducts);
-  }, [matchedFilters, products]);
+    setFilteredProducts(filtered);
+  }, [matchedFilters, products.items, handleToggleQueries]);
 
-  const handleChangeSort = useCallback(
-    (option) => {
-      if (option.id === "LOWEST-PRICE") {
-        setFilteredProducts([
-          ...products.sort(
-            (a, b) =>
-              (a.discount ? a.price - a.price * a.discount : a.price) -
-              (b.discount ? b.price - b.price * b.discount : b.price)
-          ),
-        ]);
-      } else if (option.id === "HIGHEST-PRICE") {
-        setFilteredProducts([
-          ...products.sort(
-            (b, a) =>
-              (a.discount ? a.price - a.price * a.discount : a.price) -
-              (b.discount ? b.price - b.price * b.discount : b.price)
-          ),
-        ]);
-      }
-    },
-    [products]
-  );
   return (
     <div className="container d-flex flex-wrap flex-lg-nowrap gap-3">
-      {filtersAreShown && (
+      {filters.isOpen && (
         <div className={`d-lg-block flex-grow-1 d-flex gap-3 flex-wrap`}>
-          {filtersLoading ? (
+          {filters.loading ? (
             <p className="text-center my-4">جارٍ تحميل الفلاتر..</p>
+          ) : filters.items ? (
+            <>
+              <CategoryFilter
+                matchedFilters={matchedFilters}
+                filters={filters.items}
+                setMatchedFilters={setMatchedFilters}
+              />
+              <PriceFilter
+                matchedFilters={matchedFilters}
+                setMatchedFilters={setMatchedFilters}
+              />
+              <SizeFilter
+                matchedFilters={matchedFilters}
+                filters={filters.items}
+                setMatchedFilters={setMatchedFilters}
+              />
+              <ColorFilter
+                matchedFilters={matchedFilters}
+                filters={filters.items}
+                setMatchedFilters={setMatchedFilters}
+              />
+            </>
           ) : (
-            filters && (
-              <>
-                <CategoryFilter
-                  matchedFilters={matchedFilters}
-                  filters={filters}
-                  setMatchedFilters={setMatchedFilters}
-                />
-                <PriceFilter
-                  matchedFilters={matchedFilters}
-                  setMatchedFilters={setMatchedFilters}
-                />
-                <SizeFilter
-                  matchedFilters={matchedFilters}
-                  filters={filters}
-                  setMatchedFilters={setMatchedFilters}
-                />
-                <ColorFilter
-                  matchedFilters={matchedFilters}
-                  filters={filters}
-                  setMatchedFilters={setMatchedFilters}
-                />
-              </>
-            )
+            <p className="text-center my-4">لا يوجد فلاتر!</p>
           )}
         </div>
       )}
@@ -154,7 +175,9 @@ const ProductsSection = () => {
         <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 p-2 rounded-3 border bg-light">
           <button
             className="btn border-0"
-            onClick={() => setFiltersAreShown((prev) => !prev)}
+            onClick={() =>
+              setFilters((prev) => ({ ...prev, isOpen: !prev.isOpen }))
+            }
           >
             <FontAwesomeIcon icon={faBars} />
           </button>
@@ -190,14 +213,14 @@ const ProductsSection = () => {
               <Select
                 defaultValue={sortOptions[0]}
                 options={sortOptions}
-                onChange={handleChangeSort}
+                onChange={setProducts}
               />
             </div>
           </div>
         </div>
-        {loading || filtersLoading ? (
+        {products.loading ? (
           <p className="text-center my-3">جارٍ تحميل المنتجات..</p>
-        ) : products.length ? (
+        ) : products.items.length ? (
           <div className="row my-3 gy-5">
             {filteredProducts.length ? (
               pageItems.map((product, i) => (
@@ -223,4 +246,4 @@ const ProductsSection = () => {
   );
 };
 
-export default ProductsSection;
+export default memo(ProductsSection);
