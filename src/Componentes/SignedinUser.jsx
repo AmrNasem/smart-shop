@@ -6,8 +6,11 @@ import { faSliders } from '@fortawesome/free-solid-svg-icons'
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 
 export const UserSigned = () => {
-  const userName = useSelector(state => state.auth.user)
-  const email = useSelector(state => state.auth.email)
+  const userName = useSelector(state => state.auth.user.name)
+  const email = useSelector(state => state.auth.user.email)
+
+  console.log(userName)
+  console.log(email)
   return (
     <div className={signed.container} dir='rtl'>
       <div className={signed.above}>
@@ -28,7 +31,8 @@ export const UserSigned = () => {
           <p>تفاصيل الحساب</p>
         </div>
         <div className={signed.horzintal}>
-          <FontAwesomeIcon icon={faArrowRightFromBracket} />            <p>تسجيل الخروج</p>
+          <FontAwesomeIcon icon={faArrowRightFromBracket} />
+          <p>تسجيل الخروج</p>
         </div>
       </div>
     </div>
