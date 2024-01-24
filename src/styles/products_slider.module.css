@@ -1,0 +1,65 @@
+.container{
+    margin-top: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+.container table{
+    border-collapse: collapse;
+    width: 200px;
+    height: 500px;
+    font-size: x-large;
+}
+th{
+    border: 1px solid var(--main-color);
+    padding: 10px;
+    background-color: var(--main-color);
+    color: white;
+}
+td{
+    border: 1px solid var(--secondary-text);
+    padding: 10px;
+    color: var(--secondary-text);
+}
+.cards{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+.card{
+    width: 300px;
+    height: 550px;
+}
+.card .img{
+    position: relative;
+    width: 293px;
+    height: 368px;
+    margin-bottom: 30px;
+}
+.card svg{
+    color: var(--secondary-text);
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+.card .txt{
+    display: flex;
+    justify-content: space-around;
+    font-size: larger;
+}
+.card .txt .disc p{
+    color: var(--secondary-text);
+    margin: 0px;
+}
+.card .txt .price{
+    color: var(--main-color);
+}
+.card .txt .price p{
+    margin: 0px;
+    padding: 0px;
+}
+.container .cards i{
+    margin-top: 200px;
+    color: var(--main-color);
+    font-size: xx-large;
+}
+

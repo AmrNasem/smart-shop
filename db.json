@@ -1,0 +1,95 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "imgSrc": "P1.png",
+        "description": "بنطلون جينز أزرق",
+        "price": 800,
+        "oldPrice": 1000
+      },
+      {
+        "id": 2,
+        "imgSrc": "P2.png",
+        "description": "بلوزة قطنية رصاصية",
+        "price": 750,
+        "oldPrice": 900
+      },
+      {
+        "id": 3,
+        "imgSrc": "P3.png",
+        "description": "فستان صيفي أزرق",
+        "price": 1200,
+        "oldPrice": 1500
+      },
+      {
+        "id": 4,
+        "imgSrc": "P4.png",
+        "description": "فستان صيفي أسود",
+        "price": 600,
+        "oldPrice": 750
+      },
+      {
+        "id": 5,
+        "imgSrc": "P5.png",
+        "description": "بلوزة قطنية بيضاء",
+        "price": 900,
+        "oldPrice": 1100
+      },
+      {
+        "id": 6,
+        "imgSrc": "P6.png",
+        "description": "فستان صيفي أبيض",
+        "price": 850,
+        "oldPrice": 1000
+      },
+      {
+        "id": 7,
+        "imgSrc": "P7.png",
+        "description": "قميص جينز أزرق",
+        "price": 1000,
+        "oldPrice": 1200
+      },
+      {
+        "id": 8,
+        "imgSrc": "P8.png",
+        "description": "قميص رجالي أبيض",
+        "price": 700,
+        "oldPrice": 850
+      }
+    ],
+    "brands":[
+      {
+        "id":1,
+        "src":"Ted_Baker.png"
+      },
+      {
+        "id":2,
+        "src":"Lacoste.png"
+      },
+      {
+        "id":3,
+        "src":"Vivienne_Westwood.png"
+      },
+      {
+        "id":4,
+        "src":"Under_Armour.png"
+      },
+      {
+        "id":5,
+        "src":"Ted_Baker.png"
+      },
+      {
+        "id":6,
+        "src":"Vans.png"
+      },
+      {
+        "id":7,
+        "src":"Vans.png"
+      },
+      {
+        "id":8,
+        "src":"Lacoste.png"
+      }
+    ]
+  }
+  

@@ -1,0 +1,10 @@
+/* styles.css */
+
+:root {
+    --main-color: rgb(135, 212, 212);
+    --primary-text:black;
+    --secondary-text:rgb(108, 105, 105);
+    --ternary-text:white;
+    direction: rtl;
+}
+  
