@@ -16,7 +16,6 @@ export const Signup = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [isSignedup, setIsSignedup] = useState(false)
   const [accept, setAccept] = useState(false)
   const [reqNam, setReqName] = useState(false)
   const [emailcheck, setEmailcheck] = useState(false)
@@ -30,20 +29,23 @@ export const Signup = () => {
     setReqName(true)
     setEmailcheck(true)
 
-    const users = require("../data/db.json").users;
-    const emailChecking = users.find((u) => u.email === email) ? setEmailError(422) : "";
-    console.log(emailChecking)
-
     if (name === "" || password.length < 8 || email === "") {
       flag = false;
     } else flag = true;
     try {
-      if (flag && emailChecking === "") {
+      if (flag) {
+        const res = await axios.get("http://localhost:3100/users", {
+          email: email,
+        }).then()
+        var check = res.data.find((u) => u.email === email);
+        check ? setEmailError(422) : setEmailError("")
+      }
+      console.log(check)
+      if (flag && check === undefined) {
         const res = await axios.post("http://localhost:3100/users", {
           name: name,
           email: email,
           password: password,
-          isSignedup: true
         }).then(t => t.data)
         navigate('/login');
       }

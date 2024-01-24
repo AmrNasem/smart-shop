@@ -29,36 +29,35 @@ export const Login = () => {
 
   const dispatch = useDispatch();
 
-  const users = require("../data/db.json").users;
-  const user = users.find((u) => u.email === email && u.password === password);
-  const emailChecking = users.find((u) => u.email === email) ? false : true;
-
   const handleLogin = async (e) => {
     e.preventDefault();
     setAccept(true)
     setEmailcheck(true)
 
-    // try {
-    // if (flag) {
-    //   var response = await axios.get("http://localhost:3100/users", {
-    //     email: email,
-    //     password: password,
-    //   }).then((t) => console.log(t.data));
-    // }
-    if (flag && user) {
-      console.log('Login successful!');
-      dispatch(loginUser(user))
-      access = true;
-      navigate('/home')
-    } else {
-      console.log('Login failed!');
-      emailChecking && email !== "" && Swal.fire("Email not Found, Signup First!");
-      setPasswordChecking(users.find((u) => u.email === email && u.password !== password && password !== ""));
+    try {
+      if (flag) {
+        var response = await axios.get("http://localhost:3100/users", {
+          email: email,
+          password: password,
+        }).then()
+        var user = response.data.find((u) => u.email === email && u.password === password);
+        var emailChecking = response.data.find((u) => u.email === email) ? false : true;
+      }
+      console.log(user)
+      if (flag && user) {
+        console.log('Login successful!');
+        dispatch(loginUser(user))
+        access = true;
+        navigate('/home')
+      } else {
+        console.log('Login failed!');
+        emailChecking && email !== "" && Swal.fire("Email not Found, Signup First!");
+        setPasswordChecking(response.data.find((u) => u.email === email && u.password !== password && password !== ""));
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
     }
-  }// catch (error) {
-  //   console.error('Error during login:', error);
-  // }
-  // }
+  }
   function hideEmailMessage() {
     setEmailcheck(false)
   }
