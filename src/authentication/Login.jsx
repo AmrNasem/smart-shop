@@ -7,7 +7,7 @@ import { faPinterest } from '@fortawesome/free-brands-svg-icons'
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import login from './login.module.css'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { loginUser } from '../Componentes/Store/authSlice'
@@ -21,6 +21,7 @@ export const Login = () => {
   const [emailcheck, setEmailcheck] = useState(false)
   const [accept, setAccept] = useState(false)
   const [passwordChecking, setPasswordChecking] = useState(false);
+  const navigate = useNavigate();
 
   if (password.length === "" || email === "") {
     flag = false;
@@ -48,6 +49,7 @@ export const Login = () => {
       console.log('Login successful!');
       dispatch(loginUser(user))
       access = true;
+      navigate('/home')
     } else {
       console.log('Login failed!');
       emailChecking && email !== "" && Swal.fire("Email not Found, Signup First!");
@@ -98,7 +100,7 @@ export const Login = () => {
             <button className={login.loginBtn} type='submit'>تسجيل الدخول</button>
             <a href='#'>هل نسيت كلمة المرور؟</a>
           </div>
-          <p>او سجل الدخول عبر:</p>
+          <p className={login.p}>او سجل الدخول عبر:</p>
           <div className={login.socialMediaIcons}>
             <FontAwesomeIcon className={login.socialIcon} icon={faTwitter} />
             <FontAwesomeIcon className={login.socialIcon} icon={faFacebookF} />

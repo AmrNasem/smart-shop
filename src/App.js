@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       {
         <>
-          <UserSigned />
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Visitor />} />

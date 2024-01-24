@@ -7,7 +7,7 @@ import { faFacebookF } from '@fortawesome/free-brands-svg-icons'
 import { faPinterest } from '@fortawesome/free-brands-svg-icons'
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import signup from './Signup.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
@@ -21,6 +21,7 @@ export const Signup = () => {
   const [reqNam, setReqName] = useState(false)
   const [emailcheck, setEmailcheck] = useState(false)
   const [emailError, setEmailError] = useState("")
+  const navigate = useNavigate();
 
   async function submit(e) {
     let flag = true;
@@ -31,18 +32,20 @@ export const Signup = () => {
 
     const users = require("../data/db.json").users;
     const emailChecking = users.find((u) => u.email === email) ? setEmailError(422) : "";
+    console.log(emailChecking)
 
     if (name === "" || password.length < 8 || email === "") {
       flag = false;
     } else flag = true;
     try {
-      if (flag) {
+      if (flag && emailChecking === "") {
         const res = await axios.post("http://localhost:3100/users", {
           name: name,
           email: email,
           password: password,
           isSignedup: true
         }).then(t => t.data)
+        navigate('/login');
       }
     } catch (err) {
       setEmailError(err.response.status)
@@ -72,24 +75,24 @@ export const Signup = () => {
               }></input>
               <FontAwesomeIcon className={signup.icon} icon={faUser} />
             </div>
-            {name === "" && reqNam && <p style={{ margin: "5px", color: "#888" }}>Username Is Required↪</p>}
+            {name === "" && reqNam && <p style={{ margin: "5px", color: "#a00" }}>Username Is Required↪</p>}
             <div className={signup.cont}>
               <input className={signup.emailField} type='email' placeholder='البريد الالكتروني' value={email} onChange={(e) => setEmail(e.target.value)} onFocus={hidemsg}></input>
               <FontAwesomeIcon className={signup.icon} icon={faEnvelope} />
             </div>
-            {emailcheck && email === "" && <p style={{ margin: "5px", color: "#888" }}>Email Is Required↪</p>}
-            {emailcheck && emailError === 422 && <p style={{ margin: "5px", color: "#888" }}>↪Email Is Already Used</p>}
+            {emailcheck && email === "" && <p style={{ margin: "5px", color: "#a00" }}>Email Is Required↪</p>}
+            {emailcheck && emailError === 422 && <p style={{ margin: "5px", color: "#a00" }}>↪Email Is Already Used</p>}
             <div className={signup.cont}>
               <input className={signup.passField} type='password' placeholder='كلمة المرور' value={password} onChange={(e) => setPassword(e.target.value)} />
               <FontAwesomeIcon className={signup.icon} icon={faLock} />
             </div>
-            {password.length < 8 && accept && <p style={{ margin: "5px", color: "#888" }}>Password must be more than 8 charactar↪</p>}
+            {password.length < 8 && accept && <p style={{ margin: "5px", color: "#a00" }}>Password must be more than 8 charactar↪</p>}
           </div>
           <div className={signup.otherAttr}>
             <button className={signup.signupBtn} type='submit'>انشاء حساب</button>
             <a href='#'>هل نسيت كلمة المرور؟</a>
           </div>
-          <p>او سجل الدخول عبر:</p>
+          <p className={signup.p}>او سجل الدخول عبر:</p>
           <div className={signup.socialMediaIcons}>
             <FontAwesomeIcon className={signup.socialIcon} icon={faTwitter} />
             <FontAwesomeIcon className={signup.socialIcon} icon={faFacebookF} />

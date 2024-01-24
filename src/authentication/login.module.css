@@ -121,7 +121,6 @@ margin-bottom: 30px;
   border-radius: 0 80px 80px 0;
   padding: 10px;
   border: none;
-
   cursor: pointer;
 }
 .FBtn{
@@ -134,4 +133,59 @@ margin-bottom: 30px;
   top: 53%;
   width: 125px;
   background-color: #fff;
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .leftHalf,
+  .secondHalf {
+    width: 100%;
+    height: auto;
+  }
+
+  .loginForm {
+    padding-right: 30px;
+  }
+  .socialIcon{
+    font-size: 40px;
+  }
+  .socialMediaIcons, .p{
+    text-align: center;
+    margin: auto;
+  }
+  .socialMediaIcons{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  
+  }
+  .p{
+    margin-top: 150px;
+  }
+  .otherAttr{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .heading{
+    margin: auto;
+    text-align: center;
+    margin-top: 30px;
+  }
+  .FBtn{
+    display: none;
+  }
+  .LBtn{
+    position: absolute;
+    right: 0;
+    margin-top: 20px;
+    width: 125px;
+    background-color: #7FD3DF;
+    color: #fff;
+    border-radius: 80px 0px 0px 80px !important;
+  }
 }
