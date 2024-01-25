@@ -43,7 +43,6 @@ export const Login = () => {
         var user = response.data.find((u) => u.email === email && u.password === password);
         var emailChecking = response.data.find((u) => u.email === email) ? false : true;
       }
-      console.log(user)
       if (flag && user) {
         console.log('Login successful!');
         dispatch(loginUser(user))

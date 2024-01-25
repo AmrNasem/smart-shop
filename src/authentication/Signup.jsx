@@ -40,7 +40,6 @@ export const Signup = () => {
         var check = res.data.find((u) => u.email === email);
         check ? setEmailError(422) : setEmailError("")
       }
-      console.log(check)
       if (flag && check === undefined) {
         const res = await axios.post("http://localhost:3100/users", {
           name: name,
