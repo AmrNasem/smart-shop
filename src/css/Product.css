@@ -1,0 +1,177 @@
+
+.productDiv {
+    width: 80%;
+    height: 670px;
+    position: relative;
+    top: 210px;
+    left: 10%;
+    direction: flex;
+    justify-content: space-between;
+}
+
+.proImg {
+    width: 47%;
+    height: 670px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: grid;
+    grid-template-rows: 550px 100px;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.mainImg {
+    width: 100%;
+    height: 550px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #0000004D;
+}
+
+.Img2
+{
+    height: 90px;
+    position: relative;
+    top: 110px;
+    background-position: center;
+    background-size: 105%;
+    cursor: pointer;
+    border: 1px solid #0000004D;
+}
+
+.aboutPro {
+    width: 47%;
+    height: 610px;
+    position: absolute;
+    bottom: 14%;
+    left: 0;
+}
+
+.proName {
+    font-family: "Tajawal", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.Price {
+    color: #0000009d;
+    display: inline-block;
+    font-family: "Tajawal", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 20px;
+    position: relative;
+    bottom: 45px;
+}
+.star{
+    display: flex;
+    position: relative;
+    bottom: 60px;
+    right: 5px;
+}
+.fa-star{
+    color: #FFC107;
+    position: relative;
+    bottom: 20px;
+    left: 5px;
+    cursor: pointer;
+}
+.aboutProduct{
+width: 70%;
+color: #0000009d;
+position: relative;
+bottom: 70px;
+font-weight: 500 !important;
+}
+.colors{
+    display: flex;
+    gap: 5px; 
+}
+.colorImg{
+    width: 35px;
+    height: 35px;
+    border: 1px solid #0000004D;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+} 
+.colorProduct,.colors,.weightProduct,.weights{
+    position: relative;
+    bottom: 60px;
+}
+.weights{
+    display: flex;
+    gap: 10px; 
+
+}
+.weight1{
+    width: fit-content;
+    height: fit-content;
+    padding:6px 10px;
+    border: 1px solid #00000060;
+    border-radius: 1vh;
+    text-decoration-line: none;
+    color: black;
+}
+.weight1:hover{
+    background-color: gray;
+}
+.Counter{
+    width:fit-content;
+    height: 20px;
+    display: flex;
+    border: 1px solid #00000060;
+    border-radius:3vh;
+    overflow: hidden;
+    gap: 5px;
+    position: relative;
+    bottom:40px ;
+}
+.addCart{
+    width: fit-content;
+    padding:1% 4%;
+    height: fit-content;
+background-color: rgba(127, 211, 223, 1);
+color: white;
+border-radius:1vh;
+font-weight: 400 !important;
+cursor: pointer;
+position: relative;
+bottom: 68px;
+right: 90px;
+user-select: none;
+}
+.favHeart{
+    color: #00000060;
+    margin-left: 10px;
+    position: relative;
+    top: 2px;
+    cursor: pointer;
+}
+.addFav{
+    font-weight: 500 !important;
+    position: relative;
+    bottom: 55px;
+}
+.buyNow{
+    width: 70%;
+    padding:1.5% 0;
+background-color: rgba(127, 211, 223, 1);
+color: white;
+border-radius:1vh;
+text-align: center;
+font-weight: 400 !important;
+cursor: pointer;
+position: relative;
+bottom: 40px;
+user-select: none;
+}
+.socialMedia{
+    width: 100%;
+    height: 100px;
+    position: relative;
+    bottom: 30px;
+}
