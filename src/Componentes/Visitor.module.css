@@ -1,0 +1,35 @@
+.container::before{
+  content: "";
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+  position: absolute;
+  top: -19px;
+  right: calc(50% - 10px);
+}
+.container{
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 275px;
+  height: 150px;
+  box-shadow: .05px .05px 10px .1px #eee;
+}
+.container .child1,.child2{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  padding-right: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+}
+.child1:hover, .child2:hover{
+  color: #7FD3DF;
+  border-right: 3px solid #7FD3DF;
+  border-radius: 2px;
+}
