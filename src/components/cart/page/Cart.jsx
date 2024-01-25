@@ -4,16 +4,19 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../../store/cart-slice";
 import { toast } from "react-toastify";
+import { server } from "../../../App";
+import CartItemSkeleton from "../../skeleton/CartItemSkeleton";
 
 const Cart = ({ className }) => {
   const { items: cartItems, loading } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const [clearLoading, setClearLoading] = useState(false);
+  console.log(cartItems);
 
   const hanldeClearCart = () => {
     cartItems.forEach((item) => {
       setClearLoading(true);
-      fetch(`http://localhost:8000/cart/${item.id}`, {
+      fetch(`${server}/cart/${item.id}`, {
         method: "DELETE",
       })
         .then((res) => {
@@ -45,7 +48,9 @@ const Cart = ({ className }) => {
         </div>
         <div>
           {loading ? (
-            <h6 className="text-center my-3">جارٍ التحميل...</h6>
+            [...Array(3).keys()].map((i) => (
+              <CartItemSkeleton key={i} delay={i} />
+            ))
           ) : cartItems.length ? (
             cartItems.map((item, i) => (
               <CartItem deleting={clearLoading} cartItem={item} key={i} />

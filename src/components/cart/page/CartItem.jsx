@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { cartActions } from "../../../store/cart-slice";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
+import { server } from "../../../App";
 
 const CartItem = ({ className, cartItem, deleting }) => {
   const [loading, setLoading] = useState(false);
@@ -16,7 +17,7 @@ const CartItem = ({ className, cartItem, deleting }) => {
     (e) => {
       e?.preventDefault();
       setDeleteLoading(true);
-      fetch(`http://localhost:8000/cart/${cartItem.id}`, {
+      fetch(`${server}/cart/${cartItem.id}`, {
         method: "DELETE",
         body: JSON.stringify(cartItem),
       })
@@ -43,7 +44,7 @@ const CartItem = ({ className, cartItem, deleting }) => {
         return;
       }
       setLoading(true);
-      fetch(`http://localhost:8000/cart/${cartItem.id}`, {
+      fetch(`${server}/cart/${cartItem.id}`, {
         method: "PUT",
         body: JSON.stringify({
           ...cartItem,

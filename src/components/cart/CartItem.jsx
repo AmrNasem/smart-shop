@@ -5,40 +5,49 @@ import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 import { toast } from "react-toastify";
+import { server } from "../../App";
+import { Link } from "react-router-dom";
 
-const CartItem = ({ cartItem }) => {
+const CartItem = ({ cartItem, handleCartClosure }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [deleteLoading, setDeleteLoading] = useState(false);
 
-  const handleRemoveFromCart = useCallback(() => {
-    setDeleteLoading(true);
-    fetch(`http://localhost:8000/cart/${cartItem.id}`, {
-      method: "DELETE",
-      body: JSON.stringify(cartItem),
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error();
-        return res.json();
+  const handleRemoveFromCart = useCallback(
+    (e) => {
+      e?.preventDefault();
+      e?.stopPropagation();
+      setDeleteLoading(true);
+      fetch(`${server}/cart/${cartItem.id}`, {
+        method: "DELETE",
+        body: JSON.stringify(cartItem),
       })
-      .then((data) => {
-        setDeleteLoading(false);
-        dispatch(cartActions.removeItem(data.id));
-      })
-      .catch(() => {
-        setDeleteLoading(false);
-        toast.error("Unable to remove this item :(");
-      });
-  }, [dispatch, cartItem]);
+        .then((res) => {
+          if (!res.ok) throw new Error();
+          return res.json();
+        })
+        .then((data) => {
+          setDeleteLoading(false);
+          dispatch(cartActions.removeItem(data.id));
+        })
+        .catch(() => {
+          setDeleteLoading(false);
+          toast.error("Unable to remove this item :(");
+        });
+    },
+    [dispatch, cartItem]
+  );
 
   const handleChangeValue = useCallback(
-    (newValue) => {
+    (newValue, e) => {
       if (newValue <= 0) {
-        handleRemoveFromCart();
+        handleRemoveFromCart(e);
         return;
       }
+      e.preventDefault();
+      e.stopPropagation();
       setLoading(true);
-      fetch(`http://localhost:8000/cart/${cartItem.id}`, {
+      fetch(`${server}/cart/${cartItem.id}`, {
         method: "PUT",
         body: JSON.stringify({
           ...cartItem,
@@ -64,9 +73,11 @@ const CartItem = ({ cartItem }) => {
   );
 
   return (
-    <div
+    <Link
+      to={`/product/${cartItem.id}`}
+      onClick={handleCartClosure}
       style={{ borderBottom: "1px solid", opacity: deleteLoading ? 0.5 : 1 }}
-      className="p-3 border-color-main d-flex align-items-center justify-content-between"
+      className="p-3 text-black text-decoration-none border-color-main d-flex align-items-center justify-content-between"
     >
       <div className="d-flex gap-3">
         <div
@@ -108,7 +119,7 @@ const CartItem = ({ cartItem }) => {
       >
         <FontAwesomeIcon icon={faClose} />
       </button>
-    </div>
+    </Link>
   );
 };
 

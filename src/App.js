@@ -11,6 +11,8 @@ import Header from "./components/header/Header";
 import Footer from "./components/Footer";
 import Products from "./pages/Products";
 
+export const server = "http://localhost:8000";
+
 function App() {
   const dispatch = useDispatch();
 

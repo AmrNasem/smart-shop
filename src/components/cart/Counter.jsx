@@ -18,7 +18,7 @@ const Counter = ({ className, value, changeValue, disabled, aside }) => {
         className={`p-0 flex-grow-1 ${
           aside ? "bg-transparent border-0" : "border"
         }`}
-        onClick={() => changeValue(value + 1)}
+        onClick={(e) => changeValue(value + 1, e)}
         disabled={disabled}
       >
         +
@@ -34,7 +34,7 @@ const Counter = ({ className, value, changeValue, disabled, aside }) => {
         className={`p-0 flex-grow-1 ${
           aside ? "bg-transparent border-0" : "border"
         }`}
-        onClick={() => changeValue(value - 1)}
+        onClick={(e) => changeValue(value - 1, e)}
         disabled={disabled}
       >
         -

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
+import { server } from "../App";
 const initialState = {
   items: [],
   totalPrice: 0,
@@ -18,7 +18,7 @@ export const fetchCartItems = createAsyncThunk(
   "cart/fetchCartItems",
   async () => {
     try {
-      const res = await fetch("http://localhost:8000/cart");
+      const res = await fetch(`${server}/cart`);
       if (!res.ok) throw new Error("Something went wrong");
       const data = await res.json();
       return data;

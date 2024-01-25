@@ -3,8 +3,12 @@
     {
       "id": "3",
       "title": "شيرت رمادي عصري",
+      "category": "ملابس",
       "path": "assets/product2.png",
-      "color": "رمادي",
+      "color": {
+        "hexa": "#777",
+        "text": "رمادي"
+      },
       "weight": 500,
       "price": 500,
       "discount": 0.2,
@@ -21,45 +25,22 @@
       "size": "m"
     },
     {
-      "id": "6",
-      "title": "قميص سماوي",
+      "id": "2",
+      "title": "فستان أبيض عصري",
       "category": "ملابس",
-      "path": "assets/product6.png",
+      "path": "assets/product.png",
       "color": {
-        "hexa": "#87CEEB",
-        "text": "سماوي"
+        "hexa": "#fff",
+        "text": "أبيض"
       },
-      "weight": 800,
-      "price": 350,
-      "discount": 0.13,
-      "rate": 2,
-      "sizes": [
-        "s",
-        "m",
-        "l",
-        "xl"
-      ],
-      "amount": 1,
-      "userId": "1",
-      "size": "m"
-    },
-    {
-      "id": "7",
-      "title": "جاكت جينز كحلي",
-      "category": "أحذية",
-      "path": "assets/product7.png",
-      "color": {
-        "hexa": "#00008B",
-        "text": "كحلي"
-      },
-      "weight": 650,
-      "price": 450,
-      "discount": 0.1,
-      "rate": 5,
+      "weight": 4000,
+      "price": 15000,
+      "discount": 0.2,
+      "rate": 3,
       "sizes": [
         "xs",
-        "s",
-        "m"
+        "m",
+        "xl"
       ],
       "amount": 1,
       "userId": "1",
@@ -74,7 +55,8 @@
     },
     {
       "pattern": "amr",
-      "discount": 1
+      "discount": 1,
+      "id": "893e"
     },
     {
       "pattern": "12345",

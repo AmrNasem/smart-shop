@@ -6,6 +6,7 @@ import { memo, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 import { toast } from "react-toastify";
+import { server } from "../../App";
 
 const ProductCard = ({ className, product, minWidth, style }) => {
   const [size, setSize] = useState("m");
@@ -25,7 +26,7 @@ const ProductCard = ({ className, product, minWidth, style }) => {
   const handleAddToCart = (e) => {
     e.preventDefault();
     setLoading(true);
-    fetch(`http://localhost:8000/cart/${isAdded ? product.id : ""}`, {
+    fetch(`${server}/cart/${isAdded ? product.id : ""}`, {
       method: isAdded ? "DELETE" : "POST",
       body: JSON.stringify({ ...product, amount: 1, userId: "1", size }),
     })

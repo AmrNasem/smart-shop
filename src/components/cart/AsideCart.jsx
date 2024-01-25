@@ -6,6 +6,7 @@ import CartItem from "./CartItem";
 import classes from "./AsideCart.module.css";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Skeleton from "../skeleton/Skeleton";
 
 const AsideCart = ({ handleClosure, className, closing }) => {
   const {
@@ -32,9 +33,17 @@ const AsideCart = ({ handleClosure, className, closing }) => {
       </button>
       <div className="flex-grow-1 overflow-auto scrollbar-none">
         {loading ? (
-          <h6 className="text-center">جارٍ التحميل...</h6>
+          [...Array(3).keys()].map((i) => (
+            <AsideItemSkeleton key={i} delay={i} />
+          ))
         ) : cartItems.length ? (
-          cartItems.map((item, i) => <CartItem cartItem={item} key={i} />)
+          cartItems.map((item, i) => (
+            <CartItem
+              handleCartClosure={handleClosure}
+              cartItem={item}
+              key={i}
+            />
+          ))
         ) : (
           <h6 className="text-center my-3">السلة فارغة.</h6>
         )}
@@ -59,3 +68,19 @@ const AsideCart = ({ handleClosure, className, closing }) => {
 };
 
 export default memo(AsideCart);
+
+export const AsideItemSkeleton = () => {
+  return (
+    <div className="d-flex gap-3 py-1 px-3">
+      <Skeleton style={{ width: "91px", height: "91px" }} />
+      <div className="flex-grow-1 d-flex flex-column justify-content-between">
+        <Skeleton className="mt-2 w-75" />
+        <div className="d-flex mt-1 mb-2 w-75 justify-content-between gap-2">
+          <Skeleton className="w-25" />
+          <Skeleton className="" style={{ width: "60px" }} />
+        </div>
+        <Skeleton className="my-2" style={{ width: "90px" }} />
+      </div>
+    </div>
+  );
+};
