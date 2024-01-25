@@ -52,10 +52,15 @@ export const Signup = () => {
       setEmailError(err.response.status)
     }
   }
-  function hidemsg() {
-    setEmailError("")
+  function hideEmailmsg() {
+    setEmailcheck(false)
   }
-
+  function hideNameMessage() {
+    setReqName(false)
+  }
+  function hidePassMessage() {
+    setAccept(false);
+  }
   return (
     <div className={signup.container} dir='rtl'>
       <div className={signup.secondHalf}>
@@ -73,25 +78,24 @@ export const Signup = () => {
           <div className={signup.inputFields}>
             <div className={signup.cont}>
               <input className={signup.userField} type='text' placeholder='الاسم' value={name} onChange={e => setName(e.target.value)
-              }></input>
+              } onFocus={hideNameMessage}></input>
               <FontAwesomeIcon className={signup.icon} icon={faUser} />
             </div>
             {name === "" && reqNam && <p style={{ margin: "5px", color: "#a00" }}>Username Is Required↪</p>}
             <div className={signup.cont}>
-              <input className={signup.emailField} type='email' placeholder='البريد الالكتروني' value={email} onChange={(e) => setEmail(e.target.value)} onFocus={hidemsg}></input>
+              <input className={signup.emailField} type='email' placeholder='البريد الالكتروني' value={email} onChange={(e) => setEmail(e.target.value)} onFocus={hideEmailmsg}></input>
               <FontAwesomeIcon className={signup.icon} icon={faEnvelope} />
             </div>
             {emailcheck && email === "" && <p style={{ margin: "5px", color: "#a00" }}>Email Is Required↪</p>}
             {emailcheck && emailError === 422 && <p style={{ margin: "5px", color: "#a00" }}>↪Email Is Already Used</p>}
             <div className={signup.cont}>
-              <input className={signup.passField} type='password' placeholder='كلمة المرور' value={password} onChange={(e) => setPassword(e.target.value)} />
+              <input className={signup.passField} type='password' placeholder='كلمة المرور' value={password} onChange={(e) => setPassword(e.target.value)} onFocus={hidePassMessage} />
               <FontAwesomeIcon className={signup.icon} icon={faLock} />
             </div>
             {password.length < 8 && accept && <p style={{ margin: "5px", color: "#a00" }}>Password must be more than 8 charactar↪</p>}
           </div>
           <div className={signup.otherAttr}>
             <button className={signup.signupBtn} type='submit'>انشاء حساب</button>
-            <a href='#'>هل نسيت كلمة المرور؟</a>
           </div>
           <p className={signup.p}>او سجل الدخول عبر:</p>
           <div className={signup.socialMediaIcons}>
