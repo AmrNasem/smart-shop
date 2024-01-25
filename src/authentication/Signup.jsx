@@ -9,7 +9,6 @@ import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import signup from "./Signup.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import axios from "axios";
 
 export const Signup = () => {
@@ -44,7 +43,7 @@ export const Signup = () => {
       }
       console.log(check);
       if (flag && check === undefined) {
-        const res = await axios
+        await axios
           .post("http://localhost:8000/users", {
             name: name,
             email: email,

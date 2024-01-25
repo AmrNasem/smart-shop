@@ -9,13 +9,13 @@ import login from "./login.module.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { loginUser } from "../Componentes/Store/authSlice";
 import Swal from "sweetalert2";
 
+let flag = true;
+let access = false;
 export const Login = () => {
-  let flag = true;
-  let access = false;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailcheck, setEmailcheck] = useState(false);
