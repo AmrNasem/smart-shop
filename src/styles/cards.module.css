@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 200px;
+    padding: 20px;
+}
+.container .row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.text{
+    margin: 10px;
+}
+.text p{
+    color: var(--secondary-text);
+}
+.icons{
+    text-align: center;
+    border: 1px solid var(--secondary-text);
+    border-radius: 5px;
+    width: 32px;
+    height: 32px;
+    padding: 5px;
+    color: var(--main-color);
+    font-size: xx-large;
+    margin: 10px;
+
+}
+
