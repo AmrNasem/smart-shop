@@ -1,16 +1,22 @@
 {
   "users": [
     {
-      "name": "Mohammed",
-      "email": "h@j",
+      "name": "mohammed",
+      "email": "heggy@gamil.com",
       "password": "12345678",
       "id": 1
     },
     {
-      "name": "Mohammed Heggy",
-      "email": "hegy@k",
+      "name": "Mohammed",
+      "email": "hegy@gmail.com",
       "password": "12345678",
       "id": 2
+    },
+    {
+      "name": "Amr Naseem",
+      "email": "Amr@gmail.com",
+      "password": "87654321",
+      "id": 3
     }
   ]
 }
