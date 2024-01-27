@@ -13,6 +13,8 @@ import Products from "./pages/Products";
 import { Login } from "./authentication/Login";
 import { Signup } from "./authentication/Signup";
 import Home from "./pages/Home";
+import Product from "./components/Product2";
+import Review from "./components/Review";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,9 +35,10 @@ function App() {
         <Route
           path="/product/:productId"
           element={
-            <main>
-              <h3>Single product</h3>
-            </main>
+            <>
+              <Product />
+              <Review />
+            </>
           }
         />
         <Route path="*" />
