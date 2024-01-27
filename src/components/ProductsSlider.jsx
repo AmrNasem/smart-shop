@@ -12,6 +12,8 @@ import P7 from "../assets/P7.png";
 import P8 from "../assets/P8.png";
 import { FaHeart } from "react-icons/fa";
 import { IoArrowBackCircle, IoArrowForwardCircle } from "react-icons/io5";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ProductsSlider = () => {
   const images = [P1, P2, P3, P4, P5, P6, P7, P8];
