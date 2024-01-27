@@ -23,13 +23,13 @@ const Product = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={`container ${styles.container}`}>
       <h2>احدث المنتجات</h2>
       <hr />
       <div className={styles.cards}>
         <div className="row">
           {products.map((product, index) => (
-            <div key={index} className="col col-lg-3 col-md-4 col-sm-6">
+            <div key={index} className="col col-lg-3 col-md-4 col-sm-6 gy-4">
               <ProductCard product={product} minWidth="220px" />
             </div>
             // <div className={styles.card} key={index}>

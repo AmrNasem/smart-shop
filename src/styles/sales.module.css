@@ -1,21 +1,24 @@
-.container{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 100px;
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
 }
 
-.container .childs{
-    width: 600px;
-    height: auto;
-    background-color: var(--main-color);
-    display: flex;
-    align-items: center;
+.container .childs {
+  /* width: 600px; */
+  /* height: auto; */
+  background-color: var(--main-color);
+  display: flex;
+  align-items: center;
 }
-.container .childs .img{
-    width: 312px;
-    height: 317px;
+.container .childs .img {
+  /* width: 312px;
+  height: 317px; */
+  width: 50%;
+  align-self: flex-end;
 }
-h1,h3,h4{
-    margin: 0px;
+.txt h1,
+.txt h3,
+.txt h4 {
+  margin: 0px;
 }
-

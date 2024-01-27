@@ -1,50 +1,48 @@
 .header {
-    height: 300px;
-    width: 100%;
-    background-image: url('../images/Header.png');
-    background-position: center;
-    background-size: cover;
-    position: relative;
-    top: 150px;
-    display: flex;
-    justify-content: center;
+  height: 300px;
+  width: 100%;
+  background-image: url("../images/Header.png");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  top: 150px;
+  display: flex;
+  justify-content: center;
 }
 
 .headTitle {
-    width: 40%;
-    height: 200px;
-    color: white;
-    position: relative;
-    top: 30%;
-    right: 10%;
-    display: grid;
-    grid-template-rows: 50% 50%;
-    
+  width: 40%;
+  height: 200px;
+  color: white;
+  position: relative;
+  top: 30%;
+  right: 10%;
+  display: grid;
+  grid-template-rows: 50% 50%;
 }
 
 .Title {
-    font-family: "Tajawal", sans-serif;
-    font-size: 40PX;
-    font-weight: 900;
-    font-style: normal;
+  font-family: "Tajawal", sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  font-style: normal;
 }
-.headlinks{
-    display: flex;
-    gap: 2%;
-    justify-content: center;
+.headlinks {
+  display: flex;
+  gap: 2%;
+  justify-content: center;
 }
 .slash {
-    color: red;
-    font-size: 20px;
-    font-weight: 900;
-    
+  color: red;
+  font-size: 20px;
+  font-weight: 900;
 }
 
 .HeadLink {
-    text-decoration-line: none;
-    color: white;
-    font-family: "El Messiri", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
+  text-decoration-line: none;
+  color: white;
+  font-family: "El Messiri", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }

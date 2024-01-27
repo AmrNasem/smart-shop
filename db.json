@@ -64,6 +64,28 @@
       "amount": 1,
       "userId": "1",
       "size": "m"
+    },
+    {
+      "id": "2",
+      "title": "فستان أبيض عصري",
+      "category": "ملابس",
+      "path": "assets/product.png",
+      "color": {
+        "hexa": "#fff",
+        "text": "أبيض"
+      },
+      "weight": 4000,
+      "price": 15000,
+      "discount": 0.2,
+      "rate": 3,
+      "sizes": [
+        "xs",
+        "m",
+        "xl"
+      ],
+      "amount": 1,
+      "userId": "1",
+      "size": "m"
     }
   ],
   "coupons": [
@@ -346,5 +368,35 @@
       "أبل",
       "جوجل"
     ]
-  }
+  },
+  "brands": [
+    {
+      "id": 1,
+      "src": "Ted_Baker.png"
+    },
+    {
+      "id": 2,
+      "src": "Lacoste.png"
+    },
+    {
+      "id": 3,
+      "src": "Vivienne_Westwood.png"
+    },
+    {
+      "id": 4,
+      "src": "Under_Armour.png"
+    },
+    {
+      "id": 5,
+      "src": "Ted_Baker.png"
+    },
+    {
+      "id": 6,
+      "src": "Vans.png"
+    },
+    {
+      "id": 7,
+      "src": "Lacoste.png"
+    }
+  ]
 }

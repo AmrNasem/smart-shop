@@ -6,24 +6,29 @@ import imgL from "../assets/Sales_L.png";
 
 const Sales = () => {
   return (
-    <Row className={styles.container}>
-      <Col className={styles.childs}>
+    <div
+      className={`container gap-3 flex-wrap flex-lg-nowrap ${styles.container}`}
+    >
+      <div className={` ${styles.childs} flex-grow-1 pt-2 ps-2`}>
         <img src={imgR} className={styles.img} alt="" />
         <div className={styles.txt}>
           <h1>ملابس أطفال</h1>
           <h3>خصم 50%</h3>
           <h4>تسوق الان</h4>
         </div>
-      </Col>
-      <Col className={styles.childs} style={{ backgroundColor: "pink" }}>
+      </div>
+      <div
+        className={` ${styles.childs} flex-grow-1 pt-2 ps-2`}
+        style={{ backgroundColor: "pink" }}
+      >
         <img src={imgL} className={styles.img} alt="" />
         <div className={styles.txt}>
           <h3>خصم كبير</h3>
           <h1>فساتين بناتي</h1>
           <h4>تسوق الان</h4>
         </div>
-      </Col>
-    </Row>
+      </div>
+    </div>
   );
 };
 

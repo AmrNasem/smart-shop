@@ -13,8 +13,7 @@ import Products from "./pages/Products";
 import { Login } from "./authentication/Login";
 import { Signup } from "./authentication/Signup";
 import Home from "./pages/Home";
-import Product from "./components/Product2";
-import Review from "./components/Review";
+import SingleProduct from "./pages/SingleProduct";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,15 +31,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/products" element={<Products />} />
-        <Route
-          path="/product/:productId"
-          element={
-            <>
-              <Product />
-              <Review />
-            </>
-          }
-        />
+        <Route path="/product/:productId" element={<SingleProduct />} />
         <Route path="*" />
       </Routes>
       <Footer />

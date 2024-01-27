@@ -1,38 +1,39 @@
 @font-face {
-  font-family: 'Montserrat';
-  src: url('../assets/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-family: "Montserrat";
+  src: url("../assets/Montserrat-VariableFont_wght.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
-.leftHalf{
+.leftHalf {
   height: 100vh;
   width: 50%;
 }
-.loginForm{
+.loginForm {
   padding-right: 170px;
 }
-.heading{
+.heading {
   margin: 0;
   padding-top: 80px;
   padding-bottom: 70px;
   font-size: 50px;
   font-family: "Montserrat";
 }
-.formLable{
+.formLable {
   margin-bottom: 1px;
 }
-.instruction{
+.instruction {
   margin-bottom: 30px;
   font-size: 13px;
   font-weight: 300;
 }
 
-.inputFields{
+.inputFields {
   display: flex;
   flex-direction: column;
 }
 
-.passField,.emailField{
+.passField,
+.emailField {
   width: 90%;
   height: 56px;
   border: none;
@@ -45,77 +46,77 @@
   align-items: center;
   position: relative;
 }
-.icon{
+.icon {
   font-size: 20px;
   color: #00000015;
   position: absolute;
-right: 500px;
+  right: 500px;
 }
-.inputFields{
+.inputFields {
   margin-bottom: 50px;
 }
-.otherAttr{
+.otherAttr {
   display: flex;
-gap: 250px;
-align-items: center;
-margin-bottom: 30px;
+  gap: 250px;
+  align-items: center;
+  margin-bottom: 30px;
 }
-.otherAttr a{
+.otherAttr a {
   margin-left: 60px;
   text-decoration: none;
-  color: #7FD3DF;
+  color: #7fd3df;
 }
-.otherAttr button{
+.otherAttr button {
   height: 50px;
   padding: 15px;
   border-radius: 8px;
-  background-color: #7FD3DF;
+  background-color: #7fd3df;
   color: #fff;
   border: none;
   cursor: pointer;
 }
-.socialIcon{
+.socialIcon {
   font-size: 30px;
   margin-left: 10px;
   border-radius: 50%;
   margin-top: 20px;
   cursor: pointer;
 }
-.socialIcon:nth-child(1){
+.socialIcon:nth-child(1) {
   background-color: #55acee;
   color: #fff;
   padding: 10px;
 }
-.socialIcon:nth-child(2){
+.socialIcon:nth-child(2) {
   background-color: #1877f2;
   color: #fff;
   padding: 10px;
   padding-left: 15px;
   padding-right: 15px;
 }
-.socialIcon:nth-child(3){
+.socialIcon:nth-child(3) {
   background-color: #cb1f27;
   color: #fff;
   padding: 10px;
 }
-.socialIcon:nth-child(4){
+.socialIcon:nth-child(4) {
   background-color: #0a66c2;
   color: #fff;
   padding: 10px;
 }
-.secondHalf{
+.secondHalf {
   width: 50%;
   height: 100vh;
   background-image: url("../assets/Rectangle\ 3706.png");
   background-size: cover;
 }
-.container{
+.container {
   display: flex;
 }
-.secondHalf{
+.secondHalf {
   position: relative;
 }
-.secondHalf button{
+.secondHalf button {
   position: absolute;
   left: 0;
   border-radius: 0 80px 80px 0;
@@ -123,13 +124,13 @@ margin-bottom: 30px;
   border: none;
   cursor: pointer;
 }
-.FBtn{
+.FBtn {
   top: 47%;
   width: 125px;
-  background-color: #7FD3DF;
+  background-color: #7fd3df;
   color: #fff;
 }
-.LBtn{
+.LBtn {
   top: 53%;
   width: 125px;
   background-color: #fff;
@@ -148,43 +149,43 @@ margin-bottom: 30px;
   .loginForm {
     padding-right: 30px;
   }
-  .socialIcon{
+  .socialIcon {
     font-size: 40px;
   }
-  .socialMediaIcons, .p{
+  .socialMediaIcons,
+  .p {
     text-align: center;
     margin: auto;
   }
-  .socialMediaIcons{
+  .socialMediaIcons {
     display: flex;
     justify-content: center;
     gap: 10px;
-  
   }
-  .p{
+  .p {
     margin-top: 150px;
   }
-  .otherAttr{
+  .otherAttr {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
     gap: 10px;
   }
-  .heading{
+  .heading {
     margin: auto;
     text-align: center;
     margin-top: 30px;
   }
-  .FBtn{
+  .FBtn {
     display: none;
   }
-  .LBtn{
+  .LBtn {
     position: absolute;
     right: 0;
     margin-top: 20px;
     width: 125px;
-    background-color: #7FD3DF;
+    background-color: #7fd3df;
     color: #fff;
     border-radius: 80px 0px 0px 80px !important;
   }

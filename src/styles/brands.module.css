@@ -1,19 +1,19 @@
-.container{
-    margin-top: 100px;
-    padding: 100px;
+.container {
+  margin-top: 100px;
+  padding: 100px;
 }
-.container h1{
-    text-align: center;
+.container h1 {
+  text-align: center;
 }
-.container hr{
-    width: 100px;
-    color: var(--main-color);
+.container hr {
+  width: 100px;
+  color: var(--main-color);
 }
-.container .cards{
-    margin-top: 100px;
-    display: flex;
-    justify-content: space-around;
+.container .cards {
+  margin-top: 100px;
+  /* display: flex;
+    justify-content: space-around; */
 }
-.container .cards .card img{
-    width: 130px;
+.container .cards .card img {
+  width: 130px;
 }

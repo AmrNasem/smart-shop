@@ -22,8 +22,8 @@ const Slider = () => {
           <img src={img} alt="" />
         </Col>
       </Row>
-      <Row className={styles.icons}>
-        <Col>
+      <Row className={`${styles.icons}`}>
+        <Col className="text-center">
           <i>
             <IoArrowForwardCircleOutline />
           </i>
