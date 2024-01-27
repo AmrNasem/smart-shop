@@ -8,7 +8,7 @@ const Sales = () => {
   return (
     <Row className={styles.container}>
       <Col className={styles.childs}>
-        <img src={imgR} className={styles.img} />
+        <img src={imgR} className={styles.img} alt="" />
         <div className={styles.txt}>
           <h1>ملابس أطفال</h1>
           <h3>خصم 50%</h3>
@@ -16,7 +16,7 @@ const Sales = () => {
         </div>
       </Col>
       <Col className={styles.childs} style={{ backgroundColor: "pink" }}>
-        <img src={imgL} className={styles.img} />
+        <img src={imgL} className={styles.img} alt="" />
         <div className={styles.txt}>
           <h3>خصم كبير</h3>
           <h1>فساتين بناتي</h1>

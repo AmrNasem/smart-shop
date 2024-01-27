@@ -10,9 +10,9 @@ import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/header/Header";
 import Footer from "./components/Footer";
 import Products from "./pages/Products";
-import { Visitor } from "./Componentes/Visitor";
 import { Login } from "./authentication/Login";
 import { Signup } from "./authentication/Signup";
+import Home from "./pages/Home";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ function App() {
     <div className="App d-flex flex-column">
       <Header />
       <Routes>
-        <Route path="/" element={<Visitor />} />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/cart" element={<Cart />} />

@@ -13,27 +13,13 @@ const Navbar = () => {
       </Col>
 
       <Col className={styles.pages}>
-        <a className={styles.active}>
-          <Link to="/">الرئيسية</Link>
-        </a>
-        <a>
-          <Link to="/products">المنتجات</Link>
-        </a>
-        <a>
-          <Link to="/services">الخدمات</Link>
-        </a>
-        <a>
-          <Link to="/aboutus">نبذة عنا</Link>
-        </a>
-        <a>
-          <Link to="/terms">الشروط و الأحكام</Link>
-        </a>
-        <a>
-          <Link to="/note">المدونة</Link>
-        </a>
-        <a>
-          <Link to="/contactus">اتصل بنا</Link>
-        </a>
+        <Link to="/">الرئيسية</Link>
+        <Link to="/products">المنتجات</Link>
+        <Link to="/services">الخدمات</Link>
+        <Link to="/aboutus">نبذة عنا</Link>
+        <Link to="/terms">الشروط و الأحكام</Link>
+        <Link to="/note">المدونة</Link>
+        <Link to="/contactus">اتصل بنا</Link>
       </Col>
 
       <Col className={styles.icons}>

@@ -19,7 +19,7 @@ const Slider = () => {
           <button className={styles.btn}>اكتشف الان</button>
         </Col>
         <Col className={styles.img}>
-          <img src={img} />
+          <img src={img} alt="" />
         </Col>
       </Row>
       <Row className={styles.icons}>

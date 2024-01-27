@@ -16,7 +16,7 @@
         "l",
         "xl"
       ],
-      "amount": 1,
+      "amount": 2,
       "userId": "1",
       "size": "m"
     },
@@ -39,7 +39,7 @@
         "l",
         "xl"
       ],
-      "amount": 1,
+      "amount": 2,
       "userId": "1",
       "size": "m"
     },
@@ -74,7 +74,8 @@
     },
     {
       "pattern": "amr",
-      "discount": 1
+      "discount": 1,
+      "id": "d256"
     },
     {
       "pattern": "12345",

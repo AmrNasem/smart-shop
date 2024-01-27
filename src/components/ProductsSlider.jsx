@@ -13,7 +13,7 @@ import P8 from "../assets/P8.png";
 import { FaHeart } from "react-icons/fa";
 import { IoArrowBackCircle, IoArrowForwardCircle } from "react-icons/io5";
 
-const Products_Slider = () => {
+const ProductsSlider = () => {
   const images = [P1, P2, P3, P4, P5, P6, P7, P8];
   const itemsPerPage = 3;
   const [startIndex, setStartIndex] = useState(0);
@@ -40,21 +40,23 @@ const Products_Slider = () => {
             <th>تسوق عبر الفئات</th>
           </tr>
         </thead>
-        <tr>
-          <td>رجالي</td>
-        </tr>
-        <tr>
-          <td>حريمي</td>
-        </tr>
-        <tr>
-          <td>أطفال</td>
-        </tr>
-        <tr>
-          <td>اكسسوارات</td>
-        </tr>
-        <tr>
-          <td>ألعاب</td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>رجالي</td>
+          </tr>
+          <tr>
+            <td>حريمي</td>
+          </tr>
+          <tr>
+            <td>أطفال</td>
+          </tr>
+          <tr>
+            <td>اكسسوارات</td>
+          </tr>
+          <tr>
+            <td>ألعاب</td>
+          </tr>
+        </tbody>
       </table>
       <div className={styles.slider}>
         <div className={styles.cards}>
@@ -91,4 +93,4 @@ const Products_Slider = () => {
   );
 };
 
-export default Products_Slider;
+export default ProductsSlider;
