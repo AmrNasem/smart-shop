@@ -1,33 +1,33 @@
-.container{
-    margin-top: 100px;
-    margin-bottom: 150px;
-    /*width: 1200px;*/
+.container {
+  margin-top: 100px;
+  margin-bottom: 150px;
+  /*width: 1200px;*/
 }
-.cards{
-    display: flex;
-    justify-content: space-around;
-    gap: 1rem;
+.cards {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
 }
-.card{
-    flex: 1;
+.card {
+  flex: 1;
 }
-.card img{
-    width: 100%;
+.card img {
+  width: 100%;
 }
-.cards .card .txt h3{
-    text-align: center;
-    padding: 10px;
-    font-size: large;
+.cards .card .txt h3 {
+  text-align: center;
+  padding: 10px;
+  font-size: large;
 }
-.cards .card .txt p{
-    color: var(--secondary-text);
-    text-align: center;
-    font-size: medium;
+.cards .card .txt p {
+  color: var(--secondary-text);
+  text-align: center;
+  font-size: medium;
 }
-@media (max-width: 1000px) {
-    .cards{
-        flex-direction: column;
-        width: 50%;
-        margin: auto;
-    }
+@media (max-width: 991.9px) {
+  .cards {
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+  }
 }

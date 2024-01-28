@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import styles from "../styles/product.module.css";
+import styles from "../../styles/product.module.css";
 // import { FaHeart } from "react-icons/fa";
-// import star from "../assets/star.png";
-// import size from "../assets/size.png";
+// import star from "../../assets/star.png";
+// import size from "../../assets/size.png";
 import axios from "axios";
-import ProductCard from "./product/ProductCard";
-import ProductCardSkeleton from "./skeleton/ProductCardSkeleton";
+import ProductCard from "../product/ProductCard";
+import ProductCardSkeleton from "../skeleton/ProductCardSkeleton";
+import { server } from "../../App";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -14,7 +15,7 @@ const Product = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/home_products");
+        const response = await axios.get(`${server}/home_products`);
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -48,7 +49,7 @@ const Product = () => {
                   // <div className={styles.card} key={index}>
                   //   <div className={styles.img}>
                   //     <img
-                  //       src={require(`../${product.path}`)}
+                  //       src={require(`../../${product.path}`)}
                   //       alt={`Product ${index + 1}`}
                   //     />
                   //     <FaHeart />

@@ -1,8 +1,8 @@
 import React from "react";
-import Poster1 from "../assets/Poster1.png";
-import Poster2 from "../assets/Poster2.png";
-import Poster3 from "../assets/Poster3.png";
-import styles from "../styles/posters.module.css";
+import Poster1 from "../../assets/Poster1.png";
+import Poster2 from "../../assets/Poster2.png";
+import Poster3 from "../../assets/Poster3.png";
+import styles from "../../styles/posters.module.css";
 
 const Posters = () => {
   return (
@@ -16,11 +16,15 @@ const Posters = () => {
           </div>
         </div>
         <div className={styles.card}>
-          <div className={styles.txt}>
+          <div className={`d-none d-lg-block ${styles.txt}`}>
             <h3>اشتري اللي يخليك شيك</h3>
             <p>مع احدث واجمل ملابش الشباب الحديثه</p>
           </div>
           <img src={Poster2} alt="" />
+          <div className={`d-lg-none ${styles.txt}`}>
+            <h3>اشتري اللي يخليك شيك</h3>
+            <p>مع احدث واجمل ملابش الشباب الحديثه</p>
+          </div>
         </div>
         <div className={styles.card}>
           <img src={Poster3} alt="" />

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/cards.module.css";
+import styles from "../../styles/cards.module.css";
 import { CiDeliveryTruck, CiMobile2, CiWallet, CiGift } from "react-icons/ci";
 
 const Cards = () => {

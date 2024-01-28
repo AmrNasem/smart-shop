@@ -1,43 +1,43 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "../css/Product.css";
+import "../../css/Product.css";
 import { useState } from "react";
-import img2 from "../images/Rectangle 3691p6.png";
-import img1 from "../images/Rectangle 3690mainProduct.png";
-import img3 from "../images/Rectangle 3693p4.png";
-import img4 from "../images/Rectangle 3692p5.png";
-function Product({ product }) {
-  const productDetails = [
-    {
-      id: 1,
-      color: "blue",
-      title: "فستان ازرق عصري ",
-      price: 2000,
-      discount: 0.75,
-      rate: 5,
-      about:
-        "مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق ",
-      path: [img1, img2, img3, img4],
-      weight: ["2 كيلو", "3 كيلو ", "5 كيلو "],
-      reviews: [
-        {
-          reviewRate: 5,
-          reviewTitle: "منتج رائع. التعبئة والتغليف كانت جيدة أيضا!",
-          reviewText:
-            "مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق ",
-          reviewName: "احمد بلال ",
-          reviewDate: ">9 اغسطس, 2022 ",
-        },
-      ],
-    },
-  ];
-  console.log(product);
+import img2 from "../../images/Rectangle 3691p6.png";
+import img1 from "../../images/Rectangle 3690mainProduct.png";
+import img3 from "../../images/Rectangle 3693p4.png";
+import img4 from "../../images/Rectangle 3692p5.png";
 
+const productDetails = [
+  {
+    id: 1,
+    color: "blue",
+    title: "فستان ازرق عصري ",
+    price: 2000,
+    discount: 0.75,
+    rate: 5,
+    about:
+      "مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق ",
+    path: [img1, img2, img3, img4],
+    weight: ["2 كيلو", "3 كيلو ", "5 كيلو "],
+    reviews: [
+      {
+        reviewRate: 5,
+        reviewTitle: "منتج رائع. التعبئة والتغليف كانت جيدة أيضا!",
+        reviewText:
+          "مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق ",
+        reviewName: "احمد بلال ",
+        reviewDate: ">9 اغسطس, 2022 ",
+      },
+    ],
+  },
+];
+
+function Product({ product }) {
   const [count, setCount] = useState(1);
   const [MainImg, setMainImg] = useState(productDetails[0].path[0]);
 
   const WColorHandler = (e) => {
-    [...e.target.parentNode.children].map((element) => {
+    [...e.target.parentNode.children].forEach((element) => {
       element.style.backgroundColor = "white";
     });
 
@@ -51,46 +51,36 @@ function Product({ product }) {
     e.target.style.color = "blue";
   };
 
-  const countHandler = (e) => {
-    if (e.target.dataset.name == "+") {
-      setCount((prev) => prev + 1);
-    } else if (e.target.dataset.name == "-") {
-      setCount((prev) => (prev > 1 ? prev - 1 : (prev = 1)));
-    }
-  };
-  const star = 5; // Or something else
   return (
     <>
       <div className="productDiv">
         <div className="aboutPro">
           <div className="details" style={{ direction: "rtl" }}>
-            <h1 className="proName">{productDetails[0].title}</h1>
-            <h5 className="Price">
+            <h1 className="proName fs-3">{productDetails[0].title}</h1>
+            <h5 className="Price fs-6">
               {productDetails[0].discount * productDetails[0].price} ج.م -
             </h5>{" "}
-            <h5 className="Price">
+            <h5 className="Price fs-6">
               <s>{productDetails[0].price} ج.م </s>{" "}
             </h5>
             <div className="star">
-              {[...Array(star)].map((ele, index) => {
-                if (index + 1 <= productDetails[0].rate) {
-                  return (
-                    <h3>
-                      <i class="fa-solid fa-star"></i>
-                    </h3>
-                  );
-                } else if (productDetails[0].rate < 1) {
-                  return (
-                    <h3>
-                      <i class="fa-regular fa-star"></i>
-                    </h3>
-                  );
-                }
-              })}
+              {[...Array(5).keys()].map((i) =>
+                i < productDetails[0].rate ? (
+                  <h3>
+                    <i class="fa-solid fa-star"></i>
+                  </h3>
+                ) : (
+                  <h3>
+                    <i class="fa-regular fa-star"></i>
+                  </h3>
+                )
+              )}
               (50)
             </div>
-            <h3 className="aboutProduct proName">{productDetails[0].about}</h3>
-            <h3 className="colorProduct proName">اللون : </h3>
+            <h3 className="aboutProduct proName fs-6 text-black-50">
+              {productDetails[0].about}
+            </h3>
+            <h3 className="colorProduct proName fs-4">اللون : </h3>
             <div className="colors">
               {productDetails[0].path.map((path) => (
                 <img
@@ -101,7 +91,7 @@ function Product({ product }) {
                 ></img>
               ))}
             </div>
-            <h3 className="weightProduct proName">الوزن : </h3>
+            <h3 className="weightProduct proName fs-4">الوزن : </h3>
             <div className="weights">
               {productDetails[0].weight.map((w) => (
                 <NavLink to="" className={"weight1"} onClick={WColorHandler}>
@@ -112,8 +102,7 @@ function Product({ product }) {
             <div className="Counter">
               <div
                 className="inc"
-                data-name="+"
-                onClick={countHandler}
+                onClick={() => setCount((prev) => prev + 1)}
                 style={{
                   userSelect: "none",
                   cursor: "pointer",
@@ -133,8 +122,9 @@ function Product({ product }) {
               </div>
               <div
                 className="dec"
-                data-name="-"
-                onClick={countHandler}
+                onClick={() =>
+                  setCount((prev) => (prev === 1 ? prev : prev - 1))
+                }
                 style={{
                   userSelect: "none",
                   cursor: "pointer",
@@ -155,11 +145,7 @@ function Product({ product }) {
               data-name="addFav"
               onClick={addFavHandler}
             >
-              <i
-                onClick="{addFavHandler}"
-                class="fa-solid fa-heart favHeart"
-              ></i>{" "}
-              اضف للمفضلة
+              <i class="fa-solid fa-heart favHeart"></i> اضف للمفضلة
             </div>
             <div className="buyNow proName" data-name="buyNow">
               اشتري الان
@@ -182,7 +168,7 @@ function Product({ product }) {
                 <NavLink to="">
                   {" "}
                   <img
-                    src={require("../assets/Twitter.png")}
+                    src={require("../../assets/Twitter.png")}
                     alt="Twitter"
                     style={{ width: "35px", height: "35px" }}
                     className="d-block"
@@ -190,7 +176,7 @@ function Product({ product }) {
                 </NavLink>
                 <NavLink to="">
                   <img
-                    src={require("../assets/Facebook.png")}
+                    src={require("../../assets/Facebook.png")}
                     alt="Facebook"
                     style={{ width: "35px", height: "35px" }}
                     className="d-block"
@@ -198,7 +184,7 @@ function Product({ product }) {
                 </NavLink>
                 <NavLink to="">
                   <img
-                    src={require("../assets/Youtube.png")}
+                    src={require("../../assets/Youtube.png")}
                     alt="Youtube"
                     style={{ width: "35px", height: "35px" }}
                     className="d-block"
@@ -206,7 +192,7 @@ function Product({ product }) {
                 </NavLink>
                 <NavLink to="">
                   <img
-                    src={require("../assets/Whatsapp.png")}
+                    src={require("../../assets/Whatsapp.png")}
                     alt="Whatsapp"
                     style={{ width: "35px", height: "35px" }}
                     className="d-block"
@@ -222,7 +208,12 @@ function Product({ product }) {
             gridTemplateColumns: `repeat(${productDetails[0].path.length},17%)`,
           }}
         >
-          <img className="mainImg" src={MainImg} alt="#" style={{ gridColumn: `1/${productDetails[0].path.length + 1}` }}></img>
+          <img
+            className="mainImg"
+            src={MainImg}
+            alt="#"
+            style={{ gridColumn: `1/${productDetails[0].path.length + 1}` }}
+          ></img>
           {productDetails[0].path.map((path) => (
             <img
               className="Img2"

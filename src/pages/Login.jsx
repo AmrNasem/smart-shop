@@ -13,6 +13,7 @@ import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 import { loginUser } from "../store/authSlice";
 import { cartActions } from "../store/cart-slice";
+import { server } from "../App";
 
 let flag = true;
 let access = false;
@@ -38,7 +39,7 @@ export const Login = () => {
     try {
       if (flag) {
         var response = await axios
-          .get("http://localhost:8000/users", {
+          .get(`${server}/users`, {
             email: email,
             password: password,
           })

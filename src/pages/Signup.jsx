@@ -10,6 +10,7 @@ import signup from "./Signup.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { server } from "../App";
 
 export const Signup = () => {
   const [name, setName] = useState("");
@@ -34,7 +35,7 @@ export const Signup = () => {
     try {
       if (flag) {
         const res = await axios
-          .get("http://localhost:8000/users", {
+          .get(`${server}/users`, {
             email: email,
           })
           .then();
@@ -44,7 +45,7 @@ export const Signup = () => {
       console.log(check);
       if (flag && check === undefined) {
         await axios
-          .post("http://localhost:8000/users", {
+          .post(`${server}/users`, {
             name: name,
             email: email,
             password: password,
@@ -137,7 +138,6 @@ export const Signup = () => {
             <button className={signup.signupBtn} type="submit">
               انشاء حساب
             </button>
-            <Link>هل نسيت كلمة المرور؟</Link>
           </div>
           <p className={signup.p}>او سجل الدخول عبر:</p>
           <div className={signup.socialMediaIcons}>

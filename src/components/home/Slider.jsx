@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../styles/slider.module.css";
+import styles from "../../styles/slider.module.css";
 import { Row, Col } from "react-bootstrap";
-import img from "../assets/Slider_Image.png";
+import img from "../../assets/Slider_Image.png";
 import {
   IoArrowBackCircle,
   IoArrowForwardCircleOutline,

@@ -6,8 +6,8 @@ import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Products from "./pages/Products";
-import { Login } from "./authentication/Login";
-import { Signup } from "./authentication/Signup";
+import { Login } from "./pages/Login";
+import { Signup } from "./pages/Signup";
 import Home from "./pages/Home";
 import SingleProduct from "./pages/SingleProduct";
 

@@ -12,6 +12,7 @@ import { server } from "../../App";
 const ProductCard = ({ className, product, minWidth, style }) => {
   const [size, setSize] = useState("m");
   const [loading, setLoading] = useState(false);
+  const [favorite, setFavorite] = useState(false);
   const cartItems = useSelector((state) => state.cart.items);
   const authedUser = useSelector((state) => state.auth.user);
   const isAdded = useMemo(
@@ -84,8 +85,17 @@ const ProductCard = ({ className, product, minWidth, style }) => {
         className="position-relative rounded-top-2 overflow-hidden"
       >
         <button
-          onClick={(e) => e.preventDefault()}
-          className="bg-transparent z-1 text-secondary py-2 px-3 border-0 position-absolute end-0 top-0"
+          onClick={(e) => {
+            e.preventDefault();
+            e.target.classList.add(classes.pulse);
+            setTimeout(() => {
+              e.target.classList.remove(classes.pulse);
+            }, 500);
+            setFavorite((prev) => !prev);
+          }}
+          className={`bg-transparent transition-main z-1 ${
+            favorite ? "text-main" : "text-secondary"
+          } py-2 px-3 border-0 position-absolute end-0 top-0`}
         >
           <FontAwesomeIcon icon={faHeart} />
         </button>
@@ -105,8 +115,8 @@ const ProductCard = ({ className, product, minWidth, style }) => {
           {isAdded ? "أزِل من السلة" : "أضف إلى السلة"}
         </button>
       </div>
-      <div className="p-3">
-        <div className="d-flex justify-content-between gap-2 mb-2">
+      <div className="py-3 px-2">
+        <div className="d-flex justify-content-between gap-3 mb-2">
           <div>
             <ul className="d-flex mb-0 list-unstyled gap-1">
               {[...Array(5).keys()].map((star) => (
@@ -129,7 +139,7 @@ const ProductCard = ({ className, product, minWidth, style }) => {
           </div>
 
           <div className="text-main text-start">
-            <span className="fw-semibold d-block">
+            <span className="fw-semibold text-nowrap d-block">
               {product.discount
                 ? product.price - product.discount * product.price
                 : product.price}{" "}
@@ -139,7 +149,7 @@ const ProductCard = ({ className, product, minWidth, style }) => {
               <span
                 title={product.price}
                 style={{ fontSize: "0.8rem" }}
-                className="d-block"
+                className="text-nowrap d-block"
               >
                 <del>{product.price} ج.م</del>
               </span>

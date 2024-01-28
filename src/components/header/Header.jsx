@@ -8,8 +8,8 @@ import { useSelector } from "react-redux";
 import classes from "./Header.module.css";
 import AsideCart from "../cart/AsideCart";
 import Search from "./Search";
-import { UserSigned } from "../../Componentes/SignedinUser";
-import { Visitor } from "../../Componentes/Visitor";
+import { UserSigned } from "../../authentication/SignedinUser";
+import { Visitor } from "../../authentication/Visitor";
 
 const navLinkClasses =
   "py-lg-3 px-3 py-2 d-block text-decoration-none transition-main text-hover-main text-nowrap";

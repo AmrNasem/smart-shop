@@ -1,14 +1,15 @@
 import React from "react";
-import styles from "../styles/brands.module.css";
+import styles from "../../styles/brands.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { server } from "../../App";
 const Brands = () => {
   const [brands, setBrands] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/brands");
+        const response = await axios.get(`${server}/brands`);
         setBrands(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -27,7 +28,7 @@ const Brands = () => {
         {brands.map((brand, index) => (
           <div className={styles.card} key={index}>
             <img
-              src={require(`../assets/${brand.src}`)}
+              src={require(`../../assets/${brand.src}`)}
               alt={`brand ${index + 1}`}
             />
           </div>

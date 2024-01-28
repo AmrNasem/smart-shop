@@ -4,3 +4,11 @@
 .add-to-cart {
   transform: translateY(100px);
 }
+.pulse {
+  animation: pulse 500ms;
+}
+@keyframes pulse {
+  50% {
+    transform: scale(1.2);
+  }
+}

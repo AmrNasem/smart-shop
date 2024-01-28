@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
-import styles from "../styles/timer.module.css";
-import img_G from "../assets/Timer_G.png";
-import img_B from "../assets/Timer_B.png";
+import styles from "../../styles/timer.module.css";
+import img_G from "../../assets/Timer_G.png";
+import img_B from "../../assets/Timer_B.png";
 import { useEffect } from "react";
 import { useState } from "react";
 const Timer = () => {
