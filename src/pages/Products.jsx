@@ -1,13 +1,14 @@
 import React from "react";
 import ProductsSection from "../components/product/ProductsSection";
 import SimilarProduct from "../components/product/SimilarProduct";
+import Layout from "../components/UI/Layout";
 
 const Products = () => {
   return (
-    <main>
+    <Layout>
       <ProductsSection />
       <SimilarProduct />
-    </main>
+    </Layout>
   );
 };
 

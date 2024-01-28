@@ -6,6 +6,7 @@ import { cartActions } from "../../../store/cart-slice";
 import { toast } from "react-toastify";
 import { server } from "../../../App";
 import CartItemSkeleton from "../../skeleton/CartItemSkeleton";
+import { loginUser } from "../../../store/authSlice";
 
 const Cart = ({ className }) => {
   const { items: cartItems, loading } = useSelector((state) => state.cart);
@@ -24,8 +25,9 @@ const Cart = ({ className }) => {
           if (!res.ok) throw new Error();
           return res.json();
         })
-        .then(() => {
+        .then((data) => {
           setClearLoading(false);
+          dispatch(loginUser(data));
           dispatch(cartActions.resetCart());
         })
         .catch(() => {

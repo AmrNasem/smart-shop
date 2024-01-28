@@ -7,9 +7,10 @@ import Timer from "../components/Timer";
 import ProductsSlider from "../components/ProductsSlider";
 import Brands from "../components/Brands";
 import Posters from "../components/Posters";
+import Layout from "../components/UI/Layout";
 const Home = () => {
   return (
-    <div>
+    <Layout>
       <Slider />
       <Cards />
       <hr style={{ width: "90%", color: "#54A4AF" }} />
@@ -19,7 +20,7 @@ const Home = () => {
       <ProductsSlider />
       <Brands />
       <Posters />
-    </div>
+    </Layout>
   );
 };
 

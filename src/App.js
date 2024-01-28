@@ -5,8 +5,6 @@ import Cart from "./pages/Cart";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Header from "./components/header/Header";
-import Footer from "./components/Footer";
 import Products from "./pages/Products";
 import { Login } from "./authentication/Login";
 import { Signup } from "./authentication/Signup";
@@ -20,7 +18,6 @@ function App() {
 
   return (
     <div className="App d-flex flex-column">
-      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -34,9 +31,8 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/products" element={<Products />} />
         <Route path="/product/:productId" element={<SingleProduct />} />
-        <Route path="*" />
+        <Route path="*" element={<h3>Not found</h3>} />
       </Routes>
-      <Footer />
       <ToastContainer />
     </div>
   );

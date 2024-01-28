@@ -2,14 +2,15 @@ import React from "react";
 import Header from "../components/Header";
 import Product from "../components/Product2";
 import Review from "../components/Review";
+import Layout from "../components/UI/Layout";
 
 const SingleProduct = () => {
   return (
-    <main>
+    <Layout>
       <Header />
       <Product />
       <Review />
-    </main>
+    </Layout>
   );
 };
 

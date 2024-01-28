@@ -250,7 +250,7 @@ const ProductsSection = () => {
             <ProductsSkeleton />
           )
         ) : (
-          products.length && (
+          !!products.length && (
             <p className="text-center my-4">لم يتم العثور على أية منتجات.</p>
           )
         )}

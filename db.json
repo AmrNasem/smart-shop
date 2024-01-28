@@ -1,54 +1,31 @@
 {
   "users": [
     {
-      "id": "a1cc",
-      "name": "Amr Nasem",
-      "email": "amr2@gmail.com",
+      "id": "1ae0",
+      "name": "Amr Naseem",
+      "email": "amr@gmail.com",
       "password": "amramramr",
       "cart": [
         {
-          "id": "1",
-          "title": "جاكت أسود جلد",
-          "category": "ملابس",
-          "path": "assets/product3.png",
+          "id": "7",
+          "title": "جاكت جينز كحلي",
+          "category": "أحذية",
+          "path": "assets/product7.png",
           "color": {
-            "hexa": "#000",
-            "text": "أسود"
+            "hexa": "#00008B",
+            "text": "كحلي"
           },
-          "weight": 2500,
-          "price": 3000,
-          "rate": 4,
+          "weight": 650,
+          "price": 450,
+          "discount": 0.1,
+          "rate": 5,
           "sizes": [
             "xs",
             "s",
-            "m",
-            "l",
-            "xl"
+            "m"
           ],
           "amount": 1,
-          "userId": "a1cc",
-          "size": "m"
-        },
-        {
-          "id": "2",
-          "title": "فستان أبيض عصري",
-          "category": "ملابس",
-          "path": "assets/product.png",
-          "color": {
-            "hexa": "#fff",
-            "text": "أبيض"
-          },
-          "weight": 4000,
-          "price": 15000,
-          "discount": 0.2,
-          "rate": 3,
-          "sizes": [
-            "xs",
-            "m",
-            "xl"
-          ],
-          "amount": 2,
-          "userId": "a1cc",
+          "userId": "1ae0",
           "size": "m"
         },
         {
@@ -71,8 +48,8 @@
             "l",
             "xl"
           ],
-          "amount": 3,
-          "userId": "a1cc",
+          "amount": 1,
+          "userId": "1ae0",
           "size": "m"
         },
         {
@@ -94,8 +71,114 @@
             "l",
             "xl"
           ],
-          "amount": 4,
-          "userId": "a1cc",
+          "amount": 1,
+          "userId": "1ae0",
+          "size": "m"
+        }
+      ]
+    },
+    {
+      "id": "c8e1",
+      "name": "Kareem Esmail",
+      "email": "kareem@gmail.com",
+      "password": "amramramr",
+      "cart": [
+        {
+          "id": "10",
+          "title": "بلوزة قطنية بيضاء",
+          "category": "إكسسوارات",
+          "path": "assets/product10.png",
+          "color": {
+            "hexa": "#fff",
+            "text": "أبيض"
+          },
+          "weight": 1300,
+          "price": 1250,
+          "discount": 0.15,
+          "rate": 4,
+          "sizes": [
+            "xs",
+            "s",
+            "m",
+            "l"
+          ],
+          "amount": 1,
+          "userId": "c8e1",
+          "size": "m"
+        },
+        {
+          "id": "8",
+          "title": "تيشرت عصري جذاب",
+          "category": "آثاث",
+          "path": "assets/product8.png",
+          "color": {
+            "hexa": "#F5F5DC",
+            "text": "بيج"
+          },
+          "weight": 650,
+          "price": 900,
+          "discount": 0.18,
+          "rate": 5,
+          "sizes": [
+            "s",
+            "m",
+            "l",
+            "xl"
+          ],
+          "amount": 3,
+          "userId": "c8e1",
+          "size": "m"
+        },
+        {
+          "id": "9",
+          "title": "فستان أطفال مشجر",
+          "category": "إلكترونيات",
+          "path": "assets/product9.png",
+          "color": {
+            "hexa": "#0f0",
+            "text": "أخضر"
+          },
+          "weight": 650,
+          "price": 540,
+          "discount": 0.1,
+          "rate": 2,
+          "sizes": [
+            "xs",
+            "s"
+          ],
+          "amount": 2,
+          "userId": "c8e1",
+          "size": "m"
+        }
+      ]
+    },
+    {
+      "id": "3322",
+      "name": "Mohamed Heggy",
+      "email": "heggy@gmail.com",
+      "password": "amramramr",
+      "cart": [
+        {
+          "id": "4",
+          "title": "فستان سواريه أسود",
+          "category": "ملابس",
+          "path": "assets/product4.png",
+          "color": {
+            "hexa": "#000",
+            "text": "أسود"
+          },
+          "weight": 2950,
+          "price": 3450,
+          "rate": 5,
+          "sizes": [
+            "xs",
+            "s",
+            "m",
+            "l",
+            "xl"
+          ],
+          "amount": 1,
+          "userId": "3322",
           "size": "m"
         },
         {
@@ -117,65 +200,10 @@
             "m",
             "l"
           ],
-          "amount": 5,
-          "userId": "a1cc",
+          "amount": 1,
+          "userId": "3322",
           "size": "m"
         },
-        {
-          "id": "4",
-          "title": "فستان سواريه أسود",
-          "category": "ملابس",
-          "path": "assets/product4.png",
-          "color": {
-            "hexa": "#000",
-            "text": "أسود"
-          },
-          "weight": 2950,
-          "price": 3450,
-          "rate": 5,
-          "sizes": [
-            "xs",
-            "s",
-            "m",
-            "l",
-            "xl"
-          ],
-          "amount": 6,
-          "userId": "a1cc",
-          "size": "m"
-        }
-      ]
-    },
-    {
-      "id": "6041",
-      "title": "شيرت رمادي عصري",
-      "category": "ملابس",
-      "path": "assets/product2.png",
-      "color": {
-        "hexa": "#777",
-        "text": "رمادي"
-      },
-      "weight": 500,
-      "price": 500,
-      "discount": 0.2,
-      "rate": 5,
-      "sizes": [
-        "xs",
-        "s",
-        "m",
-        "l",
-        "xl"
-      ],
-      "amount": 1,
-      "userId": "6041",
-      "size": "m"
-    },
-    {
-      "id": "cd36",
-      "name": "Amr Naseem",
-      "email": "amr@gmail.com",
-      "password": "amramramr",
-      "cart": [
         {
           "id": "1",
           "title": "جاكت أسود جلد",
@@ -195,30 +223,8 @@
             "l",
             "xl"
           ],
-          "amount": 3,
-          "userId": "cd36",
-          "size": "m"
-        },
-        {
-          "id": "2",
-          "title": "فستان أبيض عصري",
-          "category": "ملابس",
-          "path": "assets/product.png",
-          "color": {
-            "hexa": "#fff",
-            "text": "أبيض"
-          },
-          "weight": 4000,
-          "price": 15000,
-          "discount": 0.2,
-          "rate": 3,
-          "sizes": [
-            "xs",
-            "m",
-            "xl"
-          ],
-          "amount": 3,
-          "userId": "cd36",
+          "amount": 1,
+          "userId": "3322",
           "size": "m"
         }
       ]

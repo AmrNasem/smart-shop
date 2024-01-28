@@ -34,7 +34,7 @@ const ProductCard = ({ className, product, minWidth, style }) => {
         body: JSON.stringify({
           ...authedUser,
           cart: isAdded
-            ? authedUser.cart.filter((item) => item !== product.id)
+            ? authedUser.cart.filter((item) => item.id !== product.id)
             : [
                 ...authedUser.cart,
                 { ...product, amount: 1, userId: authedUser.id, size },

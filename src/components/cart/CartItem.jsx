@@ -23,7 +23,10 @@ const CartItem = ({ cartItem, handleCartClosure }) => {
         setDeleteLoading(true);
         fetch(`${server}/users/${authedUser.id}`, {
           method: "PUT",
-          body: JSON.stringify(authedUser),
+          body: JSON.stringify({
+            ...authedUser,
+            cart: authedUser.cart.filter((item) => item.id === cartItem.id),
+          }),
         })
           .then((res) => {
             if (!res.ok) throw new Error();
@@ -31,6 +34,7 @@ const CartItem = ({ cartItem, handleCartClosure }) => {
           })
           .then((data) => {
             setDeleteLoading(false);
+            dispatch(loginUser(data));
             dispatch(cartActions.removeItem(cartItem.id));
           })
           .catch(() => {

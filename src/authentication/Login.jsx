@@ -12,7 +12,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 import { loginUser } from "../store/authSlice";
-import { fetchCartItems } from "../store/cart-slice";
+import { cartActions } from "../store/cart-slice";
 
 let flag = true;
 let access = false;
@@ -53,7 +53,7 @@ export const Login = () => {
       console.log(user);
       if (flag && user) {
         console.log("Login successful!");
-        dispatch(fetchCartItems(user.id));
+        dispatch(cartActions.resetCart(user.cart));
         dispatch(loginUser(user));
         access = true;
         navigate("/", { replace: true });

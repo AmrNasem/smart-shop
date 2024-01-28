@@ -18,7 +18,8 @@ export const fetchCartItems = createAsyncThunk(
   "cart/fetchCartItems",
   async (authedUserId) => {
     try {
-      const res = await fetch(`http://${server}/users/${authedUserId}`);
+      const res = await fetch(`${server}/users/${authedUserId}`);
+      console.log(res);
       if (!res.ok) throw new Error("Something went wrong");
       const data = await res.json();
       return data.cart;
@@ -32,9 +33,9 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    resetCart(state) {
-      state.items = [];
-      state.totalPrice = 0;
+    resetCart(state, { payload: cart }) {
+      state.items = cart || [];
+      state.totalPrice = cart?.reduce((p, c) => p + calcPrice(c), 0) || 0;
       state.appliedCoupons = [];
       state.error = null;
     },
