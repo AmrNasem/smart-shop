@@ -1,0 +1,17 @@
+.container{
+    margin-top: 100px;
+}
+.cards{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+}
+.cards .card .txt{
+    text-align: center;
+    padding: 10px;
+    font-size: larger;
+}
+.cards .card .txt p{
+    color: var(--secondary-text);
+    font-size: medium;
+}

@@ -57,9 +57,6 @@ export const Signup = () => {
       setEmailError(err.response.status);
     }
   }
-  function hidemsg() {
-    setEmailError("");
-  }
   function hideEmailmsg() {
     setEmailcheck(false);
   }
@@ -86,7 +83,7 @@ export const Signup = () => {
           <div className={signup.inputFields}>
             <div className={signup.cont}>
               <input
-                onFocus={hideEmailmsg}
+                onFocus={hideNameMessage}
                 className={signup.userField}
                 type="text"
                 placeholder="الاسم"
@@ -102,7 +99,7 @@ export const Signup = () => {
             )}
             <div className={signup.cont}>
               <input
-                onFocus={hideNameMessage}
+                onFocus={hideEmailmsg}
                 className={signup.emailField}
                 type="email"
                 placeholder="البريد الالكتروني"

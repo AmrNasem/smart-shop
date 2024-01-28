@@ -1,0 +1,45 @@
+.container {
+    padding: 20px;
+}
+
+.slide {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.text {
+    text-align: center;
+    font-size: larger;
+}
+
+.text .btn{
+    background-color: var(--main-color);
+    color: var(--ternary-text);
+    padding: 10px 15px;
+    border: none;
+    font-size: medium;
+    border-radius: 30px;
+}
+
+.img img {
+    width: 500px;
+    height: 500px;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.icons i {
+    font-size: xx-large;
+    margin: 0 5px;
+    cursor: pointer;
+    color: var(--main-color);
+}
+h1,h3,button{
+    margin: 10px;
+}

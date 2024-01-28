@@ -1,0 +1,40 @@
+/* navbar.module.css */
+
+.container {
+    background-color: var(--ternary-text);
+    color: var(--secondary-text);
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icons i {
+    margin-right: 15px;
+}
+
+.icons svg {
+    color: var(--secondary-text) 
+}
+
+.pages a {
+    color:var(--secondary-text);
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.pages a.active {
+    color: var(--main-color);
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}

@@ -4,6 +4,7 @@
   font-weight: bold;
   font-style: normal;
 }
+
 .leftHalf {
   height: 100vh;
   width: 50%;
@@ -57,7 +58,7 @@
 }
 .otherAttr {
   display: flex;
-  gap: 250px;
+  gap: 240px;
   align-items: center;
   margin-bottom: 30px;
 }
@@ -125,13 +126,13 @@
   cursor: pointer;
 }
 .FBtn {
-  top: 47%;
+  top: 46.6%;
   width: 125px;
   background-color: #7fd3df;
   color: #fff;
 }
 .LBtn {
-  top: 53%;
+  top: 53.4%;
   width: 125px;
   background-color: #fff;
 }
