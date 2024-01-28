@@ -9,26 +9,29 @@ const Cart = ({ className }) => {
   const { items: cartItems, loading } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const [clearLoading, setClearLoading] = useState(false);
+  const authedUser = useSelector((state) => state.auth.user);
 
   const hanldeClearCart = () => {
-    cartItems.forEach((item) => {
-      setClearLoading(true);
-      fetch(`http://localhost:8000/cart/${item.id}`, {
-        method: "DELETE",
-      })
-        .then((res) => {
-          if (!res.ok) throw new Error();
-          return res.json();
+    if (authedUser) {
+      cartItems.forEach((item) => {
+        setClearLoading(true);
+        fetch(`http://localhost:8000/cart/${item.id}`, {
+          method: "DELETE",
         })
-        .then(() => {
-          setClearLoading(false);
-          dispatch(cartActions.removeItem(item.id));
-        })
-        .catch(() => {
-          setClearLoading(false);
-          toast.error("Unable to remove from cart :(");
-        });
-    });
+          .then((res) => {
+            if (!res.ok) throw new Error();
+            return res.json();
+          })
+          .then(() => {
+            setClearLoading(false);
+            dispatch(cartActions.removeItem(item.id));
+          })
+          .catch(() => {
+            setClearLoading(false);
+            toast.error("Unable to remove from cart :(");
+          });
+      });
+    } else dispatch(cartActions.resetCart());
   };
 
   return (

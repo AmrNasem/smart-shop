@@ -8,6 +8,8 @@ import { useSelector } from "react-redux";
 import classes from "./Header.module.css";
 import AsideCart from "../cart/AsideCart";
 import Search from "./Search";
+import { UserSigned } from "../../Componentes/SignedinUser";
+import { Visitor } from "../../Componentes/Visitor";
 
 const navLinkClasses =
   "py-lg-3 px-3 py-2 d-block text-decoration-none transition-main text-hover-main";
@@ -21,6 +23,8 @@ const Header = () => {
   const [cartClosing, setCartClosing] = useState(false);
   const [searchIsOpen, setSearchIsOpen] = useState(false);
   const [searchClosing, setSearchClosing] = useState(false);
+  const [authIsOpen, setAuthIsOpen] = useState(false);
+  const authedUser = useSelector((state) => state.auth.user);
 
   useEffect(() => {
     const changeSize = () => setScreenSize(window.innerWidth);
@@ -52,6 +56,12 @@ const Header = () => {
     window.addEventListener("click", linksClosure);
     return () => window.removeEventListener("click", linksClosure);
   }, [linksClosure]);
+
+  useEffect(() => {
+    const closeAuth = () => setAuthIsOpen(false);
+    window.addEventListener("click", closeAuth);
+    return () => window.removeEventListener("click", closeAuth);
+  }, []);
 
   const handleCartClosure = useCallback(() => {
     setCartClosing(true);
@@ -160,14 +170,27 @@ const Header = () => {
               />
             )}
           </div>
-          <div>
+          <div className="position-relative">
             <button
               style={{ fontSize: "1.1rem" }}
               className="border-0 opacity-70 btn p-1"
+              onClick={(e) => {
+                e.stopPropagation();
+                setAuthIsOpen((prev) => !prev);
+              }}
             >
               <FontAwesomeIcon icon={faUser} />
             </button>
-            {/* Authentication components here */}
+            {authIsOpen &&
+              (authedUser ? (
+                <UserSigned
+                  className={`position-absolute top-100 start-50 ${classes.auth}`}
+                />
+              ) : (
+                <Visitor
+                  className={`position-absolute top-100 start-50 ${classes.auth}`}
+                />
+              ))}
           </div>
           <div>
             <button

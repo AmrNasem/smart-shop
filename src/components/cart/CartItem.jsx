@@ -2,7 +2,7 @@ import React, { memo, useCallback, useState } from "react";
 import Counter from "./Counter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 import { toast } from "react-toastify";
 
@@ -10,26 +10,29 @@ const CartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [deleteLoading, setDeleteLoading] = useState(false);
+  const authedUser = useSelector((state) => state.auth.user);
 
   const handleRemoveFromCart = useCallback(() => {
-    setDeleteLoading(true);
-    fetch(`http://localhost:8000/cart/${cartItem.id}`, {
-      method: "DELETE",
-      body: JSON.stringify(cartItem),
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error();
-        return res.json();
+    if (authedUser) {
+      setDeleteLoading(true);
+      fetch(`http://localhost:8000/cart/${cartItem.id}`, {
+        method: "DELETE",
+        body: JSON.stringify(cartItem),
       })
-      .then((data) => {
-        setDeleteLoading(false);
-        dispatch(cartActions.removeItem(data.id));
-      })
-      .catch(() => {
-        setDeleteLoading(false);
-        toast.error("Unable to remove this item :(");
-      });
-  }, [dispatch, cartItem]);
+        .then((res) => {
+          if (!res.ok) throw new Error();
+          return res.json();
+        })
+        .then((data) => {
+          setDeleteLoading(false);
+          dispatch(cartActions.removeItem(data.id));
+        })
+        .catch(() => {
+          setDeleteLoading(false);
+          toast.error("Unable to remove this item :(");
+        });
+    } else dispatch(cartActions.removeItem(cartItem.id));
+  }, [dispatch, cartItem, authedUser]);
 
   const handleChangeValue = useCallback(
     (newValue) => {
@@ -37,30 +40,38 @@ const CartItem = ({ cartItem }) => {
         handleRemoveFromCart();
         return;
       }
-      setLoading(true);
-      fetch(`http://localhost:8000/cart/${cartItem.id}`, {
-        method: "PUT",
-        body: JSON.stringify({
-          ...cartItem,
-          amount: newValue,
-        }),
-      })
-        .then((res) => {
-          if (!res.ok) throw new Error();
-          return res.json();
+      if (authedUser) {
+        setLoading(true);
+        fetch(`http://localhost:8000/cart/${cartItem.id}`, {
+          method: "PUT",
+          body: JSON.stringify({
+            ...cartItem,
+            amount: newValue,
+          }),
         })
-        .then((data) => {
-          setLoading(false);
-          dispatch(
-            cartActions.changeAmount({ id: data.id, newAmount: data.amount })
-          );
-        })
-        .catch(() => {
-          setLoading(false);
-          toast.error("Error changing the amount :(");
-        });
+          .then((res) => {
+            if (!res.ok) throw new Error();
+            return res.json();
+          })
+          .then((data) => {
+            setLoading(false);
+            dispatch(
+              cartActions.changeAmount({ id: data.id, newAmount: data.amount })
+            );
+          })
+          .catch(() => {
+            setLoading(false);
+            toast.error("Error changing the amount :(");
+          });
+      } else
+        dispatch(
+          cartActions.changeAmount({
+            id: cartItem.id,
+            newAmount: newValue,
+          })
+        );
     },
-    [dispatch, cartItem, handleRemoveFromCart]
+    [dispatch, cartItem, handleRemoveFromCart, authedUser]
   );
 
   return (

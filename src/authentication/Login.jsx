@@ -10,8 +10,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../Componentes/Store/authSlice";
 import Swal from "sweetalert2";
+import { loginUser } from "../store/authSlice";
 
 let flag = true;
 let access = false;
@@ -54,7 +54,7 @@ export const Login = () => {
         console.log("Login successful!");
         dispatch(loginUser(user));
         access = true;
-        navigate("/home");
+        navigate("/", { replace: true });
       } else {
         console.log("Login failed!");
         emailChecking &&

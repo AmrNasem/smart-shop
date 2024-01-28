@@ -34,3 +34,6 @@
     opacity: 0;
   }
 }
+.auth {
+  transform: translate(-50%, 12px);
+}

@@ -11,6 +11,7 @@ const ProductCard = ({ className, product, minWidth, style }) => {
   const [size, setSize] = useState("m");
   const [loading, setLoading] = useState(false);
   const cartItems = useSelector((state) => state.cart.items);
+  const authedUser = useSelector((state) => state.auth.user);
   const isAdded = useMemo(
     () => cartItems.find((item) => item.id === product.id),
     [cartItems, product]
@@ -24,25 +25,41 @@ const ProductCard = ({ className, product, minWidth, style }) => {
 
   const handleAddToCart = (e) => {
     e.preventDefault();
-    setLoading(true);
-    fetch(`http://localhost:8000/cart/${isAdded ? product.id : ""}`, {
-      method: isAdded ? "DELETE" : "POST",
-      body: JSON.stringify({ ...product, amount: 1, userId: "1", size }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setLoading(false);
-        dispatch(
-          isAdded ? cartActions.removeItem(data.id) : cartActions.addItem(data)
-        );
-        toast.success(isAdded ? "Removed from cart" : "Added to cart");
+    if (authedUser) {
+      setLoading(true);
+      fetch(`http://localhost:8000/cart/${isAdded ? product.id : ""}`, {
+        method: isAdded ? "DELETE" : "POST",
+        body: JSON.stringify({
+          ...product,
+          amount: 1,
+          userId: authedUser.id,
+          size,
+        }),
       })
-      .catch(() => {
-        setLoading(false);
-        toast.error(
-          isAdded ? "Unable to remove from cart :(" : "Unable to add to cart :("
-        );
-      });
+        .then((res) => res.json())
+        .then((data) => {
+          setLoading(false);
+          dispatch(
+            isAdded
+              ? cartActions.removeItem(data.id)
+              : cartActions.addItem(data)
+          );
+          toast.success(isAdded ? "Removed from cart" : "Added to cart");
+        })
+        .catch(() => {
+          setLoading(false);
+          toast.error(
+            isAdded
+              ? "Unable to remove from cart :("
+              : "Unable to add to cart :("
+          );
+        });
+    } else
+      dispatch(
+        isAdded
+          ? cartActions.removeItem(product.id)
+          : cartActions.addItem({ ...product, amount: 1, userId: "1", size })
+      );
   };
   return (
     <Link

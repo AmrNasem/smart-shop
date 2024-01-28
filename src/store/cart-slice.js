@@ -4,7 +4,7 @@ const initialState = {
   items: [],
   totalPrice: 0,
   appliedCoupons: [],
-  loading: true,
+  loading: false,
   error: null,
 };
 
@@ -16,12 +16,12 @@ const applyCoupons = (appliedCoupons, price) =>
 
 export const fetchCartItems = createAsyncThunk(
   "cart/fetchCartItems",
-  async () => {
+  async (authedUserId) => {
     try {
       const res = await fetch("http://localhost:8000/cart");
       if (!res.ok) throw new Error("Something went wrong");
       const data = await res.json();
-      return data;
+      return data.filter((item) => item.userId === authedUserId);
     } catch (err) {
       throw err;
     }
@@ -32,6 +32,12 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    resetCart(state) {
+      state.items = [];
+      state.totalPrice = 0;
+      state.appliedCoupons = [];
+      state.error = null;
+    },
     changeAmount(state, action) {
       const { id, newAmount } = action.payload;
       const targettedItem = state.items.find((item) => item.id === id);
@@ -80,13 +86,16 @@ const cartSlice = createSlice({
       })
       .addCase(fetchCartItems.fulfilled, (state, action) => {
         const newItems = action.payload;
+        state.items = newItems.reverse();
         state.loading = false;
         if (newItems.length) {
-          state.items = newItems.reverse();
           const totalPrice = newItems.reduce((p, c) => p + calcPrice(c), 0);
           state.totalPrice = state.appliedCoupons.length
             ? applyCoupons(state.appliedCoupons, totalPrice)
             : totalPrice;
+        } else {
+          state.totalPrice = 0;
+          state.appliedCoupons = [];
         }
       })
       .addCase(fetchCartItems.rejected, (state, action) => {

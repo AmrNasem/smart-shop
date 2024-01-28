@@ -1,48 +1,19 @@
 {
+  "users": [
+    {
+      "id": "0f8a",
+      "name": "amr",
+      "email": "amr@gmail.com",
+      "password": "amramramr"
+    },
+    {
+      "id": "a1cc",
+      "name": "Amr Nasem",
+      "email": "amr2@gmail.com",
+      "password": "amramramr"
+    }
+  ],
   "cart": [
-    {
-      "id": "3",
-      "title": "شيرت رمادي عصري",
-      "path": "assets/product2.png",
-      "color": "رمادي",
-      "weight": 500,
-      "price": 500,
-      "discount": 0.2,
-      "rate": 5,
-      "sizes": [
-        "xs",
-        "s",
-        "m",
-        "l",
-        "xl"
-      ],
-      "amount": 2,
-      "userId": "1",
-      "size": "m"
-    },
-    {
-      "id": "6",
-      "title": "قميص سماوي",
-      "category": "ملابس",
-      "path": "assets/product6.png",
-      "color": {
-        "hexa": "#87CEEB",
-        "text": "سماوي"
-      },
-      "weight": 800,
-      "price": 350,
-      "discount": 0.13,
-      "rate": 2,
-      "sizes": [
-        "s",
-        "m",
-        "l",
-        "xl"
-      ],
-      "amount": 2,
-      "userId": "1",
-      "size": "m"
-    },
     {
       "id": "7",
       "title": "جاكت جينز كحلي",
@@ -61,8 +32,32 @@
         "s",
         "m"
       ],
+      "amount": 2,
+      "userId": "a1cc",
+      "size": "m"
+    },
+    {
+      "id": "3",
+      "title": "شيرت رمادي عصري",
+      "category": "ملابس",
+      "path": "assets/product2.png",
+      "color": {
+        "hexa": "#777",
+        "text": "رمادي"
+      },
+      "weight": 500,
+      "price": 500,
+      "discount": 0.2,
+      "rate": 5,
+      "sizes": [
+        "xs",
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
       "amount": 1,
-      "userId": "1",
+      "userId": "a1cc",
       "size": "m"
     },
     {
@@ -84,7 +79,29 @@
         "xl"
       ],
       "amount": 1,
-      "userId": "1",
+      "userId": "a1cc",
+      "size": "m"
+    },
+    {
+      "id": "7",
+      "title": "جاكت جينز كحلي",
+      "category": "أحذية",
+      "path": "assets/product7.png",
+      "color": {
+        "hexa": "#00008B",
+        "text": "كحلي"
+      },
+      "weight": 650,
+      "price": 450,
+      "discount": 0.1,
+      "rate": 5,
+      "sizes": [
+        "xs",
+        "s",
+        "m"
+      ],
+      "amount": 1,
+      "userId": "a1cc",
       "size": "m"
     }
   ],

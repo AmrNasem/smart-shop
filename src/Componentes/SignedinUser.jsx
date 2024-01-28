@@ -1,40 +1,50 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleUser } from '@fortawesome/free-regular-svg-icons'
-import signed from './SignedinUser.module.css'
-import { useSelector } from 'react-redux'
-import { faSliders } from '@fortawesome/free-solid-svg-icons'
-import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
+import signed from "./SignedinUser.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { faSliders } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { logoutUser } from "../store/authSlice";
 
-export const UserSigned = () => {
-  const userName = useSelector(state => state.auth.user.name)
-  const email = useSelector(state => state.auth.user.email)
+export const UserSigned = ({ className }) => {
+  const authedUser = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
 
-  console.log(userName)
-  console.log(email)
   return (
-    <div className={signed.container} dir='rtl'>
-      <div className={signed.above}>
-        <FontAwesomeIcon icon={faCircleUser} className={signed.userLogo} />
-        <div className={signed}>
-          <p>{userName}</p>
-          <p>{email}</p>
-        </div>
-      </div>
-      <div className={signed.hr}></div>
+    <div
+      className={`${className} z-3 rounded-3 pt-4 pb-3 ${signed.container}`}
+      dir="rtl"
+    >
+      {" "}
+      {authedUser && (
+        <>
+          <div className={signed.above}>
+            <FontAwesomeIcon icon={faCircleUser} className={signed.userLogo} />
+            <div className={signed}>
+              <p className="mb-0 pe-1">{authedUser.name}</p>
+              <p className="mb-0">{authedUser.email}</p>
+            </div>
+          </div>
+          <div className={signed.hr}></div>
+        </>
+      )}
       <div className={signed.down}>
-        <div className={signed.horzintal}>
+        <div className={`transition-main py-2 my-2 ${signed.horzintal}`}>
           <FontAwesomeIcon icon={faSliders} />
-          <p>لوحة التحكم</p>
+          <p className="mb-0">لوحة التحكم</p>
         </div>
-        <div className={signed.horzintal}>
+        <div className={`transition-main py-2 my-2 ${signed.horzintal}`}>
           <FontAwesomeIcon icon={faCircleUser} />
-          <p>تفاصيل الحساب</p>
+          <p className="mb-0">تفاصيل الحساب</p>
         </div>
-        <div className={signed.horzintal}>
+        <button
+          onClick={() => dispatch(logoutUser())}
+          className={`transition-main bg-transparent py-2 my-2 ${signed.horzintal}`}
+        >
           <FontAwesomeIcon icon={faArrowRightFromBracket} />
-          <p>تسجيل الخروج</p>
-        </div>
+          <p className="mb-0">تسجيل الخروج</p>
+        </button>
       </div>
     </div>
-  )
-}
+  );
+};
