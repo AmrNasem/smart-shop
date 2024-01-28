@@ -48,6 +48,7 @@ export const Signup = () => {
             name: name,
             email: email,
             password: password,
+            cart: [],
           })
           .then((t) => t.data);
         navigate("/login");
@@ -58,6 +59,15 @@ export const Signup = () => {
   }
   function hidemsg() {
     setEmailError("");
+  }
+  function hideEmailmsg() {
+    setEmailcheck(false);
+  }
+  function hideNameMessage() {
+    setReqName(false);
+  }
+  function hidePassMessage() {
+    setAccept(false);
   }
 
   return (
@@ -76,6 +86,7 @@ export const Signup = () => {
           <div className={signup.inputFields}>
             <div className={signup.cont}>
               <input
+                onFocus={hideEmailmsg}
                 className={signup.userField}
                 type="text"
                 placeholder="الاسم"
@@ -91,12 +102,12 @@ export const Signup = () => {
             )}
             <div className={signup.cont}>
               <input
+                onFocus={hideNameMessage}
                 className={signup.emailField}
                 type="email"
                 placeholder="البريد الالكتروني"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                onFocus={hidemsg}
               ></input>
               <FontAwesomeIcon className={signup.icon} icon={faEnvelope} />
             </div>
@@ -110,6 +121,7 @@ export const Signup = () => {
             )}
             <div className={signup.cont}>
               <input
+                onFocus={hidePassMessage}
                 className={signup.passField}
                 type="password"
                 placeholder="كلمة المرور"

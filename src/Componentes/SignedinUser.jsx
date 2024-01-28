@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { faSliders } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { logoutUser } from "../store/authSlice";
+import { cartActions } from "../store/cart-slice";
 
 export const UserSigned = ({ className }) => {
   const authedUser = useSelector((state) => state.auth.user);
@@ -38,7 +39,10 @@ export const UserSigned = ({ className }) => {
           <p className="mb-0">تفاصيل الحساب</p>
         </div>
         <button
-          onClick={() => dispatch(logoutUser())}
+          onClick={() => {
+            dispatch(cartActions.resetCart());
+            dispatch(logoutUser());
+          }}
           className={`transition-main bg-transparent py-2 my-2 ${signed.horzintal}`}
         >
           <FontAwesomeIcon icon={faArrowRightFromBracket} />

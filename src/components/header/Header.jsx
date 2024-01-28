@@ -12,7 +12,7 @@ import { UserSigned } from "../../Componentes/SignedinUser";
 import { Visitor } from "../../Componentes/Visitor";
 
 const navLinkClasses =
-  "py-lg-3 px-3 py-2 d-block text-decoration-none transition-main text-hover-main";
+  "py-lg-3 px-3 py-2 d-block text-decoration-none transition-main text-hover-main text-nowrap";
 
 const Header = () => {
   const cartLength = useSelector((state) => state.cart.items).length;

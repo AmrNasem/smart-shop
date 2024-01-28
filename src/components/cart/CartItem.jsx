@@ -5,6 +5,7 @@ import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 import { toast } from "react-toastify";
+import { loginUser } from "../../store/authSlice";
 
 const CartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
@@ -15,9 +16,9 @@ const CartItem = ({ cartItem }) => {
   const handleRemoveFromCart = useCallback(() => {
     if (authedUser) {
       setDeleteLoading(true);
-      fetch(`http://localhost:8000/cart/${cartItem.id}`, {
-        method: "DELETE",
-        body: JSON.stringify(cartItem),
+      fetch(`http://localhost:8000/users/${authedUser.id}`, {
+        method: "PUT",
+        body: JSON.stringify(authedUser),
       })
         .then((res) => {
           if (!res.ok) throw new Error();
@@ -25,7 +26,7 @@ const CartItem = ({ cartItem }) => {
         })
         .then((data) => {
           setDeleteLoading(false);
-          dispatch(cartActions.removeItem(data.id));
+          dispatch(cartActions.removeItem(cartItem.id));
         })
         .catch(() => {
           setDeleteLoading(false);
@@ -42,11 +43,14 @@ const CartItem = ({ cartItem }) => {
       }
       if (authedUser) {
         setLoading(true);
-        fetch(`http://localhost:8000/cart/${cartItem.id}`, {
+        fetch(`http://localhost:8000/users/${authedUser.id}`, {
           method: "PUT",
           body: JSON.stringify({
-            ...cartItem,
-            amount: newValue,
+            ...authedUser,
+            cart: authedUser.cart.map((item) => {
+              if (item.id === cartItem.id) return { ...item, amount: newValue };
+              return item;
+            }),
           }),
         })
           .then((res) => {
@@ -55,8 +59,9 @@ const CartItem = ({ cartItem }) => {
           })
           .then((data) => {
             setLoading(false);
+            dispatch(loginUser(data));
             dispatch(
-              cartActions.changeAmount({ id: data.id, newAmount: data.amount })
+              cartActions.changeAmount({ id: cartItem.id, newAmount: newValue })
             );
           })
           .catch(() => {

@@ -13,24 +13,23 @@ const Cart = ({ className }) => {
 
   const hanldeClearCart = () => {
     if (authedUser) {
-      cartItems.forEach((item) => {
-        setClearLoading(true);
-        fetch(`http://localhost:8000/cart/${item.id}`, {
-          method: "DELETE",
+      setClearLoading(true);
+      fetch(`http://localhost:8000/users/${authedUser.id}`, {
+        method: "PUT",
+        body: JSON.stringify({ ...authedUser, cart: [] }),
+      })
+        .then((res) => {
+          if (!res.ok) throw new Error();
+          return res.json();
         })
-          .then((res) => {
-            if (!res.ok) throw new Error();
-            return res.json();
-          })
-          .then(() => {
-            setClearLoading(false);
-            dispatch(cartActions.removeItem(item.id));
-          })
-          .catch(() => {
-            setClearLoading(false);
-            toast.error("Unable to remove from cart :(");
-          });
-      });
+        .then(() => {
+          setClearLoading(false);
+          dispatch(cartActions.resetCart());
+        })
+        .catch(() => {
+          setClearLoading(false);
+          toast.error("Unable to wipe the cart :(");
+        });
     } else dispatch(cartActions.resetCart());
   };
 

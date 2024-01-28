@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { cartActions } from "../../../store/cart-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { loginUser } from "../../../store/authSlice";
 
 const CartItem = ({ className, cartItem, deleting }) => {
   const [loading, setLoading] = useState(false);
@@ -18,9 +19,12 @@ const CartItem = ({ className, cartItem, deleting }) => {
       e?.preventDefault();
       if (authedUser) {
         setDeleteLoading(true);
-        fetch(`http://localhost:8000/cart/${cartItem.id}`, {
-          method: "DELETE",
-          body: JSON.stringify(cartItem),
+        fetch(`http://localhost:8000/users/${authedUser.id}`, {
+          method: "PUT",
+          body: JSON.stringify({
+            ...authedUser,
+            cart: authedUser.cart.filter((item) => item.id === cartItem.id),
+          }),
         })
           .then((res) => {
             if (!res.ok) throw new Error();
@@ -28,7 +32,8 @@ const CartItem = ({ className, cartItem, deleting }) => {
           })
           .then((data) => {
             setDeleteLoading(false);
-            dispatch(cartActions.removeItem(data.id));
+            dispatch(loginUser(data));
+            dispatch(cartActions.removeItem(cartItem.id));
           })
           .catch(() => {
             setDeleteLoading(false);
@@ -47,11 +52,14 @@ const CartItem = ({ className, cartItem, deleting }) => {
       }
       if (authedUser) {
         setLoading(true);
-        fetch(`http://localhost:8000/cart/${cartItem.id}`, {
+        fetch(`http://localhost:8000/users/${authedUser.id}`, {
           method: "PUT",
           body: JSON.stringify({
-            ...cartItem,
-            amount: newValue,
+            ...authedUser,
+            cart: authedUser.cart.map((item) => {
+              if (item.id === cartItem.id) return { ...item, amount: newValue };
+              return item;
+            }),
           }),
         })
           .then((res) => {
@@ -60,8 +68,9 @@ const CartItem = ({ className, cartItem, deleting }) => {
           })
           .then((data) => {
             setLoading(false);
+            dispatch(loginUser(data));
             dispatch(
-              cartActions.changeAmount({ id: data.id, newAmount: data.amount })
+              cartActions.changeAmount({ id: cartItem.id, newAmount: newValue })
             );
           })
           .catch(() => {

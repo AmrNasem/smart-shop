@@ -2,9 +2,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Cart from "./pages/Cart";
-import { useEffect } from "react";
-import { cartActions, fetchCartItems } from "./store/cart-slice";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/header/Header";
@@ -16,13 +14,7 @@ import Home from "./pages/Home";
 import SingleProduct from "./pages/SingleProduct";
 
 function App() {
-  const dispatch = useDispatch();
   const authedUser = useSelector((state) => state.auth.user);
-
-  useEffect(() => {
-    if (authedUser) dispatch(fetchCartItems(authedUser.id));
-    else dispatch(cartActions.resetCart());
-  }, [dispatch, authedUser]);
 
   return (
     <div className="App d-flex flex-column">

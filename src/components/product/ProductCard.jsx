@@ -6,6 +6,7 @@ import { memo, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 import { toast } from "react-toastify";
+import { loginUser } from "../../store/authSlice";
 
 const ProductCard = ({ className, product, minWidth, style }) => {
   const [size, setSize] = useState("m");
@@ -27,22 +28,28 @@ const ProductCard = ({ className, product, minWidth, style }) => {
     e.preventDefault();
     if (authedUser) {
       setLoading(true);
-      fetch(`http://localhost:8000/cart/${isAdded ? product.id : ""}`, {
-        method: isAdded ? "DELETE" : "POST",
+      fetch(`http://localhost:8000/users/${authedUser.id}`, {
+        method: "PUT",
         body: JSON.stringify({
-          ...product,
-          amount: 1,
-          userId: authedUser.id,
-          size,
+          ...authedUser,
+          cart: isAdded
+            ? authedUser.cart.filter((item) => item !== product.id)
+            : [
+                ...authedUser.cart,
+                { ...product, amount: 1, userId: authedUser.id, size },
+              ],
         }),
       })
         .then((res) => res.json())
         .then((data) => {
           setLoading(false);
+          dispatch(loginUser(data));
           dispatch(
             isAdded
-              ? cartActions.removeItem(data.id)
-              : cartActions.addItem(data)
+              ? cartActions.removeItem(product.id)
+              : cartActions.addItem(
+                  data.cart.find((item) => item.id === product.id)
+                )
           );
           toast.success(isAdded ? "Removed from cart" : "Added to cart");
         })
@@ -58,7 +65,11 @@ const ProductCard = ({ className, product, minWidth, style }) => {
       dispatch(
         isAdded
           ? cartActions.removeItem(product.id)
-          : cartActions.addItem({ ...product, amount: 1, userId: "1", size })
+          : cartActions.addItem({
+              ...product,
+              amount: 1,
+              size,
+            })
       );
   };
   return (

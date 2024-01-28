@@ -18,10 +18,10 @@ export const fetchCartItems = createAsyncThunk(
   "cart/fetchCartItems",
   async (authedUserId) => {
     try {
-      const res = await fetch("http://localhost:8000/cart");
+      const res = await fetch(`http://localhost:8000/users/${authedUserId}`);
       if (!res.ok) throw new Error("Something went wrong");
       const data = await res.json();
-      return data.filter((item) => item.userId === authedUserId);
+      return data.cart;
     } catch (err) {
       throw err;
     }
