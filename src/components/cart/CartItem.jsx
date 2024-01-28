@@ -6,44 +6,53 @@ import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 import { toast } from "react-toastify";
 import { loginUser } from "../../store/authSlice";
+import { server } from "../../App";
+import { Link } from "react-router-dom";
 
-const CartItem = ({ cartItem }) => {
+const CartItem = ({ cartItem, handleCartClosure }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [deleteLoading, setDeleteLoading] = useState(false);
   const authedUser = useSelector((state) => state.auth.user);
 
-  const handleRemoveFromCart = useCallback(() => {
-    if (authedUser) {
-      setDeleteLoading(true);
-      fetch(`http://localhost:8000/users/${authedUser.id}`, {
-        method: "PUT",
-        body: JSON.stringify(authedUser),
-      })
-        .then((res) => {
-          if (!res.ok) throw new Error();
-          return res.json();
+  const handleRemoveFromCart = useCallback(
+    (e) => {
+      if (authedUser) {
+        e?.preventDefault();
+        e?.stopPropagation();
+        setDeleteLoading(true);
+        fetch(`${server}/users/${authedUser.id}`, {
+          method: "PUT",
+          body: JSON.stringify(authedUser),
         })
-        .then((data) => {
-          setDeleteLoading(false);
-          dispatch(cartActions.removeItem(cartItem.id));
-        })
-        .catch(() => {
-          setDeleteLoading(false);
-          toast.error("Unable to remove this item :(");
-        });
-    } else dispatch(cartActions.removeItem(cartItem.id));
-  }, [dispatch, cartItem, authedUser]);
+          .then((res) => {
+            if (!res.ok) throw new Error();
+            return res.json();
+          })
+          .then((data) => {
+            setDeleteLoading(false);
+            dispatch(cartActions.removeItem(cartItem.id));
+          })
+          .catch(() => {
+            setDeleteLoading(false);
+            toast.error("Unable to remove this item :(");
+          });
+      } else dispatch(cartActions.removeItem(cartItem.id));
+    },
+    [dispatch, cartItem, authedUser]
+  );
 
   const handleChangeValue = useCallback(
-    (newValue) => {
+    (newValue, e) => {
       if (newValue <= 0) {
-        handleRemoveFromCart();
+        handleRemoveFromCart(e);
         return;
       }
       if (authedUser) {
+        e.preventDefault();
+        e.stopPropagation();
         setLoading(true);
-        fetch(`http://localhost:8000/users/${authedUser.id}`, {
+        fetch(`${server}/users/${authedUser.id}`, {
           method: "PUT",
           body: JSON.stringify({
             ...authedUser,
@@ -80,9 +89,11 @@ const CartItem = ({ cartItem }) => {
   );
 
   return (
-    <div
+    <Link
+      to={`/product/${cartItem.id}`}
+      onClick={handleCartClosure}
       style={{ borderBottom: "1px solid", opacity: deleteLoading ? 0.5 : 1 }}
-      className="p-3 border-color-main d-flex align-items-center justify-content-between"
+      className="p-3 text-black text-decoration-none border-color-main d-flex align-items-center justify-content-between"
     >
       <div className="d-flex gap-3">
         <div
@@ -124,7 +135,7 @@ const CartItem = ({ cartItem }) => {
       >
         <FontAwesomeIcon icon={faClose} />
       </button>
-    </div>
+    </Link>
   );
 };
 

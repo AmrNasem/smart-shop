@@ -13,6 +13,8 @@ import { Signup } from "./authentication/Signup";
 import Home from "./pages/Home";
 import SingleProduct from "./pages/SingleProduct";
 
+export const server = "http://localhost:8000";
+
 function App() {
   const authedUser = useSelector((state) => state.auth.user);
 

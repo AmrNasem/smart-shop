@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../../store/cart-slice";
 import { toast } from "react-toastify";
+import { server } from "../../../App";
 
 const Coupon = ({ className, style }) => {
   const { totalPrice, appliedCoupons } = useSelector((state) => state.cart);
@@ -12,7 +13,7 @@ const Coupon = ({ className, style }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsApplying(true);
-    fetch("http://localhost:8000/coupons")
+    fetch(`${server}/coupons`)
       .then((res) => {
         if (!res.ok) throw new Error();
         return res.json();

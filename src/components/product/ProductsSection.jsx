@@ -10,33 +10,30 @@ import PriceFilter from "./PriceFilter";
 import SizeFilter from "./SizeFilter";
 import ColorFilter from "./ColorFilter";
 import { useSearchParams } from "react-router-dom";
+import { server } from "../../App";
+import Skeleton from "../skeleton/Skeleton";
+import ProductCardSkeleton from "../skeleton/ProductCardSkeleton";
 
 const sortOptions = [
   {
     text: "الأقل سعرًا",
-    action: (prev) => ({
-      ...prev,
-      items: [
-        ...prev.items.sort(
-          (a, b) =>
-            (a.discount ? a.price - a.price * a.discount : a.price) -
-            (b.discount ? b.price - b.price * b.discount : b.price)
-        ),
-      ],
-    }),
+    action: (prev) => [
+      ...prev.sort(
+        (a, b) =>
+          (a.discount ? a.price - a.price * a.discount : a.price) -
+          (b.discount ? b.price - b.price * b.discount : b.price)
+      ),
+    ],
   },
   {
     text: "الأعلى سعرًا",
-    action: (prev) => ({
-      ...prev,
-      items: [
-        ...prev.items.sort(
-          (b, a) =>
-            (a.discount ? a.price - a.price * a.discount : a.price) -
-            (b.discount ? b.price - b.price * b.discount : b.price)
-        ),
-      ],
-    }),
+    action: (prev) => [
+      ...prev.sort(
+        (b, a) =>
+          (a.discount ? a.price - a.price * a.discount : a.price) -
+          (b.discount ? b.price - b.price * b.discount : b.price)
+      ),
+    ],
   },
 ];
 
@@ -49,7 +46,8 @@ const ProductsSection = () => {
     loading: true,
     isOpen: true,
   });
-  const [products, setProducts] = useState({ items: [], loading: true });
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [pageItems, setPageItems] = useState([]);
   const [productsPerPage, setProductsPerPage] = useState(numOfDisplays[0]);
@@ -65,7 +63,7 @@ const ProductsSection = () => {
     const fetchFilters = async () => {
       try {
         setFilters((prev) => ({ ...prev, loading: true }));
-        const res = await fetch("http://localhost:8000/filters");
+        const res = await fetch(`${server}/filters`);
         if (!res.ok) throw new Error();
         const data = await res.json();
         setFilters((prev) => ({ ...prev, items: data }));
@@ -80,15 +78,15 @@ const ProductsSection = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        setProducts((prev) => ({ ...prev, loading: true }));
-        const res = await fetch("http://localhost:8000/products");
+        setLoading(true);
+        const res = await fetch(`${server}/products`);
         if (!res.ok) throw new Error();
         const data = await res.json();
-        setProducts((prev) => ({ ...prev, items: data }));
+        setProducts(sortOptions[0].action(data));
       } catch {
         toast.error("Unable to load products :(");
       }
-      setProducts((prev) => ({ ...prev, loading: false }));
+      setLoading(false);
     };
     fetchProducts();
   }, []);
@@ -105,7 +103,7 @@ const ProductsSection = () => {
   );
 
   useEffect(() => {
-    let filtered = products.items.filter((p) => {
+    let filtered = products.filter((p) => {
       const myPrice = p.price - p.price * (p.discount || 0);
       return myPrice <= matchedFilters.price && myPrice >= 100;
     });
@@ -118,6 +116,7 @@ const ProductsSection = () => {
       filtered = filtered.filter((p) =>
         matchedFilters.category.find((mc) => mc === p.category)
       );
+
       handleToggleQueries("category", matchedFilters.category.join(" "));
     } else handleToggleQueries("category");
 
@@ -136,14 +135,21 @@ const ProductsSection = () => {
     } else handleToggleQueries("color");
 
     setFilteredProducts(filtered);
-  }, [matchedFilters, products.items, handleToggleQueries]);
+  }, [matchedFilters, products, handleToggleQueries]);
 
   return (
-    <div className="container d-flex flex-wrap flex-lg-nowrap gap-3">
+    <div className={`container d-flex flex-wrap flex-lg-nowrap gap-4`}>
       {filters.isOpen && (
-        <div className={`d-lg-block flex-grow-1 d-flex gap-3 flex-wrap`}>
+        <div
+          style={{ flexBasis: "20%" }}
+          className={`d-lg-block  flex-grow-1 d-flex gap-3 flex-wrap`}
+        >
           {filters.loading ? (
-            <p className="text-center my-4">جارٍ تحميل الفلاتر..</p>
+            <div className="my-4 flex-grow-1">
+              {[...Array(5).keys()].map((i) => (
+                <Skeleton key={i} delay={i} className="my-3" />
+              ))}
+            </div>
           ) : filters.items ? (
             <>
               <CategoryFilter
@@ -181,7 +187,10 @@ const ProductsSection = () => {
           >
             <FontAwesomeIcon icon={faBars} />
           </button>
-          <div style={{ flexBasis: "80%" }} className="d-flex gap-3 flex-wrap">
+          <div
+            style={{ flexBasis: "80%" }}
+            className="d-flex gap-3 align-items-center flex-wrap"
+          >
             <div className="flex-grow-1 d-flex align-items-center justify-content-end gap-3">
               <span
                 style={{ fontSize: "0.9rem", color: "#444" }}
@@ -204,46 +213,69 @@ const ProductsSection = () => {
               </div>
             </div>
             <div className="flex-grow-1 d-flex align-items-center justify-content-end gap-3">
-              <span
-                style={{ fontSize: "0.9rem", color: "#444" }}
-                className="d-block text-nowrap fw-semibold"
-              >
-                ترتيب حسب
-              </span>
-              <Select
-                defaultValue={sortOptions[0]}
-                options={sortOptions}
-                onChange={setProducts}
-              />
+              {products.length ? (
+                <>
+                  <span
+                    style={{ fontSize: "0.9rem", color: "#444" }}
+                    className="d-block text-nowrap fw-semibold"
+                  >
+                    ترتيب حسب
+                  </span>
+                  <Select
+                    defaultValue={sortOptions[0]}
+                    options={sortOptions}
+                    onChange={setProducts}
+                  />
+                </>
+              ) : (
+                loading && (
+                  <Skeleton style={{ width: "220px", height: "1.6rem" }} />
+                )
+              )}
             </div>
           </div>
         </div>
-        {products.loading ? (
-          <p className="text-center my-3">جارٍ تحميل المنتجات..</p>
-        ) : products.items.length ? (
-          <div className="row my-3 gy-5">
-            {filteredProducts.length ? (
-              pageItems.map((product, i) => (
+        {loading ? (
+          <ProductsSkeleton />
+        ) : filteredProducts.length ? (
+          pageItems.length ? (
+            <div className="row my-3 gy-5">
+              {pageItems.map((product, i) => (
                 <div key={i} className="col col-md-6 my-3 col-lg-4">
                   <ProductCard minWidth="200px" product={product} />
                 </div>
-              ))
-            ) : (
-              <p className="text-center my-3">لم يتم العثور على أية منتجات!</p>
-            )}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <ProductsSkeleton />
+          )
         ) : (
-          <p className="text-center my-3">لم يتم العثور على أية منتجات!</p>
+          products.length && (
+            <p className="text-center my-4">لم يتم العثور على أية منتجات.</p>
+          )
         )}
-        <Paginator
-          items={filteredProducts}
-          itemsPerPage={productsPerPage}
-          numOfShownButtons={4}
-          onPaginate={setPageItems}
-        />
+        {!!filteredProducts.length && (
+          <Paginator
+            items={filteredProducts}
+            itemsPerPage={productsPerPage}
+            numOfShownButtons={4}
+            onPaginate={setPageItems}
+          />
+        )}
       </div>
     </div>
   );
 };
-
 export default memo(ProductsSection);
+
+const ProductsSkeleton = () => {
+  return (
+    <div className="row my-3 gy-5">
+      {[...Array(3).keys()].map((i) => (
+        <div key={i} delay={i} className="col col-md-6 my-3 col-lg-4">
+          <ProductCardSkeleton minWidth="200px" />
+        </div>
+      ))}
+    </div>
+  );
+};

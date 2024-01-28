@@ -7,6 +7,7 @@ import { cartActions } from "../../../store/cart-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { loginUser } from "../../../store/authSlice";
+import { server } from "../../../App";
 
 const CartItem = ({ className, cartItem, deleting }) => {
   const [loading, setLoading] = useState(false);
@@ -19,7 +20,7 @@ const CartItem = ({ className, cartItem, deleting }) => {
       e?.preventDefault();
       if (authedUser) {
         setDeleteLoading(true);
-        fetch(`http://localhost:8000/users/${authedUser.id}`, {
+        fetch(`${server}/users/${authedUser.id}`, {
           method: "PUT",
           body: JSON.stringify({
             ...authedUser,
@@ -52,7 +53,7 @@ const CartItem = ({ className, cartItem, deleting }) => {
       }
       if (authedUser) {
         setLoading(true);
-        fetch(`http://localhost:8000/users/${authedUser.id}`, {
+        fetch(`${server}/users/${authedUser.id}`, {
           method: "PUT",
           body: JSON.stringify({
             ...authedUser,

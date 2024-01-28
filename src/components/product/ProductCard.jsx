@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 import { toast } from "react-toastify";
 import { loginUser } from "../../store/authSlice";
+import { server } from "../../App";
 
 const ProductCard = ({ className, product, minWidth, style }) => {
   const [size, setSize] = useState("m");
@@ -28,7 +29,7 @@ const ProductCard = ({ className, product, minWidth, style }) => {
     e.preventDefault();
     if (authedUser) {
       setLoading(true);
-      fetch(`http://localhost:8000/users/${authedUser.id}`, {
+      fetch(`${server}/users/${authedUser.id}`, {
         method: "PUT",
         body: JSON.stringify({
           ...authedUser,

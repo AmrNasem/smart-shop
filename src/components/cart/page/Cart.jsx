@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../../store/cart-slice";
 import { toast } from "react-toastify";
+import { server } from "../../../App";
+import CartItemSkeleton from "../../skeleton/CartItemSkeleton";
 
 const Cart = ({ className }) => {
   const { items: cartItems, loading } = useSelector((state) => state.cart);
@@ -14,7 +16,7 @@ const Cart = ({ className }) => {
   const hanldeClearCart = () => {
     if (authedUser) {
       setClearLoading(true);
-      fetch(`http://localhost:8000/users/${authedUser.id}`, {
+      fetch(`${server}/users/${authedUser.id}`, {
         method: "PUT",
         body: JSON.stringify({ ...authedUser, cart: [] }),
       })
@@ -47,7 +49,9 @@ const Cart = ({ className }) => {
         </div>
         <div>
           {loading ? (
-            <h6 className="text-center my-3">جارٍ التحميل...</h6>
+            [...Array(3).keys()].map((i) => (
+              <CartItemSkeleton key={i} delay={i} />
+            ))
           ) : cartItems.length ? (
             cartItems.map((item, i) => (
               <CartItem deleting={clearLoading} cartItem={item} key={i} />
