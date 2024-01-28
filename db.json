@@ -352,6 +352,248 @@
       "sizes": ["xs", "s", "m", "l"]
     }
   ],
+  "home_products": [
+    {
+      "id": "1",
+      "title": "بلوزة أطفال بيضاء",
+      "category": "ملابس",
+      "path": "assets/P1.png",
+      "color": {
+        "hexa": "#fff",
+        "text": "أبيض"
+      },
+      "weight": 4000,
+      "price": 15000,
+      "discount": 0.2,
+      "rate": 3,
+      "sizes": ["xs", "m", "xl"]
+    },
+    {
+      "id": "2",
+      "title": "شيرت رمادي عصري",
+      "category": "ملابس",
+      "path": "assets/P2.png",
+      "color": {
+        "hexa": "#777",
+        "text": "رمادي"
+      },
+      "weight": 500,
+      "price": 500,
+      "discount": 0.2,
+      "rate": 5,
+      "sizes": ["xs", "s", "m", "l", "xl"]
+    },
+    {
+      "id": "3",
+      "title": "فستان سواريه فيروزي",
+      "category": "ملابس",
+      "path": "assets/P3.png",
+      "color": {
+        "hexa": "#000",
+        "text": "أسود"
+      },
+      "weight": 2950,
+      "price": 3450,
+      "rate": 5,
+      "sizes": ["xs", "s", "m", "l", "xl"]
+    },
+    {
+      "id": "4",
+      "title": "فستان سواريه أسود",
+      "category": "ملابس",
+      "path": "assets/P4.png",
+      "color": {
+        "hexa": "#40E0D0",
+        "text": "فيروزي"
+      },
+      "weight": 3000,
+      "price": 4300,
+      "discount": 0.25,
+      "rate": 4,
+      "sizes": ["xs", "s", "m", "l"]
+    },
+    {
+      "id": "5",
+      "title": "تيشرت عصري جذاب",
+      "category": "ملابس",
+      "path": "assets/P5.png",
+      "color": {
+        "hexa": "#87CEEB",
+        "text": "سماوي"
+      },
+      "weight": 800,
+      "price": 350,
+      "discount": 0.13,
+      "rate": 2,
+      "sizes": ["s", "m", "l", "xl"]
+    },
+    {
+      "id": "6",
+      "title": "كارديجان أبيض",
+      "category": "أحذية",
+      "path": "assets/P6.png",
+      "color": {
+        "hexa": "#00008B",
+        "text": "كحلي"
+      },
+      "weight": 650,
+      "price": 450,
+      "discount": 0.1,
+      "rate": 5,
+      "sizes": ["xs", "s", "m"]
+    },
+    {
+      "id": "7",
+      "title": " جاكيت جينز كحلي",
+      "category": "آثاث",
+      "path": "assets/P7.png",
+      "color": {
+        "hexa": "#F5F5DC",
+        "text": "بيج"
+      },
+      "weight": 650,
+      "price": 900,
+      "discount": 0.18,
+      "rate": 5,
+      "sizes": ["s", "m", "l", "xl"]
+    },
+    {
+      "id": "8",
+      "title": "قميص رجالي سماوي ",
+      "category": "إلكترونيات",
+      "path": "assets/P8.png",
+      "color": {
+        "hexa": "#0f0",
+        "text": "أخضر"
+      },
+      "weight": 650,
+      "price": 540,
+      "discount": 0.1,
+      "rate": 2,
+      "sizes": ["xs", "s"]
+    }
+  ],
+  "home_products": [
+    {
+      "id": "1",
+      "title": "بلوزة أطفال بيضاء",
+      "category": "ملابس",
+      "path": "assets/P1.png",
+      "color": {
+        "hexa": "#fff",
+        "text": "أبيض"
+      },
+      "weight": 4000,
+      "price": 15000,
+      "discount": 0.2,
+      "rate": 3,
+      "sizes": ["xs", "m", "xl"]
+    },
+    {
+      "id": "2",
+      "title": "شيرت رمادي عصري",
+      "category": "ملابس",
+      "path": "assets/P2.png",
+      "color": {
+        "hexa": "#777",
+        "text": "رمادي"
+      },
+      "weight": 500,
+      "price": 500,
+      "discount": 0.2,
+      "rate": 5,
+      "sizes": ["xs", "s", "m", "l", "xl"]
+    },
+    {
+      "id": "3",
+      "title": "فستان سواريه فيروزي",
+      "category": "ملابس",
+      "path": "assets/P3.png",
+      "color": {
+        "hexa": "#000",
+        "text": "أسود"
+      },
+      "weight": 2950,
+      "price": 3450,
+      "rate": 5,
+      "sizes": ["xs", "s", "m", "l", "xl"]
+    },
+    {
+      "id": "4",
+      "title": "فستان سواريه أسود",
+      "category": "ملابس",
+      "path": "assets/P4.png",
+      "color": {
+        "hexa": "#40E0D0",
+        "text": "فيروزي"
+      },
+      "weight": 3000,
+      "price": 4300,
+      "discount": 0.25,
+      "rate": 4,
+      "sizes": ["xs", "s", "m", "l"]
+    },
+    {
+      "id": "5",
+      "title": "تيشرت عصري جذاب",
+      "category": "ملابس",
+      "path": "assets/P5.png",
+      "color": {
+        "hexa": "#87CEEB",
+        "text": "سماوي"
+      },
+      "weight": 800,
+      "price": 350,
+      "discount": 0.13,
+      "rate": 2,
+      "sizes": ["s", "m", "l", "xl"]
+    },
+    {
+      "id": "6",
+      "title": "كارديجان أبيض",
+      "category": "أحذية",
+      "path": "assets/P6.png",
+      "color": {
+        "hexa": "#00008B",
+        "text": "كحلي"
+      },
+      "weight": 650,
+      "price": 450,
+      "discount": 0.1,
+      "rate": 5,
+      "sizes": ["xs", "s", "m"]
+    },
+    {
+      "id": "7",
+      "title": " جاكيت جينز كحلي",
+      "category": "آثاث",
+      "path": "assets/P7.png",
+      "color": {
+        "hexa": "#F5F5DC",
+        "text": "بيج"
+      },
+      "weight": 650,
+      "price": 900,
+      "discount": 0.18,
+      "rate": 5,
+      "sizes": ["s", "m", "l", "xl"]
+    },
+    {
+      "id": "8",
+      "title": "قميص رجالي سماوي ",
+      "category": "إلكترونيات",
+      "path": "assets/P8.png",
+      "color": {
+        "hexa": "#0f0",
+        "text": "أخضر"
+      },
+      "weight": 650,
+      "price": 540,
+      "discount": 0.1,
+      "rate": 2,
+      "sizes": ["xs", "s"]
+    }
+  ],
   "filters": {
     "category": [
       "إكسسوارات",

@@ -1,65 +1,77 @@
-.container{
+.container {
     margin-top: 200px;
     display: flex;
     justify-content: space-around;
 }
-.container table{
+
+.container table {
     border-collapse: collapse;
     width: 200px;
-    height: 500px;
-    font-size: x-large;
+    height: 400px;
+    font-size: large;
 }
-th{
+
+th {
     border: 1px solid var(--main-color);
     padding: 10px;
     background-color: var(--main-color);
     color: white;
 }
-td{
+
+td {
     border: 1px solid var(--secondary-text);
     padding: 10px;
     color: var(--secondary-text);
 }
-.cards{
+
+.cards {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-around;
+    width: 800px;
 }
-.card{
+
+.card {
     width: 300px;
     height: 550px;
 }
-.card .img{
+
+.card .img {
     position: relative;
     width: 293px;
     height: 368px;
     margin-bottom: 30px;
 }
-.card svg{
+
+.card svg {
     color: var(--secondary-text);
     position: absolute;
     top: 5%;
     right: 5%;
 }
-.card .txt{
+
+.card .txt {
     display: flex;
     justify-content: space-around;
-    font-size: larger;
+    font-size: large;
 }
-.card .txt .disc p{
+
+.card .txt .disc p {
     color: var(--secondary-text);
     margin: 0px;
 }
-.card .txt .price{
+
+.card .txt .price {
     color: var(--main-color);
 }
-.card .txt .price p{
+
+.card .txt .price p {
     margin: 0px;
     padding: 0px;
 }
-.container .cards i{
+
+.container .cards i {
     margin-top: 200px;
     color: var(--main-color);
     font-size: xx-large;
 }
-

@@ -13,7 +13,7 @@ const Home = () => {
     <Layout>
       <Slider />
       <Cards />
-      <hr style={{ width: "90%", color: "#54A4AF" }} />
+      <hr style={{ width: "85%", color: "#54A4AF", margin:"auto" }} />
       <Sales />
       <Product />
       <Timer />

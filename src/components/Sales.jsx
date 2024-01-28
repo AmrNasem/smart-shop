@@ -19,7 +19,7 @@ const Sales = () => {
       </div>
       <div
         className={` ${styles.childs} flex-grow-1 pt-2 ps-2`}
-        style={{ backgroundColor: "pink" }}
+        style={{ backgroundColor: "#FFDBDF" }}
       >
         <img src={imgL} className={styles.img} alt="" />
         <div className={styles.txt}>

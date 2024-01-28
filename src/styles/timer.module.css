@@ -1,5 +1,5 @@
 .container{
-    background-color: var(--main-color);
+    background-color:#BDE6FC;
     width: 100%;
     height: 650px;
     position: relative;
@@ -15,7 +15,7 @@
     padding: 5px;
 }
 .container .txt h1{
-    color: rgb(147, 67, 184);
+    color:#9363B5;
 }
 .btns .btn h1{
     color: var(--primary-text);
@@ -29,10 +29,15 @@
     font-size: xx-large;
 }
 .container button{
-    background-color: rgb(147, 67, 184);
+    background-color: #9363B5;
     color: white;
     border: none;
-    font-size: 30px;
+    font-size: 20px;
     padding: 10px 15px;
     border-radius: 30px;
+}
+@media (max-width: 1050px) {
+    .container img{
+        display: none;
+    }
 }

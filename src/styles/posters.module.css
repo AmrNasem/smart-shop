@@ -1,17 +1,33 @@
 .container{
     margin-top: 100px;
+    margin-bottom: 150px;
+    /*width: 1200px;*/
 }
 .cards{
     display: flex;
     justify-content: space-around;
-    flex-wrap: nowrap;
+    gap: 1rem;
 }
-.cards .card .txt{
+.card{
+    flex: 1;
+}
+.card img{
+    width: 100%;
+}
+.cards .card .txt h3{
     text-align: center;
     padding: 10px;
-    font-size: larger;
+    font-size: large;
 }
 .cards .card .txt p{
     color: var(--secondary-text);
+    text-align: center;
     font-size: medium;
+}
+@media (max-width: 1000px) {
+    .cards{
+        flex-direction: column;
+        width: 50%;
+        margin: auto;
+    }
 }

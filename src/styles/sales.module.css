@@ -7,7 +7,7 @@
 .container .childs {
   /* width: 600px; */
   /* height: auto; */
-  background-color: var(--main-color);
+  background-color:#D6F7FE;
   display: flex;
   align-items: center;
 }
@@ -21,4 +21,13 @@
 .txt h3,
 .txt h4 {
   margin: 0px;
+}
+.txt h1{
+  font-size: x-large;
+}
+.txt h3{
+  font-size: larger;
+}
+.txt h4{
+  font-size: large;
 }

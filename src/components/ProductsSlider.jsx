@@ -1,27 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styles/products_slider.module.css";
-import star from "../assets/star.png";
-import size from "../assets/size.png";
-import P1 from "../assets/P1.png";
-import P2 from "../assets/P2.png";
-import P3 from "../assets/P3.png";
-import P4 from "../assets/P4.png";
-import P5 from "../assets/P5.png";
-import P6 from "../assets/P6.png";
-import P7 from "../assets/P7.png";
-import P8 from "../assets/P8.png";
-import { FaHeart } from "react-icons/fa";
+import axios from "axios";
 import { IoArrowBackCircle, IoArrowForwardCircle } from "react-icons/io5";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ProductCard from "./product/ProductCard";
 
 const ProductsSlider = () => {
-  const images = [P1, P2, P3, P4, P5, P6, P7, P8];
   const itemsPerPage = 3;
   const [startIndex, setStartIndex] = useState(0);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8000/products")
+      .then((response) => response.json())
+      .then((data) => setProducts(data));
+  }, []);
 
   const handleNext = () => {
-    if (startIndex + itemsPerPage < images.length) {
+    if (startIndex + itemsPerPage < products.length) {
       setStartIndex(startIndex + itemsPerPage);
     }
   };
@@ -32,7 +27,7 @@ const ProductsSlider = () => {
     }
   };
 
-  const visibleImages = images.slice(startIndex, startIndex + itemsPerPage);
+  const visibleProducts = products.slice(startIndex, startIndex + itemsPerPage);
 
   return (
     <div className={styles.container}>
@@ -65,25 +60,9 @@ const ProductsSlider = () => {
           <i onClick={handlePrev}>
             <IoArrowForwardCircle />
           </i>
-          {visibleImages.map((img, index) => (
-            <div key={index} className={styles.card}>
-              <div className={styles.img}>
-                <img src={img} alt={`Product ${startIndex + index + 1}`} />
-                <FaHeart />
-              </div>
-              <div className={styles.txt}>
-                <div className={styles.disc}>
-                  <img src={star} alt="Star" />
-                  <p>بلوزة قطنيه بيضاء</p>
-                  <img src={size} alt="Size" />
-                </div>
-                <div className={styles.price}>
-                  <h4>800 ج م</h4>
-                  <p>
-                    <del>800 ج م</del>
-                  </p>
-                </div>
-              </div>
+          {visibleProducts.map((product, index) => (
+            <div key={index} className="col col-lg-3 col-md-4 col-sm-6 gy-4">
+              <ProductCard product={product} minWidth="220px" />
             </div>
           ))}
           <i onClick={handleNext}>

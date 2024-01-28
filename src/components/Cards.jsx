@@ -1,5 +1,4 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
 import styles from "../styles/cards.module.css";
 import { CiDeliveryTruck, CiMobile2, CiWallet, CiGift } from "react-icons/ci";
 
@@ -21,7 +20,7 @@ const Cards = () => {
         <div
           className={`border fs-3 d-flex justify-content-center align-items-center rounded-3 p-2 ${styles.icons}`}
         >
-          <CiDeliveryTruck className="d-block" />
+          <CiMobile2 className="d-block" />
         </div>
         <div className={styles.text}>
           <h3>دعم فني</h3>
@@ -32,7 +31,7 @@ const Cards = () => {
         <div
           className={`border fs-3 d-flex justify-content-center align-items-center rounded-3 p-2 ${styles.icons}`}
         >
-          <CiDeliveryTruck className="d-block" />
+          <CiWallet className="d-block" />
         </div>
         <div className={styles.text}>
           <h3>استرجاع الأموال</h3>
@@ -43,7 +42,7 @@ const Cards = () => {
         <div
           className={`border fs-3 d-flex justify-content-center align-items-center rounded-3 p-2 ${styles.icons}`}
         >
-          <CiDeliveryTruck className="d-block" />
+          <CiGift className="d-block" />
         </div>
         <div className={styles.text}>
           <h3>عروض حصرية</h3>

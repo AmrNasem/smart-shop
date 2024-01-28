@@ -40,8 +40,15 @@
   cursor: pointer;
   color: var(--main-color);
 }
+
 .text h1,
 .text h3,
 .text button {
   margin: 10px;
+}
+
+@media (max-width: 685px) {
+  .slide .img {
+    display: none;
+  }
 }
