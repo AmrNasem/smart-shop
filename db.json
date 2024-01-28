@@ -19,11 +19,7 @@
           "price": 450,
           "discount": 0.1,
           "rate": 5,
-          "sizes": [
-            "xs",
-            "s",
-            "m"
-          ],
+          "sizes": ["xs", "s", "m"],
           "amount": 1,
           "userId": "1ae0",
           "size": "m"
@@ -41,13 +37,7 @@
           "price": 500,
           "discount": 0.2,
           "rate": 5,
-          "sizes": [
-            "xs",
-            "s",
-            "m",
-            "l",
-            "xl"
-          ],
+          "sizes": ["xs", "s", "m", "l", "xl"],
           "amount": 1,
           "userId": "1ae0",
           "size": "m"
@@ -65,12 +55,7 @@
           "price": 350,
           "discount": 0.13,
           "rate": 2,
-          "sizes": [
-            "s",
-            "m",
-            "l",
-            "xl"
-          ],
+          "sizes": ["s", "m", "l", "xl"],
           "amount": 1,
           "userId": "1ae0",
           "size": "m"
@@ -96,12 +81,7 @@
           "price": 1250,
           "discount": 0.15,
           "rate": 4,
-          "sizes": [
-            "xs",
-            "s",
-            "m",
-            "l"
-          ],
+          "sizes": ["xs", "s", "m", "l"],
           "amount": 1,
           "userId": "c8e1",
           "size": "m"
@@ -119,12 +99,7 @@
           "price": 900,
           "discount": 0.18,
           "rate": 5,
-          "sizes": [
-            "s",
-            "m",
-            "l",
-            "xl"
-          ],
+          "sizes": ["s", "m", "l", "xl"],
           "amount": 3,
           "userId": "c8e1",
           "size": "m"
@@ -142,10 +117,7 @@
           "price": 540,
           "discount": 0.1,
           "rate": 2,
-          "sizes": [
-            "xs",
-            "s"
-          ],
+          "sizes": ["xs", "s"],
           "amount": 2,
           "userId": "c8e1",
           "size": "m"
@@ -170,13 +142,7 @@
           "weight": 2950,
           "price": 3450,
           "rate": 5,
-          "sizes": [
-            "xs",
-            "s",
-            "m",
-            "l",
-            "xl"
-          ],
+          "sizes": ["xs", "s", "m", "l", "xl"],
           "amount": 1,
           "userId": "3322",
           "size": "m"
@@ -194,12 +160,7 @@
           "price": 4300,
           "discount": 0.25,
           "rate": 4,
-          "sizes": [
-            "xs",
-            "s",
-            "m",
-            "l"
-          ],
+          "sizes": ["xs", "s", "m", "l"],
           "amount": 1,
           "userId": "3322",
           "size": "m"
@@ -216,13 +177,7 @@
           "weight": 2500,
           "price": 3000,
           "rate": 4,
-          "sizes": [
-            "xs",
-            "s",
-            "m",
-            "l",
-            "xl"
-          ],
+          "sizes": ["xs", "s", "m", "l", "xl"],
           "amount": 1,
           "userId": "3322",
           "size": "m"
@@ -260,13 +215,7 @@
       "weight": 2500,
       "price": 3000,
       "rate": 4,
-      "sizes": [
-        "xs",
-        "s",
-        "m",
-        "l",
-        "xl"
-      ]
+      "sizes": ["xs", "s", "m", "l", "xl"]
     },
     {
       "id": "2",
@@ -281,11 +230,7 @@
       "price": 15000,
       "discount": 0.2,
       "rate": 3,
-      "sizes": [
-        "xs",
-        "m",
-        "xl"
-      ]
+      "sizes": ["xs", "m", "xl"]
     },
     {
       "id": "3",
@@ -300,13 +245,7 @@
       "price": 500,
       "discount": 0.2,
       "rate": 5,
-      "sizes": [
-        "xs",
-        "s",
-        "m",
-        "l",
-        "xl"
-      ]
+      "sizes": ["xs", "s", "m", "l", "xl"]
     },
     {
       "id": "4",
@@ -320,13 +259,7 @@
       "weight": 2950,
       "price": 3450,
       "rate": 5,
-      "sizes": [
-        "xs",
-        "s",
-        "m",
-        "l",
-        "xl"
-      ]
+      "sizes": ["xs", "s", "m", "l", "xl"]
     },
     {
       "id": "5",
@@ -341,12 +274,7 @@
       "price": 4300,
       "discount": 0.25,
       "rate": 4,
-      "sizes": [
-        "xs",
-        "s",
-        "m",
-        "l"
-      ]
+      "sizes": ["xs", "s", "m", "l"]
     },
     {
       "id": "6",
@@ -361,12 +289,7 @@
       "price": 350,
       "discount": 0.13,
       "rate": 2,
-      "sizes": [
-        "s",
-        "m",
-        "l",
-        "xl"
-      ]
+      "sizes": ["s", "m", "l", "xl"]
     },
     {
       "id": "7",
@@ -381,11 +304,7 @@
       "price": 450,
       "discount": 0.1,
       "rate": 5,
-      "sizes": [
-        "xs",
-        "s",
-        "m"
-      ]
+      "sizes": ["xs", "s", "m"]
     },
     {
       "id": "8",
@@ -400,12 +319,7 @@
       "price": 900,
       "discount": 0.18,
       "rate": 5,
-      "sizes": [
-        "s",
-        "m",
-        "l",
-        "xl"
-      ]
+      "sizes": ["s", "m", "l", "xl"]
     },
     {
       "id": "9",
@@ -420,10 +334,7 @@
       "price": 540,
       "discount": 0.1,
       "rate": 2,
-      "sizes": [
-        "xs",
-        "s"
-      ]
+      "sizes": ["xs", "s"]
     },
     {
       "id": "10",
@@ -438,12 +349,7 @@
       "price": 1250,
       "discount": 0.15,
       "rate": 4,
-      "sizes": [
-        "xs",
-        "s",
-        "m",
-        "l"
-      ]
+      "sizes": ["xs", "s", "m", "l"]
     }
   ],
   "filters": {
@@ -455,13 +361,7 @@
       "أحذية",
       "مجوهرات"
     ],
-    "size": [
-      "xs",
-      "s",
-      "m",
-      "l",
-      "xl"
-    ],
+    "size": ["xs", "s", "m", "l", "xl"],
     "color": [
       {
         "hexa": "#fff",
@@ -504,40 +404,35 @@
         "text": "أزرق"
       }
     ],
-    "brand": [
-      "زارا",
-      "سترة",
-      "أبل",
-      "جوجل"
-    ]
+    "brand": ["زارا", "سترة", "أبل", "جوجل"]
   },
   "brands": [
     {
-      "id": 1,
+      "id": "1",
       "src": "Ted_Baker.png"
     },
     {
-      "id": 2,
+      "id": "2",
       "src": "Lacoste.png"
     },
     {
-      "id": 3,
+      "id": "3",
       "src": "Vivienne_Westwood.png"
     },
     {
-      "id": 4,
+      "id": "4",
       "src": "Under_Armour.png"
     },
     {
-      "id": 5,
+      "id": "5",
       "src": "Ted_Baker.png"
     },
     {
-      "id": 6,
+      "id": "6",
       "src": "Vans.png"
     },
     {
-      "id": 7,
+      "id": "7",
       "src": "Lacoste.png"
     }
   ]

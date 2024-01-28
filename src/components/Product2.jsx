@@ -12,8 +12,8 @@ function Product({ product }) {
       id: 1,
       color: "blue",
       title: "فستان ازرق عصري ",
-      price: 2500,
-      discount: 0.6,
+      price: 2000,
+      discount: 0.75,
       rate: 5,
       about:
         "مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق ",
@@ -104,7 +104,7 @@ function Product({ product }) {
             <h3 className="weightProduct proName">الوزن : </h3>
             <div className="weights">
               {productDetails[0].weight.map((w) => (
-                <NavLink to="/" className={"weight1"} onClick={WColorHandler}>
+                <NavLink to="" className={"weight1"} onClick={WColorHandler}>
                   {w}
                 </NavLink>
               ))}
@@ -119,7 +119,7 @@ function Product({ product }) {
                   cursor: "pointer",
                   backgroundColor: "rgba(217, 217, 217, 0.5)",
                   borderLeft: "1px solid #00000020",
-                  padding: "0 7px",
+                  padding: "0 12px",
                 }}
               >
                 {" "}
@@ -127,7 +127,7 @@ function Product({ product }) {
               </div>
               <div
                 className="count"
-                style={{ userSelect: "none", padding: "0 3px" }}
+                style={{ userSelect: "none", padding: "0 7px" }}
               >
                 {count}
               </div>
@@ -140,7 +140,7 @@ function Product({ product }) {
                   cursor: "pointer",
                   backgroundColor: "rgba(217, 217, 217, 0.5)",
                   borderRight: "1px solid #00000020",
-                  padding: "0 8px",
+                  padding: "0 12px",
                 }}
               >
                 {" "}
@@ -179,7 +179,7 @@ function Product({ product }) {
                   gap: "10px",
                 }}
               >
-                <NavLink to="/">
+                <NavLink to="">
                   {" "}
                   <img
                     src={require("../assets/Twitter.png")}
@@ -188,7 +188,7 @@ function Product({ product }) {
                     className="d-block"
                   />
                 </NavLink>
-                <NavLink to="/">
+                <NavLink to="">
                   <img
                     src={require("../assets/Facebook.png")}
                     alt="Facebook"
@@ -196,7 +196,7 @@ function Product({ product }) {
                     className="d-block"
                   />
                 </NavLink>
-                <NavLink to="/">
+                <NavLink to="">
                   <img
                     src={require("../assets/Youtube.png")}
                     alt="Youtube"
@@ -204,7 +204,7 @@ function Product({ product }) {
                     className="d-block"
                   />
                 </NavLink>
-                <NavLink to="/">
+                <NavLink to="">
                   <img
                     src={require("../assets/Whatsapp.png")}
                     alt="Whatsapp"
@@ -222,7 +222,7 @@ function Product({ product }) {
             gridTemplateColumns: `repeat(${productDetails[0].path.length},17%)`,
           }}
         >
-          <img className="mainImg" src={MainImg} alt="#"></img>
+          <img className="mainImg" src={MainImg} alt="#" style={{ gridColumn: `1/${productDetails[0].path.length + 1}` }}></img>
           {productDetails[0].path.map((path) => (
             <img
               className="Img2"

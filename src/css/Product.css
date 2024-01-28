@@ -1,19 +1,18 @@
 .productDiv {
   width: 80%;
-  height: 670px;
   position: relative;
-  top: 210px;
-  left: 10%;
+  top: 400px;
+  right: 10%;
   direction: flex;
   justify-content: space-between;
+  direction: ltr;
 }
 
 .proImg {
   width: 47%;
-  height: 670px;
-  position: absolute;
-  top: 0;
-  right: 0;
+  position: relative;
+  bottom: 580px;
+  left: 640px;
   display: grid;
   grid-template-rows: 550px 100px;
   justify-content: space-between;
@@ -23,16 +22,16 @@
 .mainImg {
   width: 100%;
   height: 550px;
-  position: absolute;
+  position: relative;
   top: 0;
-  left: 0;
+  right: 0;
   border: 1px solid #0000004d;
 }
 
 .Img2 {
   height: 90px;
   position: relative;
-  top: 110px;
+  top: 30px;
   background-position: center;
   background-size: 105%;
   cursor: pointer;
@@ -42,9 +41,8 @@
 .aboutPro {
   width: 47%;
   height: 610px;
-  position: absolute;
-  bottom: 14%;
-  left: 0;
+  position: relative;
+  left: 0%;
 }
 
 .proName {
@@ -55,21 +53,23 @@
 }
 
 .Price {
-  color: #0000009d;
+  color: #000000;
   display: inline-block;
   font-family: "Tajawal", sans-serif;
   font-optical-sizing: auto;
-  font-style: normal;
+  font-style:normal;
   font-size: 20px;
   position: relative;
-  bottom: 45px;
+  top: 15px;
 }
+
 .star {
   display: flex;
   position: relative;
-  bottom: 60px;
   right: 5px;
+  top:40px;
 }
+
 .fa-star {
   color: #ffc107;
   position: relative;
@@ -77,17 +77,21 @@
   left: 5px;
   cursor: pointer;
 }
+
 .aboutProduct {
-  width: 70%;
-  color: #0000009d;
+  width:95%;
+  color: #000000;
   position: relative;
-  bottom: 70px;
-  font-weight: 500 !important;
+  top: 50px;
+  font-weight:500 !important;
+  font-size: 25px;
 }
+
 .colors {
   display: flex;
   gap: 5px;
 }
+
 .colorImg {
   width: 35px;
   height: 35px;
@@ -96,17 +100,22 @@
   background-repeat: no-repeat;
   cursor: pointer;
 }
+
 .colorProduct,
 .colors,
 .weightProduct,
 .weights {
   position: relative;
-  bottom: 60px;
+  top: 60px;
+  margin-bottom: 20px;
+  font-weight: 600 !important;
 }
+
 .weights {
   display: flex;
   gap: 10px;
 }
+
 .weight1 {
   width: fit-content;
   height: fit-content;
@@ -115,35 +124,39 @@
   border-radius: 1vh;
   text-decoration-line: none;
   color: black;
+  font-weight: 500 !important;
 }
+
 .weight1:hover {
   background-color: gray;
 }
+
 .Counter {
   width: fit-content;
-  height: 20px;
   display: flex;
   border: 1px solid #00000060;
   border-radius: 3vh;
   overflow: hidden;
   gap: 5px;
   position: relative;
-  bottom: 40px;
+  top: 65px;
 }
+
 .addCart {
   width: fit-content;
-  padding: 1% 4%;
+  padding: 1.5% 4%;
   height: fit-content;
   background-color: rgba(127, 211, 223, 1);
   color: white;
   border-radius: 1vh;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   cursor: pointer;
   position: relative;
-  bottom: 68px;
-  right: 90px;
+  top: 32px;
+  right: 110px;
   user-select: none;
 }
+
 .favHeart {
   color: #00000060;
   margin-left: 10px;
@@ -151,27 +164,31 @@
   top: 2px;
   cursor: pointer;
 }
+
 .addFav {
   font-weight: 500 !important;
+  font-size: 20px;
   position: relative;
-  bottom: 55px;
+  top: 45px;
 }
+
 .buyNow {
-  width: 70%;
-  padding: 1.5% 0;
+  width: 100%;
+  padding: 2% 0;
   background-color: rgba(127, 211, 223, 1);
   color: white;
   border-radius: 1vh;
   text-align: center;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   cursor: pointer;
   position: relative;
-  bottom: 40px;
+  top: 60px;
   user-select: none;
 }
+
 .socialMedia {
   width: 100%;
   height: 100px;
   position: relative;
-  bottom: 30px;
+  top: 80px;
 }
