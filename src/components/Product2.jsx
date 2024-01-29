@@ -37,7 +37,7 @@ function Product({ product }) {
   const [MainImg, setMainImg] = useState(productDetails[0].path[0]);
 
   const WColorHandler = (e) => {
-    [...e.target.parentNode.children].map((element) => {
+    [...e.target.parentNode.children].forEach((element) => {
       element.style.backgroundColor = "white";
     });
 
@@ -52,9 +52,9 @@ function Product({ product }) {
   };
 
   const countHandler = (e) => {
-    if (e.target.dataset.name == "+") {
+    if (e.target.dataset.name === "+") {
       setCount((prev) => prev + 1);
-    } else if (e.target.dataset.name == "-") {
+    } else if (e.target.dataset.name === "-") {
       setCount((prev) => (prev > 1 ? prev - 1 : (prev = 1)));
     }
   };
@@ -72,7 +72,7 @@ function Product({ product }) {
               <s>{productDetails[0].price} ج.م </s>{" "}
             </h5>
             <div className="star">
-              {[...Array(star)].map((ele, index) => {
+              {[...Array(star)].forEach((index) => {
                 if (index + 1 <= productDetails[0].rate) {
                   return (
                     <h3>
@@ -86,7 +86,7 @@ function Product({ product }) {
                     </h3>
                   );
                 }
-              })}
+              }, {})}
               (50)
             </div>
             <h3 className="aboutProduct proName">{productDetails[0].about}</h3>

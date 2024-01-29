@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/products_slider.module.css";
-import axios from "axios";
 import { IoArrowBackCircle, IoArrowForwardCircle } from "react-icons/io5";
 import ProductCard from "./product/ProductCard";
 

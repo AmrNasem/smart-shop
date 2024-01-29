@@ -9,7 +9,7 @@ function Header() {
     }
   ]
   const [ProName, setProName] = useState(SingleProductName[0])
-  const ProNameHandler = () => { }
+  setProName()
   return (
     <>
       <div className="header">

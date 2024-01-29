@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../styles/sales.module.css";
-import { Row, Col } from "react-bootstrap";
 import imgR from "../assets/Sales_R.png";
 import imgL from "../assets/Sales_L.png";
 
