@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "../styles/products_slider.module.css";
 import { IoArrowBackCircle, IoArrowForwardCircle } from "react-icons/io5";
 import ProductCard from "./product/ProductCard";
+import { server } from "../App";
 
 const ProductsSlider = () => {
   const itemsPerPage = 3;
@@ -9,7 +10,7 @@ const ProductsSlider = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/products")
+    fetch(`${server}/products`)
       .then((response) => response.json())
       .then((data) => setProducts(data));
   }, []);

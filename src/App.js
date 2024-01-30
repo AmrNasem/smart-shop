@@ -11,7 +11,7 @@ import { Signup } from "./pages/Signup";
 import Home from "./pages/Home";
 import SingleProduct from "./pages/SingleProduct";
 
-export const server = "http://localhost:8000";
+export const server = "https://smart-shop.netlify.app/.netlify/functions/api";
 
 function App() {
   const authedUser = useSelector((state) => state.auth.user);
