@@ -8,15 +8,15 @@ const Counter = ({ className, value, changeValue, disabled, aside }) => {
         opacity: disabled ? 0.5 : 1,
       }}
       onClick={(e) => e.preventDefault()}
-      className={`${disabled ? "cursor-not-allowed" : "cursor-default"} ${
-        aside ? "rounded-2" : "rounded-pill"
-      } overflow-hidden d-flex align-items-center ${
+      className={`${
+        disabled ? "cursor-not-allowed" : "cursor-default"
+      } rounded-2 overflow-hidden d-flex align-items-center ${
         aside ? "bg-counter" : ""
       } ${className}`}
     >
       <button
         className={`p-0 flex-grow-1 ${
-          aside ? "bg-transparent border-0" : "border"
+          aside ? "bg-transparent border-0" : "border rounded-end-pill"
         }`}
         onClick={(e) => changeValue(value + 1, e)}
         disabled={disabled}
@@ -32,7 +32,7 @@ const Counter = ({ className, value, changeValue, disabled, aside }) => {
       </span>
       <button
         className={`p-0 flex-grow-1 ${
-          aside ? "bg-transparent border-0" : "border"
+          aside ? "bg-transparent border-0" : "border rounded-start-pill"
         }`}
         onClick={(e) => changeValue(value - 1, e)}
         disabled={disabled}

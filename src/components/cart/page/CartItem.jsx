@@ -90,7 +90,7 @@ const CartItem = ({ className, cartItem, deleting }) => {
           >
             <img
               className="w-100 h-100 object-fit-cover d-block"
-              src={require(`../../../${cartItem.path}`)}
+              src={require(`../../../${cartItem.images[0]}`)}
               alt={cartItem.title}
             />
           </div>

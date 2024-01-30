@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/header/Header";
 import Footer from "./components/Footer";
 import Products from "./pages/Products";
+import SingleProduct from "./pages/SingleProduct";
 
 export const server = "http://localhost:8000";
 
@@ -34,14 +35,7 @@ function App() {
         />
         <Route path="/cart" element={<Cart />} />
         <Route path="/products" element={<Products />} />
-        <Route
-          path="/product/:productId"
-          element={
-            <main>
-              <h3>Single product</h3>
-            </main>
-          }
-        />
+        <Route path="/product/:productId" element={<SingleProduct />} />
         <Route path="*" />
       </Routes>
       <Footer />

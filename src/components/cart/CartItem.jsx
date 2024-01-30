@@ -86,7 +86,7 @@ const CartItem = ({ cartItem, handleCartClosure }) => {
         >
           <img
             className="w-100 object-fit-cover h-100 d-block"
-            src={require(`../../${cartItem.path}`)}
+            src={require(`../../${cartItem.images[0]}`)}
             alt={cartItem.title}
           />
         </div>

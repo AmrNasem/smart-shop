@@ -62,7 +62,7 @@ const ProductCard = ({ className, product, minWidth, style }) => {
           <FontAwesomeIcon icon={faHeart} />
         </button>
         <img
-          src={require(`../../${product.path}`)}
+          src={require(`../../${product.images[0]}`)}
           alt={product.title}
           className="w-100 h-100 position-absolute d-block object-fit-cover"
         />

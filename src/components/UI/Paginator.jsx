@@ -7,6 +7,7 @@ const Paginator = ({
   onPaginate,
   items,
   itemsPerPage,
+  className,
 }) => {
   const [page, setPage] = useState({
     min: 0,
@@ -38,7 +39,9 @@ const Paginator = ({
 
   return (
     numOfPages > 1 && (
-      <div className="flex-wrap d-flex align-items-center justify-content-center mb-4 gap-2">
+      <div
+        className={`flex-wrap d-flex align-items-center justify-content-center mb-4 gap-2 ${className}`}
+      >
         <button
           onClick={() =>
             setPage((prev) => {
