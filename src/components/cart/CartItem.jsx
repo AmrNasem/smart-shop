@@ -17,9 +17,9 @@ const CartItem = ({ cartItem, handleCartClosure }) => {
 
   const handleRemoveFromCart = useCallback(
     (e) => {
+      e?.preventDefault();
+      e?.stopPropagation();
       if (authedUser) {
-        e?.preventDefault();
-        e?.stopPropagation();
         setDeleteLoading(true);
         fetch(`${server}/users/${authedUser.id}`, {
           method: "PUT",
@@ -52,9 +52,9 @@ const CartItem = ({ cartItem, handleCartClosure }) => {
         handleRemoveFromCart(e);
         return;
       }
+      e.preventDefault();
+      e.stopPropagation();
       if (authedUser) {
-        e.preventDefault();
-        e.stopPropagation();
         setLoading(true);
         fetch(`${server}/users/${authedUser.id}`, {
           method: "PUT",
