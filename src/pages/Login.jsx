@@ -16,7 +16,6 @@ import { cartActions } from "../store/cart-slice";
 import { server } from "../App";
 
 let flag = true;
-let access = false;
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -56,7 +55,6 @@ export const Login = () => {
         console.log("Login successful!");
         dispatch(cartActions.resetCart(user.cart));
         dispatch(loginUser(user));
-        access = true;
         navigate("/", { replace: true });
       } else {
         console.log("Login failed!");
