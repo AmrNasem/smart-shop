@@ -145,11 +145,12 @@ function Review() {
             }}
           >
             تقييمك{" "}
-            {[...Array(5)].map(() => (
+            {[...Array(5).keys()].map((i) => (
               <i
+                key={i}
                 style={{ display: "inline-block" }}
                 onClick={starHandler}
-                class="fa-regular fa-star"
+                className="fa-regular fa-star"
               ></i>
             ))}
           </h4>
@@ -252,8 +253,8 @@ function Review() {
             ({Revs + 3}) تقييمات{" "}
           </h2>
 
-          {productDetails[0].reviews.map((rev) => (
-            <div className="reviewDiv">
+          {productDetails[0].reviews.map((rev, i) => (
+            <div key={i} className="reviewDiv">
               <img
                 src={revImg}
                 alt="#"
@@ -299,8 +300,8 @@ function Review() {
                     color: "rgba(0, 0, 0, 0.678)",
                   }}
                 >
-                  {[...Array(rev.reviewRate)].map(() => (
-                    <i class="fa-solid fa-star"></i>
+                  {[...Array(rev.reviewRate).keys()].map((i) => (
+                    <i key={i} className="fa-solid fa-star"></i>
                   ))}
                 </h4>
                 <h4
@@ -313,7 +314,7 @@ function Review() {
                   }}
                 >
                   {rev.reviewName}
-                  <h4
+                  <span
                     style={{
                       color: " rgba(0, 0, 0, 0.4)",
                       display: "inline-block",
@@ -324,14 +325,14 @@ function Review() {
                     }}
                   >
                     {rev.reviewDate}
-                  </h4>
+                  </span>
                 </h4>
               </div>
             </div>
           ))}
 
-          {[...Array(Revs)].map(() => (
-            <div className="reviewDiv">
+          {[...Array(Revs).keys()].map((i) => (
+            <div key={i} className="reviewDiv">
               <img
                 src={revImg}
                 alt="#"
@@ -378,8 +379,8 @@ function Review() {
                     color: "rgba(0, 0, 0, 0.678)",
                   }}
                 >
-                  {[...Array(5)].map(() => (
-                    <i class="fa-solid fa-star"></i>
+                  {[...Array(5).keys()].map((i) => (
+                    <i key={i} className="fa-solid fa-star"></i>
                   ))}
                 </h4>
                 <h4

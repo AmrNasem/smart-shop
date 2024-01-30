@@ -66,12 +66,12 @@ function Product({ product }) {
             <div className="star">
               {[...Array(5).keys()].map((i) =>
                 i < productDetails[0].rate ? (
-                  <h3>
-                    <i class="fa-solid fa-star"></i>
+                  <h3 key={i}>
+                    <i className="fa-solid fa-star"></i>
                   </h3>
                 ) : (
-                  <h3>
-                    <i class="fa-regular fa-star"></i>
+                  <h3 key={i}>
+                    <i className="fa-regular fa-star"></i>
                   </h3>
                 )
               )}
@@ -82,8 +82,9 @@ function Product({ product }) {
             </h3>
             <h3 className="colorProduct proName fs-4">اللون : </h3>
             <div className="colors">
-              {productDetails[0].path.map((path) => (
+              {productDetails[0].path.map((path, i) => (
                 <img
+                  key={i}
                   className="colorImg"
                   onClick={MainImgHandler}
                   src={path}
@@ -93,8 +94,13 @@ function Product({ product }) {
             </div>
             <h3 className="weightProduct proName fs-4">الوزن : </h3>
             <div className="weights">
-              {productDetails[0].weight.map((w) => (
-                <NavLink to="" className={"weight1"} onClick={WColorHandler}>
+              {productDetails[0].weight.map((w, i) => (
+                <NavLink
+                  to=""
+                  className={"weight1"}
+                  key={i}
+                  onClick={WColorHandler}
+                >
                   {w}
                 </NavLink>
               ))}
@@ -145,7 +151,7 @@ function Product({ product }) {
               data-name="addFav"
               onClick={addFavHandler}
             >
-              <i class="fa-solid fa-heart favHeart"></i> اضف للمفضلة
+              <i className="fa-solid fa-heart favHeart"></i> اضف للمفضلة
             </div>
             <div className="buyNow proName" data-name="buyNow">
               اشتري الان
@@ -214,9 +220,10 @@ function Product({ product }) {
             alt="#"
             style={{ gridColumn: `1/${productDetails[0].path.length + 1}` }}
           ></img>
-          {productDetails[0].path.map((path) => (
+          {productDetails[0].path.map((path, i) => (
             <img
               className="Img2"
+              key={i}
               onClick={MainImgHandler}
               src={path}
               alt="#"
